@@ -1,0 +1,8 @@
+*lib*
+*.nupkg
+*.dll
+*packages/*
+*.suo
+*Debug*
+*obj*
+*.user
