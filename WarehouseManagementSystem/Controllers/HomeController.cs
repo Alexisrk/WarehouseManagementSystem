@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ServiceTest;
 
 namespace WarehouseManagementSystem.Controllers
 {
     public class HomeController : Controller
     {
+        public IBasicService Service { get; set; }
+
         public ActionResult Index()
         {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
+
+            ViewBag.Message = Service.GetMessage();
 
             return View();
         }
