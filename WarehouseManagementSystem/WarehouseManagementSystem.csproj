@@ -47,7 +47,23 @@
       <HintPath>..\packages\Common.Logging.Core.3.0.0\lib\net40\Common.Logging.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NHibernate, Version=4.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.4.1.1.4000\lib\net40\NHibernate.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Spring.Aop, Version=2.0.1.45000, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
       <HintPath>..\packages\Spring.Aop.2.0.1\lib\net45\Spring.Aop.dll</HintPath>
       <Private>True</Private>
@@ -78,7 +94,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -96,9 +111,6 @@
     <Reference Include="System.Transactions" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -227,9 +239,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Config\Controllers.xml" />
+    <Content Include="Config\Controllers.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Config\Dao.xml" />
-    <Content Include="Config\Services.xml" />
+    <Content Include="Config\Services.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -353,6 +369,30 @@
     <ProjectReference Include="..\ServiceTest\ServiceTest.csproj">
       <Project>{9099baab-271c-425e-b2f3-41755119d1f2}</Project>
       <Name>ServiceTest</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WMS.Dao\WMS.Dao.csproj">
+      <Project>{b2b76c97-f192-48c5-b58b-dd577df8fd91}</Project>
+      <Name>WMS.Dao</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WMS.Database\WMS.Database.sqlproj">
+      <Project>{08672830-c8c7-46ac-accb-2585bde9d541}</Project>
+      <Name>WMS.Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WMS.Location\WMS.LocationService.csproj">
+      <Project>{e3dc5750-198f-4f59-a87c-60afb1c82869}</Project>
+      <Name>WMS.LocationService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WMS.Material\WMS.MaterialService.csproj">
+      <Project>{97e145f0-1ae0-43e5-bb02-275d7d793b5f}</Project>
+      <Name>WMS.MaterialService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WMS.Model\WMS.Model.csproj">
+      <Project>{03401837-AAFF-47BA-B5FF-37C6FABB0E26}</Project>
+      <Name>WMS.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WMS.ServicesContract\WMS.ServiceCommon.csproj">
+      <Project>{05184cc3-0391-4cbc-ac3f-cda0d6596b06}</Project>
+      <Name>WMS.ServiceCommon</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

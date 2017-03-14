@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ServiceTest;
+using WMS.ServicesContract.Contracts;
 
 namespace WarehouseManagementSystem.Controllers
 {
@@ -11,10 +12,15 @@ namespace WarehouseManagementSystem.Controllers
     {
         public IBasicService Service { get; set; }
 
+        public IMaterialService MaterialService { get; set; }
+
+
         public ActionResult Index()
         {
 
             ViewBag.Message = Service.GetMessage();
+
+            var list = MaterialService.GetAllMaterials();
 
             return View();
         }

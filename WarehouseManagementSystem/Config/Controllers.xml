@@ -2,5 +2,6 @@
 <objects xmlns="http://www.springframework.net"  xmlns:aop="http://www.springframework.net/aop">
   <object id="HomeController" type="WarehouseManagementSystem.Controllers.HomeController, WarehouseManagementSystem" singleton="false" >
     <property name="Service" ref="BasicService"></property>
+    <property name="MaterialService" ref="materialService"></property>
   </object>
 </objects>
