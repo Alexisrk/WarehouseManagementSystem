@@ -14,13 +14,14 @@ namespace WarehouseManagementSystem.Controllers
 
         public IMaterialService MaterialService { get; set; }
 
+        public ILocationService LocationService { get; set; }
 
         public ActionResult Index()
         {
 
             ViewBag.Message = Service.GetMessage();
 
-            var list = MaterialService.GetAllMaterials();
+            var list = LocationService.GetAllLocations();
 
             return View();
         }

@@ -20,6 +20,8 @@ namespace WMS.Dao
             set { sessionFactory = value; }
         }
 
+        //public ISessionFactory SessionFactory { get; set; }
+    
         /// <summary>
         /// Get's the current active session. Will retrieve session as managed by the 
         /// Open Session In View module if enabled.

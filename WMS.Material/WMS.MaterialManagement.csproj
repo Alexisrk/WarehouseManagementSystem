@@ -7,7 +7,7 @@
     <ProjectGuid>{97E145F0-1AE0-43E5-BB02-275D7D793B5F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WMS.MaterialService</RootNamespace>
+    <RootNamespace>WMS.MaterialManagement</RootNamespace>
     <AssemblyName>WMS.Material</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

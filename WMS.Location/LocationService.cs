@@ -1,15 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WMS.ServicesContract;
+﻿using System.Collections.Generic;
+using WMS.Model.Domain;
 using WMS.ServicesContract.Contracts;
+using WMS.ServicesContract.Dao;
 
-namespace WMS.LocationService
+namespace WMS.LocationManagement
 {
     public class LocationService : ILocationService
     {
-        public ILocationService LocalidadDao { get; set; }
+        public ILocationDao LocalidadDao { get; set; }
+
+        public IList<Location> GetAllLocations()
+        {
+            return LocalidadDao.GetAll();
+        }
     }
 }

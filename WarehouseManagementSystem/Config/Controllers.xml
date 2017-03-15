@@ -3,5 +3,6 @@
   <object id="HomeController" type="WarehouseManagementSystem.Controllers.HomeController, WarehouseManagementSystem" singleton="false" >
     <property name="Service" ref="BasicService"></property>
     <property name="MaterialService" ref="materialService"></property>
+    <property name="LocationService" ref="locationService"></property>
   </object>
 </objects>

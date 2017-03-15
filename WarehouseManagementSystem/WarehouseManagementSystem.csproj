@@ -76,6 +76,10 @@
       <HintPath>..\packages\Spring.Data.2.0.1\lib\net45\Spring.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Spring.Data.NHibernate4, Version=2.0.1.45000, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spring.Data.NHibernate4.2.0.1\lib\net45\Spring.Data.NHibernate4.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Spring.Services, Version=2.0.1.45000, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
       <HintPath>..\packages\Spring.Services.2.0.1\lib\net45\Spring.Services.dll</HintPath>
       <Private>True</Private>
@@ -378,13 +382,13 @@
       <Project>{08672830-c8c7-46ac-accb-2585bde9d541}</Project>
       <Name>WMS.Database</Name>
     </ProjectReference>
-    <ProjectReference Include="..\WMS.Location\WMS.LocationService.csproj">
+    <ProjectReference Include="..\WMS.Location\WMS.LocationManagement.csproj">
       <Project>{e3dc5750-198f-4f59-a87c-60afb1c82869}</Project>
-      <Name>WMS.LocationService</Name>
+      <Name>WMS.LocationManagement</Name>
     </ProjectReference>
-    <ProjectReference Include="..\WMS.Material\WMS.MaterialService.csproj">
+    <ProjectReference Include="..\WMS.Material\WMS.MaterialManagement.csproj">
       <Project>{97e145f0-1ae0-43e5-bb02-275d7d793b5f}</Project>
-      <Name>WMS.MaterialService</Name>
+      <Name>WMS.MaterialManagement</Name>
     </ProjectReference>
     <ProjectReference Include="..\WMS.Model\WMS.Model.csproj">
       <Project>{03401837-AAFF-47BA-B5FF-37C6FABB0E26}</Project>

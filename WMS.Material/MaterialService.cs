@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WMS.ServicesContract;
+﻿using System.Collections.Generic;
+using WMS.Model.Domain;
 using WMS.ServicesContract.Contracts;
 using WMS.ServicesContract.Dao;
-using WMS.Model.Domain;
 
-namespace WMS.MaterialService
+namespace WMS.MaterialManagement
 {
     public class MaterialService : IMaterialService
     {

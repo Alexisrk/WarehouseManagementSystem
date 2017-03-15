@@ -2,10 +2,10 @@
 <objects xmlns="http://www.springframework.net">
   <object name="BasicService" type="ServiceTest.BasicService, ServiceTest">
   </object>
-  <object name="locationService" type="WMS.LocationService.LocationService, WMS.Location">
+  <object name="locationService" type="WMS.LocationManagement.LocationService, WMS.Location">
     <property name="LocalidadDao" ref="localidadDao"/>
   </object>
-  <object name="materialService" type="WMS.MaterialService.MaterialService, WMS.Material">
+  <object name="materialService" type="WMS.MaterialManagement.MaterialService, WMS.Material">
     <property name="MaterialDao" ref="materialDao"/>
   </object>
 </objects>
