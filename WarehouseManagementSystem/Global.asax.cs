@@ -7,6 +7,8 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using log4net;
+using log4net.Config;
 using Spring.Context;
 using Spring.Context.Support;
 
@@ -17,8 +19,15 @@ namespace WarehouseManagementSystem
 
     public class MvcApplication : SpringMvcApplication //System.Web.HttpApplication
     {
+        private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         protected void Application_Start()
         {
+            XmlConfigurator.ConfigureAndWatch(new System.IO.FileInfo(AppDomain.CurrentDomain.BaseDirectory + "Logging.config"));
+
+            if (!LogManager.GetRepository().Configured)
+                throw new Exception("log4net should have been configured.");
+
             AreaRegistration.RegisterAllAreas();
 
             RegisterGlobalFilters(GlobalFilters.Filters);
@@ -39,16 +48,15 @@ namespace WarehouseManagementSystem
         protected void Application_Error(object sender, EventArgs args)
         {
             Exception ex = Server.GetLastError();
-            //ILoger iLoger = new Log4NetLogging();
-            //iLoger.Error("webapp", ex);
-            //if (ex is HttpException)
-            //{
-            //    Response.Redirect("~/Account/Error/" + ((HttpException)ex).GetHttpCode());
-            //}
-            //else
-            //{
-            //    Response.Redirect("~/Account/Error");
-            //}
+            log.Error("webapp", ex);
+            if (ex is HttpException)
+            {
+                Response.Redirect("~/Account/Error/" + ((HttpException)ex).GetHttpCode());
+            }
+            else
+            {
+                Response.Redirect("~/Account/Error");
+            }
         }
 
     }

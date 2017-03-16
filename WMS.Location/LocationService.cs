@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using log4net;
 using WMS.Model.Domain;
 using WMS.ServicesContract.Contracts;
 using WMS.ServicesContract.Dao;
@@ -7,10 +8,13 @@ namespace WMS.LocationManagement
 {
     public class LocationService : ILocationService
     {
+        private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         public ILocationDao LocalidadDao { get; set; }
 
         public IList<Location> GetAllLocations()
         {
+            log.ErrorFormat("Test log");
             return LocalidadDao.GetAll();
         }
     }
