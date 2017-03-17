@@ -9,6 +9,6 @@ namespace WMS.Model.Domain
     public class Material
     {
         public virtual int Id { get; set; }
-        public virtual Location Location { get; set; }
+        public virtual string LocationName { get; set; }
     }
 }

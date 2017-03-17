@@ -15,7 +15,8 @@ namespace WMS.LocationManagement
         public IList<Location> GetAllLocations()
         {
             log.ErrorFormat("Test log");
-            return LocalidadDao.GetAll();
+            var list =  LocalidadDao.GetAll();
+            return list;
         }
     }
 }

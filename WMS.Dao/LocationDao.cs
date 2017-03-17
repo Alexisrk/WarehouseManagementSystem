@@ -20,7 +20,8 @@ namespace WMS.Dao
         [Transaction(ReadOnly = true)]
         public IList<Location> GetAll()
         {
-            return GetAll<Location>();
+            var list = GetAll<Location>();
+            return list;
         }
     }
 }

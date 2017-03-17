@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<objects xmlns="http://www.springframework.net" xmlns:db="http://www.springframework.net/database">
+<objects xmlns="http://www.springframework.net" xmlns:db="http://www.springframework.net/database" xmlns:tx="http://www.springframework.net/tx">
 
+  <tx:attribute-driven/>
+  
   <object type="Spring.Objects.Factory.Config.PropertyPlaceholderConfigurer, Spring.Core">
     <property name="ConfigSections" value="databaseSettings"/>
   </object>
@@ -8,8 +10,12 @@
   <!-- Database Configuration -->
   <db:provider id="DbProvider"
                    provider="System.Data.SqlClient"
-                   connectionString="server=.\; database=WMS; Integrated Security=SSPI;"/>
+                   connectionString="server=.\; database=WMS;User ID=sa;Password=248; Trusted_Connection=False"/>
 
+  <!--<db:provider id="DbProvider"  Integrated Security=SSPI;
+  provider="System.Data.SqlClient"
+  connectionString="Data Source=(local);Database=Spring;User ID=springqa;Password=springqa;Trusted_Connection=False"/>-->
+  
   <!-- NHibernate SessionFactory configuration  type="Spring.Data.NHibernate.LocalSessionFactoryObject, Spring.Data.NHibernate4">-->
   <object id="NHibernateSessionFactory" type="WMS.Dao.Config.FluentNhibernateLocalSessionFactoryObject, WMS.Dao">
     <property name="DbProvider" ref="DbProvider"/>

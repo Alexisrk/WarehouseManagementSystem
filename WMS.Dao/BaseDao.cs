@@ -4,23 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NHibernate;
+using NHibernate.Dialect.Schema;
+using WMS.Dao.Config;
 
 namespace WMS.Dao
 {
     public abstract class BaseDao
     {
-        private ISessionFactory sessionFactory;
-
-        /// <summary>
-        /// Session factory for sub-classes.
-        /// </summary>
-        public ISessionFactory SessionFactory
-        {
-            protected get { return sessionFactory; }
-            set { sessionFactory = value; }
-        }
-
-        //public ISessionFactory SessionFactory { get; set; }
+        public ISessionFactory SessionFactory { get; set; }
     
         /// <summary>
         /// Get's the current active session. Will retrieve session as managed by the 
@@ -28,7 +19,10 @@ namespace WMS.Dao
         /// </summary>
         protected ISession CurrentSession
         {
-            get { return sessionFactory.GetCurrentSession(); }
+            get
+            {
+                return SessionFactory.GetCurrentSession();
+            }
         }
 
         protected IList<T> GetAll<T>() where T : class

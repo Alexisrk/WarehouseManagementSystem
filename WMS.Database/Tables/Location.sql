@@ -9,5 +9,7 @@
     [X] INT NULL, 
     [Y] INT NULL, 
     [Z] INT NULL, 
-    [Capacity] INT NULL
+    [Capacity] INT NULL 
 )
+
+GO
