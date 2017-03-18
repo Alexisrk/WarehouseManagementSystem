@@ -23,11 +23,14 @@ namespace WarehouseManagementSystem
 
         protected void Application_Start()
         {
+            log.Debug("Initializing program... ");
+
             XmlConfigurator.ConfigureAndWatch(new System.IO.FileInfo(AppDomain.CurrentDomain.BaseDirectory + "Logging.config"));
 
             if (!LogManager.GetRepository().Configured)
                 throw new Exception("log4net should have been configured.");
 
+            
             AreaRegistration.RegisterAllAreas();
 
             RegisterGlobalFilters(GlobalFilters.Filters);
@@ -37,7 +40,8 @@ namespace WarehouseManagementSystem
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             AuthConfig.RegisterAuth();
-            //IApplicationContext ctx = WebApplicationContext.GetRootContext();
+
+            log.Debug("Calling start page");
         }
 
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
