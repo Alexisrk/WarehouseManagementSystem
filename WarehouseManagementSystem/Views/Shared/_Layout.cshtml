@@ -1,48 +1,113 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>@ViewBag.Title - My ASP.NET MVC Application</title>
-        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-        <meta name="viewport" content="width=device-width" />
-        @Styles.Render("~/Content/css")
-        @Scripts.Render("~/bundles/modernizr")
-    </head>
-    <body>
-        <header>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
-                </div>
-                <div class="float-right">
-                    <section id="login">
-                        @Html.Partial("_LoginPartial")
-                    </section>
-                    <nav>
-                        <ul id="menu">
-                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.ActionLink("About", "About", "Home")</li>
-                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </header>
-        <div id="body">
-            @RenderSection("featured", required: false)
-            <section class="content-wrapper main-content clear-fix">
-                @RenderBody()
-            </section>
-        </div>
-        <footer>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
-                </div>
-            </div>
-        </footer>
+﻿@using WMS.Model.Resource
+@{
+    ViewBag.Title = "_Layout";
+}
 
-        @Scripts.Render("~/bundles/jquery")
-        @RenderSection("scripts", required: false)
-    </body>
+
+@* WMS - Date/Wheater                            User (config button)(help button)(logoff button) *@
+@*                                     Screen Name                                                *@
+@* MENU (button) II------------------------------------------------------------------------------ *@
+@* Material      II                                                                               *@
+@* Location      II                                                                               *@
+@* Tord          II                          -------PARTIAL VIEW------                            *@
+@* Help          II                                                                               *@
+@* Configuration II                                                                               *@
+@* LogOff        II                                                                               *@
+@*-----------------                                                       II-----Chat helper------*@
+@*                                                                        II                      *@
+@*                                                                        II                      *@
+@*                                                                        II                      *@
+@*------------------------------------------------------------------------------------------------*@
+@*                                       Notification Panel             (Status Leds)(chat button)*@
+@*------------------------------------------------------------------------------------------------*@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@LocalizedText.ApplicationTitle</title>
+    @* Apply Styles *@
+    @Styles.Render("~/Content/cssMainScreen")
+    @Styles.Render("~/Content/themes/node/bundle")
+
+</head>
+<body>
+    @* title *@
+    <span>
+        @* WMS (icon) *@
+        @*<a>@LocalizedText.WMSTitle</a>*@
+        <a href='@Url.Action("Index", "Home")'>
+            <img src="~/Content/Icons/64px/014-warehouse.PNG" alt="WMS">
+        </a>
+    
+        @* Wheater tag *@
+        <a href='@Url.Action("Index", "Home")'>
+            Wheater.GetTemperature()
+        </a>
+    
+        @* User tag *@
+        <a href='@Url.Action("Index", "User")'>
+            UserName();
+        </a>
+  
+        @* Help tag *@
+        <a href='@Url.Action("Index", "Help")'>
+            <img src="~/Content/Icons/64px/017-signs.PNG" alt="Help">
+        </a>
+        
+        @* Logoff tag *@
+        <a href='@Url.Action("Index", "Help")'>
+            <img src="~/Content/Icons/64px/001-sign-out-option.PNG" alt="Logoff">
+        </a>
+   </span>
+   <span>
+        @* Menu Button tag *@
+        <button onclick="toggleNavMenu()">
+            <img src="~/Content/Icons/64px/004-lines-menu.PNG" alt="Help">
+        </button>
+        <p>GetScreenName()</p>
+   </span>
+
+    @* Menu button *@
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+
+    @* chat helper *@
+    <div>
+        <div></div>
+        <textarea>Writte here</textarea>>
+    </div>
+    
+    @* Partial views *@
+    <div></div>
+    
+@* footer *@
+<footer>
+    <span>
+    @* Notification Panel *@
+    <span>
+        <p>Notification Text</p>
+        <button onclick="expandNotificationPanel()">
+            <img src="~/Content/Icons/64px/016-interface.PNG" alt="Expand Panel">
+        </button>
+    </span>
+    @* Status Leds *@
+    <button onclick="openAlamarPanel()">
+        <img src="~/Content/Icons/64px/016-interface.PNG" alt="Alarms">
+    </button>
+
+    @* Chat helper button *@
+    <button onclick="openChatHelper()">
+        <img src="~/Content/Icons/64px/016-interface.PNG" alt="ChatHelper">
+    </button>
+
+  </span>
+</footer>
+
+</body>
 </html>
