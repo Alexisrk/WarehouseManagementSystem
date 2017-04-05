@@ -8,3 +8,8 @@
 *.user
 */bin/*
 *.log
+*.Release
+*.bin
+*@angular*
+*@types*
+*node_modules*

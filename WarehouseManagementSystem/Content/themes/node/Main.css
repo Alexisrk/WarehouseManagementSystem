@@ -1,0 +1,39 @@
+﻿html {
+    background-color: #333;
+    color: aliceblue;
+    margin: 0;
+    padding: 0;
+}
+
+aside {
+    /*position: absolute;*/
+    background-color: burlywood;
+    border: 2px solid black;
+    width: 25%;
+    height: 25%;
+    float: right;
+}
+
+nav {
+    float: left;
+}
+
+
+a {
+    outline: none;
+    text-decoration: underline;
+}
+
+a:hover {
+    background-color: #c7d1d6;
+}
+
+/*body {
+    background-color: darkgray;
+    border-top: solid 10px #000;
+    color: #333;
+    font-size: .85em;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    margin: 0;
+    padding: 0;
+}*/
