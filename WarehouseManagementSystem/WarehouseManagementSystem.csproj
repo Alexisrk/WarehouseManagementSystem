@@ -535,6 +535,9 @@
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\SelfGenerated\app.component.js" />
+    <Content Include="Scripts\SelfGenerated\app.module.js" />
+    <Content Include="Scripts\SelfGenerated\main.js" />
     <Content Include="TypeScript\app.component.css" />
     <Content Include="TypeScript\app.component.html" />
     <Content Include="Web.config">
@@ -554,6 +557,9 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="tsconfig.json" />
+    <Content Include="Scripts\SelfGenerated\app.component.js.map" />
+    <Content Include="Scripts\SelfGenerated\app.module.js.map" />
+    <Content Include="Scripts\SelfGenerated\main.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
