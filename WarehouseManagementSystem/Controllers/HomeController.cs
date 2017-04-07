@@ -1,43 +1,29 @@
-﻿using System;
+﻿using ServiceTest;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Net;
+using System.Net.Http;
 using System.Web.Mvc;
-using ServiceTest;
 using WMS.ServicesContract.Contracts;
 
 namespace WarehouseManagementSystem.Controllers
 {
-    public class HomeController : Controller
+  public class HomeController : Controller
+  {
+    public IBasicService Service { get; set; }
+
+    public IMaterialService MaterialService { get; set; }
+
+    public ILocationService LocationService { get; set; }
+    
+    public ActionResult Index()
     {
-        public IBasicService Service { get; set; }
+      var list = LocationService.GetAllLocations();
 
-        public IMaterialService MaterialService { get; set; }
+      ViewBag.Title = Service.GetMessage();
 
-        public ILocationService LocationService { get; set; }
-
-        public ActionResult Index()
-        {
-
-            ViewBag.Message = Service.GetMessage();
-
-            var list = LocationService.GetAllLocations();
-
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your app description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+      return View();
     }
+  }
 }

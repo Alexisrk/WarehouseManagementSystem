@@ -1,113 +1,41 @@
-﻿@using WMS.Model.Resource
-@{
-    ViewBag.Title = "_Layout";
-}
-
-
-@* WMS - Date/Wheater                            User (config button)(help button)(logoff button) *@
-@*                                     Screen Name                                                *@
-@* MENU (button) II------------------------------------------------------------------------------ *@
-@* Material      II                                                                               *@
-@* Location      II                                                                               *@
-@* Tord          II                          -------PARTIAL VIEW------                            *@
-@* Help          II                                                                               *@
-@* Configuration II                                                                               *@
-@* LogOff        II                                                                               *@
-@*-----------------                                                       II-----Chat helper------*@
-@*                                                                        II                      *@
-@*                                                                        II                      *@
-@*                                                                        II                      *@
-@*------------------------------------------------------------------------------------------------*@
-@*                                       Notification Panel             (Status Leds)(chat button)*@
-@*------------------------------------------------------------------------------------------------*@
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>@LocalizedText.ApplicationTitle</title>
-    @* Apply Styles *@
-    @Styles.Render("~/Content/cssMainScreen")
-    @Styles.Render("~/Content/themes/node/bundle")
-
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    @* title *@
-    <span>
-        @* WMS (icon) *@
-        @*<a>@LocalizedText.WMSTitle</a>*@
-        <a href='@Url.Action("Index", "Home")'>
-            <img src="~/Content/Icons/64px/014-warehouse.PNG" alt="WMS">
-        </a>
-    
-        @* Wheater tag *@
-        <a href='@Url.Action("Index", "Home")'>
-            Wheater.GetTemperature()
-        </a>
-    
-        @* User tag *@
-        <a href='@Url.Action("Index", "User")'>
-            UserName();
-        </a>
-  
-        @* Help tag *@
-        <a href='@Url.Action("Index", "Help")'>
-            <img src="~/Content/Icons/64px/017-signs.PNG" alt="Help">
-        </a>
-        
-        @* Logoff tag *@
-        <a href='@Url.Action("Index", "Help")'>
-            <img src="~/Content/Icons/64px/001-sign-out-option.PNG" alt="Logoff">
-        </a>
-   </span>
-   <span>
-        @* Menu Button tag *@
-        <button onclick="toggleNavMenu()">
-            <img src="~/Content/Icons/64px/004-lines-menu.PNG" alt="Help">
-        </button>
-        <p>GetScreenName()</p>
-   </span>
-
-    @* Menu button *@
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
     </div>
 
-    @* chat helper *@
-    <div>
-        <div></div>
-        <textarea>Writte here</textarea>>
-    </div>
-    
-    @* Partial views *@
-    <div></div>
-    
-@* footer *@
-<footer>
-    <span>
-    @* Notification Panel *@
-    <span>
-        <p>Notification Text</p>
-        <button onclick="expandNotificationPanel()">
-            <img src="~/Content/Icons/64px/016-interface.PNG" alt="Expand Panel">
-        </button>
-    </span>
-    @* Status Leds *@
-    <button onclick="openAlamarPanel()">
-        <img src="~/Content/Icons/64px/016-interface.PNG" alt="Alarms">
-    </button>
-
-    @* Chat helper button *@
-    <button onclick="openChatHelper()">
-        <img src="~/Content/Icons/64px/016-interface.PNG" alt="ChatHelper">
-    </button>
-
-  </span>
-</footer>
-
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 </body>
 </html>
