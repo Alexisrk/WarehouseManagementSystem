@@ -4,7 +4,7 @@
 *packages/*
 *.suo
 *Debug*
-*obj*
+*/obj*
 *.user
 */bin/*
 *.log
