@@ -609,7 +609,7 @@
       <Project>{03401837-aaff-47ba-b5ff-37c6fabb0e26}</Project>
       <Name>WMS.Model</Name>
     </ProjectReference>
-    <ProjectReference Include="..\WMS.ServicesContract\WMS.ServiceCommon.csproj">
+    <ProjectReference Include="..\WMS.ServicesCommon\WMS.ServiceCommon.csproj">
       <Project>{05184cc3-0391-4cbc-ac3f-cda0d6596b06}</Project>
       <Name>WMS.ServiceCommon</Name>
     </ProjectReference>

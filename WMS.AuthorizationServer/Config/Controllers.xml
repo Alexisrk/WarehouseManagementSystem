@@ -4,4 +4,6 @@
   </object>
   <object id="ValuesController" type="WMS.AuthorizationServer.Controllers.ValuesController, WMS.AuthorizationServer" singleton="false" >
   </object>
+  <object id="AccountController" type="WMS.AuthorizationServer.Controllers.AccountController, WMS.AuthorizationServer" singleton="false" >
+  </object>
 </objects>

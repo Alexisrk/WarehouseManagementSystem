@@ -9,6 +9,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using WMS.AuthorizationServer.App_Start;
 
 namespace WMS.AuthorizationServer
 {
@@ -18,16 +19,17 @@ namespace WMS.AuthorizationServer
 
 		protected void Application_Start()
 		{
-			XmlConfigurator.ConfigureAndWatch(new System.IO.FileInfo(AppDomain.CurrentDomain.BaseDirectory + "Logging.config"));
+				XmlConfigurator.ConfigureAndWatch(new System.IO.FileInfo(AppDomain.CurrentDomain.BaseDirectory + "Logging.config"));
 
-			if (!LogManager.GetRepository().Configured)
+				if (!LogManager.GetRepository().Configured)
 				throw new Exception("log4net should have been configured.");
 
-			AreaRegistration.RegisterAllAreas();
-			GlobalConfiguration.Configure(WebApiConfig.Register);
-			FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-			RouteConfig.RegisterRoutes(RouteTable.Routes);
-			BundleConfig.RegisterBundles(BundleTable.Bundles);
+				AreaRegistration.RegisterAllAreas();
+				GlobalConfiguration.Configure(WebApiConfig.Register);
+				FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+				RouteConfig.RegisterRoutes(RouteTable.Routes);
+				BundleConfig.RegisterBundles(BundleTable.Bundles);
+				AuthConfig.RegisterAuth();
 		}
 	}
 }

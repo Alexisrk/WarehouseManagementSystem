@@ -16,7 +16,7 @@ namespace ApiTestServer.Filters
 		using WebMatrix.WebData;
 		using System.Net.Http;
 		using System.Net;
-		using WMS.ServicesContract.Contracts;
+		using WMS.ServiceCommon.Contracts;
 
 		namespace TestBasic.Filters
 		{
@@ -24,7 +24,7 @@ namespace ApiTestServer.Filters
 				{
 						private bool perUser;
 						private IAccessTokenService tokenRepo;
-						private IUserServices userRepo;
+						private IUserService userRepo;
 
 						public ApiAuthorizeAttribute(bool perUser = true)
 						{

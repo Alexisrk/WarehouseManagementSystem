@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 using NHibernate;
 using NHibernate.Dialect.Schema;
 using WMS.Dao.Config;
-using WMS.ServicesContract.Dao;
+using WMS.ServiceCommon.Dao;
+using System.Linq.Expressions;
+using NHibernate.Linq;
 
 namespace WMS.Dao
 {
@@ -41,5 +43,9 @@ namespace WMS.Dao
 						return criteria.List<TModel>();
 				}
 				
+				public virtual TModel Get(Expression<Func<TModel, bool>> condition)
+				{
+						return this.CurrentSession.Query<TModel>().Where(condition).ToList().SingleOrDefault();
+				}
 		}
 }

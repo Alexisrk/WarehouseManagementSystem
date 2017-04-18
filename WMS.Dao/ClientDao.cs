@@ -2,13 +2,13 @@
 using Spring.Stereotype;
 using Spring.Transaction.Interceptor;
 using WMS.Model.Domain;
-using WMS.ServicesContract.Dao;
+using WMS.ServiceCommon.Dao;
 using System;
 
 namespace WMS.Dao
 {
     [Repository]
-    public class ClientDao : BaseDao<Client, int>, IClientDao
+    public class ClientDao : BaseDao<Client, string>, IClientDao
 		{
 
 		}

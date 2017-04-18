@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{97E145F0-1AE0-43E5-BB02-275D7D793B5F}</ProjectGuid>
+    <ProjectGuid>{05184CC3-0391-4CBC-AC3F-CDA0D6596B06}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WMS.MaterialManagement</RootNamespace>
-    <AssemblyName>WMS.Material</AssemblyName>
+    <RootNamespace>WMS.ServicesCommon</RootNamespace>
+    <AssemblyName>WMS.ServicesCommon</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,17 +39,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MaterialService.cs" />
+    <Compile Include="Contracts\IAuthorizationCodeService.cs" />
+    <Compile Include="Contracts\IClientService.cs" />
+    <Compile Include="Contracts\IUserService.cs" />
+    <Compile Include="Contracts\IAccessTokenService.cs" />
+    <Compile Include="Contracts\ILocationService.cs" />
+    <Compile Include="Contracts\IMaterialService.cs" />
+    <Compile Include="Dao\IAuthorizationCodeDao.cs" />
+    <Compile Include="Dao\IDao.cs" />
+    <Compile Include="Dao\IAccessTokenDao.cs" />
+    <Compile Include="Dao\IClientDao.cs" />
+    <Compile Include="Dao\IUserDao.cs" />
+    <Compile Include="Dao\ILocationDao.cs" />
+    <Compile Include="Dao\IMaterialDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WMS.Model\WMS.Model.csproj">
-      <Project>{03401837-AAFF-47BA-B5FF-37C6FABB0E26}</Project>
+      <Project>{03401837-aaff-47ba-b5ff-37c6fabb0e26}</Project>
       <Name>WMS.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WMS.ServicesCommon\WMS.ServiceCommon.csproj">
-      <Project>{05184cc3-0391-4cbc-ac3f-cda0d6596b06}</Project>
-      <Name>WMS.ServiceCommon</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

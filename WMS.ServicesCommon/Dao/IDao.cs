@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WMS.ServicesContract.Dao
+namespace WMS.ServiceCommon.Dao
 {
 		public interface IDao<TModel> : IDao<TModel, int>
 		{
@@ -15,7 +16,8 @@ namespace WMS.ServicesContract.Dao
     {
         TEntity Get(TId id);
 
-        IList<TEntity> GetAll();
+				TEntity Get(Expression<Func<TEntity, bool>> condition);
 
-    }
+				IList<TEntity> GetAll();
+		}
 }

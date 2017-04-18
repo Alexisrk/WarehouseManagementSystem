@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceTest", "ServiceTest\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WMS.MaterialManagement", "WMS.Material\WMS.MaterialManagement.csproj", "{97E145F0-1AE0-43E5-BB02-275D7D793B5F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WMS.ServiceCommon", "WMS.ServicesContract\WMS.ServiceCommon.csproj", "{05184CC3-0391-4CBC-AC3F-CDA0D6596B06}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WMS.LocationManagement", "WMS.Location\WMS.LocationManagement.csproj", "{E3DC5750-198F-4F59-A87C-60AFB1C82869}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WMS.Dao", "WMS.Dao\WMS.Dao.csproj", "{B2B76C97-F192-48C5-B58B-DD577DF8FD91}"
@@ -20,6 +18,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarehouseManagementSystem", "WarehouseManagementSystem\WarehouseManagementSystem.csproj", "{7E28FABC-36E3-4680-B19C-3A615CF001FD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WMS.AuthorizationServer", "WMS.AuthorizationServer\WMS.AuthorizationServer.csproj", "{1F27FE63-5346-4197-96DD-334A7FA6139A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WMS.UserManagement", "WMS.UserManagement\WMS.UserManagement.csproj", "{971D1F8D-FD63-42E6-98B6-6837679FB562}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WMS.ServiceCommon", "WMS.ServicesCommon\WMS.ServiceCommon.csproj", "{05184CC3-0391-4CBC-AC3F-CDA0D6596B06}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,10 +42,6 @@ Global
 		{97E145F0-1AE0-43E5-BB02-275D7D793B5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97E145F0-1AE0-43E5-BB02-275D7D793B5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97E145F0-1AE0-43E5-BB02-275D7D793B5F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{05184CC3-0391-4CBC-AC3F-CDA0D6596B06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{05184CC3-0391-4CBC-AC3F-CDA0D6596B06}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{05184CC3-0391-4CBC-AC3F-CDA0D6596B06}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{05184CC3-0391-4CBC-AC3F-CDA0D6596B06}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E3DC5750-198F-4F59-A87C-60AFB1C82869}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E3DC5750-198F-4F59-A87C-60AFB1C82869}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E3DC5750-198F-4F59-A87C-60AFB1C82869}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -64,6 +62,14 @@ Global
 		{1F27FE63-5346-4197-96DD-334A7FA6139A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F27FE63-5346-4197-96DD-334A7FA6139A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F27FE63-5346-4197-96DD-334A7FA6139A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{971D1F8D-FD63-42E6-98B6-6837679FB562}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{971D1F8D-FD63-42E6-98B6-6837679FB562}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{971D1F8D-FD63-42E6-98B6-6837679FB562}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{971D1F8D-FD63-42E6-98B6-6837679FB562}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05184CC3-0391-4CBC-AC3F-CDA0D6596B06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05184CC3-0391-4CBC-AC3F-CDA0D6596B06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05184CC3-0391-4CBC-AC3F-CDA0D6596B06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05184CC3-0391-4CBC-AC3F-CDA0D6596B06}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -2,8 +2,9 @@
 using Spring.Stereotype;
 using Spring.Transaction.Interceptor;
 using WMS.Model.Domain;
-using WMS.ServicesContract.Dao;
+using WMS.ServiceCommon.Dao;
 using System;
+using WMS.ServiceCommon.Dao;
 
 namespace WMS.Dao
 {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using WMS.Model.Domain;
-using WMS.ServicesContract.Contracts;
-using WMS.ServicesContract.Dao;
+using WMS.ServiceCommon.Contracts;
+using WMS.ServiceCommon.Dao;
 
 namespace WMS.MaterialManagement
 {
