@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WMS.Model", "WMS.Model\WMS.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarehouseManagementSystem", "WarehouseManagementSystem\WarehouseManagementSystem.csproj", "{7E28FABC-36E3-4680-B19C-3A615CF001FD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WMS.AuthorizationServer", "WMS.AuthorizationServer\WMS.AuthorizationServer.csproj", "{1F27FE63-5346-4197-96DD-334A7FA6139A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,6 +60,10 @@ Global
 		{7E28FABC-36E3-4680-B19C-3A615CF001FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E28FABC-36E3-4680-B19C-3A615CF001FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E28FABC-36E3-4680-B19C-3A615CF001FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F27FE63-5346-4197-96DD-334A7FA6139A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F27FE63-5346-4197-96DD-334A7FA6139A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F27FE63-5346-4197-96DD-334A7FA6139A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F27FE63-5346-4197-96DD-334A7FA6139A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

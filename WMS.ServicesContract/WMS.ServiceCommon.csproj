@@ -39,9 +39,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IUserServices.cs" />
+    <Compile Include="Contracts\IAccessTokenService.cs" />
     <Compile Include="Contracts\ILocationService.cs" />
     <Compile Include="Contracts\IMaterialService.cs" />
+    <Compile Include="Dao\IAuthorizationCodeDao.cs" />
     <Compile Include="Dao\IDao.cs" />
+    <Compile Include="Dao\IAccessTokenDao.cs" />
+    <Compile Include="Dao\IClientDao.cs" />
+    <Compile Include="Dao\IUserDao.cs" />
     <Compile Include="Dao\ILocationDao.cs" />
     <Compile Include="Dao\IMaterialDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

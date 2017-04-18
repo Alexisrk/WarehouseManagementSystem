@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace WMS.ServicesContract.Dao
 {
-    public interface IDao<TEntity, TId>
+		public interface IDao<TModel> : IDao<TModel, int>
+		{
+
+		}
+
+		public interface IDao<TEntity, TId>
     {
         TEntity Get(TId id);
 

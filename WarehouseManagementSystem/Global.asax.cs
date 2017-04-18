@@ -62,11 +62,9 @@ namespace WarehouseManagementSystem
 
     //  return resolver;
     //}
-
-      
-            
-
-  public static void RegisterGlobalFilters(GlobalFilterCollection filters)
+	
+       
+	public static void RegisterGlobalFilters(GlobalFilterCollection filters)
     {
       filters.Add(new HandleErrorAttribute());
     }
@@ -75,14 +73,14 @@ namespace WarehouseManagementSystem
     {
       Exception ex = Server.GetLastError();
       log.Error("webapp", ex);
-    //  if (ex is HttpException)
-    //  {
-    //    Response.Redirect("~/Account/Error/" + ((HttpException)ex).GetHttpCode());
-    //  }
-    //  else
-    //  {
-    //    Response.Redirect("~/Account/Error");
-    //  }
+		//  if (ex is HttpException)
+		//  {
+		//    Response.Redirect("~/Account/Error/" + ((HttpException)ex).GetHttpCode());
+		//  }
+		//  else
+		//  {
+		//    Response.Redirect("~/Account/Error");
+		//  }
     }
 
   }

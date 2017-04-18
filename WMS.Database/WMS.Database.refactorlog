@@ -7,4 +7,67 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="Name" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="cc2e0ebb-a6b2-463e-b236-2a224a533185" ChangeDateTime="04/18/2017 12:11:43">
+    <Property Name="ElementName" Value="[dbo].[Location].[Name]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Location]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="UserID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="abee5b76-a530-4b68-978d-872a1bd291bb" ChangeDateTime="04/18/2017 12:11:58">
+    <Property Name="ElementName" Value="[dbo].[Location].[Description]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Location]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ClientID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="ca1004fb-6023-4c91-8842-063ba0bfe184" ChangeDateTime="04/18/2017 12:12:06">
+    <Property Name="ElementName" Value="[dbo].[Location].[Type]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Location]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Token" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="6f704cd0-a031-464e-9ca0-9aced80bc426" ChangeDateTime="04/18/2017 12:12:13">
+    <Property Name="ElementName" Value="[dbo].[Location].[W]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Location]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Type" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="c8f5f3ae-07d8-4b64-a91c-04f5806dc65f" ChangeDateTime="04/18/2017 12:12:23">
+    <Property Name="ElementName" Value="[dbo].[Location].[B]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Location]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Expiration" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="66567ca8-1a06-4bdd-bb70-d5d7ce12f49c" ChangeDateTime="04/18/2017 12:12:37">
+    <Property Name="ElementName" Value="[dbo].[Location].[A]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Location]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="RefreshToken" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="62b4b996-a8a7-472b-8152-a86515eb9786" ChangeDateTime="04/18/2017 12:12:45">
+    <Property Name="ElementName" Value="[dbo].[Location].[X]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Location]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Scope" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="469ea900-3559-4527-ac7a-6c02417ffb92" ChangeDateTime="04/18/2017 12:39:23">
+    <Property Name="ElementName" Value="[dbo].[AccessToken].[UserID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[AccessToken]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IdUser" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="1ce44a29-9472-48a8-ab64-eee22b154100" ChangeDateTime="04/18/2017 12:39:31">
+    <Property Name="ElementName" Value="[dbo].[AccessToken].[ClientID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[AccessToken]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IdClient" />
+  </Operation>
 </Operations>

@@ -9,7 +9,7 @@ using WMS.ServicesContract.Dao;
 
 namespace WMS.Dao
 {
-    public class LocationDao : BaseDao, ILocationDao
+    public class LocationDao : BaseDao<Location>, ILocationDao
     {
         [Transaction(ReadOnly = true)]
         public Location Get(string customerId)
@@ -17,11 +17,11 @@ namespace WMS.Dao
             return CurrentSession.Get<Location>(customerId);
         }
 
-        [Transaction(ReadOnly = true)]
-        public IList<Location> GetAll()
-        {
-            var list = GetAll<Location>();
-            return list;
-        }
+        //[Transaction(ReadOnly = true)]
+        //public IList<Location> GetAll()
+        //{
+        //    var list = GetAll<Location>();
+        //    return list;
+        //}
     }
 }

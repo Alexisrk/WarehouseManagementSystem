@@ -68,6 +68,7 @@
   <ItemGroup>
     <Build Include="Tables\Location.sql" />
     <Build Include="Tables\Material.sql" />
+    <Build Include="Tables\AccessToken.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="WMS.Database.refactorlog" />
