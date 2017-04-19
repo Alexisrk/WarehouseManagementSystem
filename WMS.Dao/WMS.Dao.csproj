@@ -80,6 +80,7 @@
     <Compile Include="BaseDao.cs" />
     <Compile Include="Config\FluentNhibernateLocalSessionFactoryObject.cs" />
     <Compile Include="LocationDao.cs" />
+    <Compile Include="Mapping\UserProfileMapping.cs" />
     <Compile Include="Mapping\UserMapping.cs" />
     <Compile Include="Mapping\ClientMapping.cs" />
     <Compile Include="Mapping\AuthorizationCodeMapping.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="Mapping\AccessTokenMapping.cs" />
     <Compile Include="Mapping\MaterialMapping.cs" />
     <Compile Include="AccessTokenDao.cs" />
+    <Compile Include="UserProfileDao.cs" />
     <Compile Include="UserDao.cs" />
     <Compile Include="MaterialDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

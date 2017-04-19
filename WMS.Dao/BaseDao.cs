@@ -47,5 +47,15 @@ namespace WMS.Dao
 				{
 						return this.CurrentSession.Query<TModel>().Where(condition).ToList().SingleOrDefault();
 				}
+
+				public virtual void Save(TModel entity)
+				{
+						this.CurrentSession.Save(entity);
+				}
+				
+				public virtual void Update(TModel entity)
+				{
+						CurrentSession.Update(entity);
+				}
 		}
 }

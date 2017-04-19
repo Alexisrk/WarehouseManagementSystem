@@ -73,4 +73,7 @@
 
   <object id="userDao" type="WMS.Dao.UserDao, WMS.Dao" parent="dataAccessBase">
   </object>
+
+  <object id="userProfileDao" type="WMS.Dao.UserProfileDao, WMS.Dao" parent="dataAccessBase">
+  </object>
 </objects>

@@ -49,6 +49,7 @@
     <Compile Include="Dao\IDao.cs" />
     <Compile Include="Dao\IAccessTokenDao.cs" />
     <Compile Include="Dao\IClientDao.cs" />
+    <Compile Include="Dao\IUserProfileDao.cs" />
     <Compile Include="Dao\IUserDao.cs" />
     <Compile Include="Dao\ILocationDao.cs" />
     <Compile Include="Dao\IMaterialDao.cs" />

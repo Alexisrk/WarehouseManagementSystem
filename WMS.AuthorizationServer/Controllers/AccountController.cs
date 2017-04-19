@@ -10,6 +10,8 @@ using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
 using WMS.AuthorizationServer.Filters;
 using WMS.AuthorizationServer.Models;
+using WMS.ServiceCommon.Dao;
+using WMS.Model.Domain;
 
 namespace WMS.AuthorizationServer.Controllers
 {
@@ -17,6 +19,8 @@ namespace WMS.AuthorizationServer.Controllers
 		[InitializeSimpleMembership]
 		public class AccountController : Controller
 		{
+				public IUserProfileDao userProfileDao { get; set; }
+
 				//
 				// GET: /Account/Login
 
@@ -262,27 +266,22 @@ namespace WMS.AuthorizationServer.Controllers
 
 						if (ModelState.IsValid)
 						{
-								//// Insert a new user into the database
-								//using (UsersContext db = new UsersContext())
-								//{
-								//		UserProfile user = db.UserProfiles.FirstOrDefault(u => u.UserName.ToLower() == model.UserName.ToLower());
-								//		// Check if user already exists
-								//		if (user == null)
-								//		{
-								//				// Insert name into the profile table
-								//				db.UserProfiles.Add(new UserProfile { UserName = model.UserName });
-								//				db.SaveChanges();
+								UserProfile user = userProfileDao.Get(u => u.UserName.ToLower() == model.UserName.ToLower());
+								if (user == null)
+								{
+										// Insert name into the profile table
+										userProfileDao.Save(new UserProfile { UserName = model.UserName });
+										
 
-								//				OAuthWebSecurity.CreateOrUpdateAccount(provider, providerUserId, model.UserName);
-								//				OAuthWebSecurity.Login(provider, providerUserId, createPersistentCookie: false);
+										OAuthWebSecurity.CreateOrUpdateAccount(provider, providerUserId, model.UserName);
+										OAuthWebSecurity.Login(provider, providerUserId, createPersistentCookie: false);
 
-								//				return RedirectToLocal(returnUrl);
-								//		}
-								//		else
-								//		{
-								//				ModelState.AddModelError("UserName", "User name already exists. Please enter a different user name.");
-								//		}
-								//}
+										return RedirectToLocal(returnUrl);
+								}
+								else
+								{
+										ModelState.AddModelError("UserName", "User name already exists. Please enter a different user name.");
+								}
 						}
 
 						ViewBag.ProviderDisplayName = OAuthWebSecurity.GetOAuthClientData(provider).DisplayName;

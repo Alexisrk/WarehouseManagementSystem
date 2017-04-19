@@ -19,5 +19,9 @@ namespace WMS.ServiceCommon.Dao
 				TEntity Get(Expression<Func<TEntity, bool>> condition);
 
 				IList<TEntity> GetAll();
+
+				void Save(TEntity entity);
+
+				void Update(TEntity entity);
 		}
 }
