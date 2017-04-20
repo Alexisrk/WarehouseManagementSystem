@@ -10,6 +10,9 @@ Post-Deployment Script Template
 --------------------------------------------------------------------------------------
 */
 
+-- CLIENT
+IF NOT EXISTS (select 1 from Client where Id = 'bXljbGllbnRpZA==') BEGIN INSERT INTO Client (Id, Name, Secret, Url) VALUES ('bXljbGllbnRpZA==', 'WMS Application', 'aXQnc2FzZWNyZXQ=', 'MyUrl') END;
+
 -- BASIC LAYOUT
 IF NOT EXISTS (select 1 from Location where Name = 'LOC_W1B1A1X1Y1Z1') BEGIN INSERT INTO Location (Name, Description, W,B,A,X,Y,Z, Capacity) VALUES ('LOC_W1B1A1X1Y1Z1', 'LOCATION W1-B1-A1-X1-Y1-Z1', 1,1,1,1,1,1,1) END;
 IF NOT EXISTS (select 1 from Location where Name = 'LOC_W1B1A1X1Y1Z2') BEGIN INSERT INTO Location (Name, Description, W,B,A,X,Y,Z, Capacity) VALUES ('LOC_W1B1A1X1Y1Z2', 'LOCATION W1-B1-A1-X1-Y1-Z2', 1,1,1,1,1,2,1) END;
@@ -23,3 +26,5 @@ IF NOT EXISTS (select 1 from Location where Name = 'LOC_W1B1A1X1Y2Z3') BEGIN INS
 IF NOT EXISTS (select 1 from Location where Name = 'LOC_W1B1A1X2Y2Z1') BEGIN INSERT INTO Location (Name, Description, W,B,A,X,Y,Z, Capacity) VALUES ('LOC_W1B1A1X2Y2Z1', 'LOCATION W1-B1-A1-X2-Y2-Z1', 1,1,1,2,2,1,1) END;
 IF NOT EXISTS (select 1 from Location where Name = 'LOC_W1B1A1X2Y2Z2') BEGIN INSERT INTO Location (Name, Description, W,B,A,X,Y,Z, Capacity) VALUES ('LOC_W1B1A1X2Y2Z2', 'LOCATION W1-B1-A1-X2-Y2-Z2', 1,1,1,2,2,2,1) END;
 IF NOT EXISTS (select 1 from Location where Name = 'LOC_W1B1A1X2Y2Z3') BEGIN INSERT INTO Location (Name, Description, W,B,A,X,Y,Z, Capacity) VALUES ('LOC_W1B1A1X2Y2Z3', 'LOCATION W1-B1-A1-X2-Y2-Z3', 1,1,1,2,2,3,1) END;
+
+

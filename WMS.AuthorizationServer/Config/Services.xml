@@ -8,4 +8,13 @@
   <object name="materialService" type="WMS.MaterialManagement.MaterialService, WMS.Material">
     <property name="MaterialDao" ref="materialDao"/>
   </object>
+		<object name="clientService" type="WMS.UserManagement.ClientService, WMS.UserManagement">
+				<property name="clientDao" ref="clientDao"/>
+		</object>
+		<object name="userService" type="WMS.UserManagement.UserService, WMS.UserManagement">
+				<property name="userDao" ref="userDao"/>
+		</object>
+		<object name="authCodeService" type="WMS.UserManagement.AuthorizationCodeService, WMS.UserManagement">
+				<property name="authorizationCodeDao" ref="authorizationCodeDao"/>
+		</object>
 </objects>

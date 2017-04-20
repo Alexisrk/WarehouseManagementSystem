@@ -3,7 +3,7 @@ using WMS.Model.Domain;
 
 namespace WMS.ServiceCommon.Contracts
 {
-    public interface IAuthorizationCodeService
+  public interface IAuthorizationCodeService
 		{
 				bool Save(AuthorizationCode code);
 		}

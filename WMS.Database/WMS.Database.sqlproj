@@ -69,6 +69,10 @@
     <Build Include="Tables\Location.sql" />
     <Build Include="Tables\Material.sql" />
     <Build Include="Tables\AccessToken.sql" />
+    <Build Include="Tables\Client.sql" />
+    <Build Include="Tables\AuthorizationCode.sql" />
+    <Build Include="Tables\User.sql" />
+    <Build Include="Tables\UserProfile.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="WMS.Database.refactorlog" />

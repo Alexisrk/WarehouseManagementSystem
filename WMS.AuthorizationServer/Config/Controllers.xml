@@ -7,4 +7,8 @@
   <object id="AccountController" type="WMS.AuthorizationServer.Controllers.AccountController, WMS.AuthorizationServer" singleton="false" >
     <property name="userProfileDao" ref="userProfileDao"></property>
   </object>
+		<object id="AuthorizeController" type="WMS.AuthorizationServer.Controllers.AuthorizeController, WMS.AuthorizationServer" singleton="false" >
+				<property name="clientService" ref="clientService"></property>
+				<property name="authCodeService" ref="authCodeService"></property>
+		</object>		
 </objects>

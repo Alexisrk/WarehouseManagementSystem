@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[UserProfile]
+(
+	[UserId] NVARCHAR(255) NOT NULL PRIMARY KEY, 
+    [UserName] NVARCHAR(255) NOT NULL
+)

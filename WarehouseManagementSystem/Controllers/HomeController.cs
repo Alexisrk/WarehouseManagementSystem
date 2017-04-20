@@ -1,68 +1,151 @@
 ﻿using ServiceTest;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Web;
 using System.Web.Mvc;
+using WarehouseManagementSystem.Models;
+using WMS.Model.Domain;
+using WMS.Model.Model;
 using WMS.ServiceCommon.Contracts;
 
 namespace WarehouseManagementSystem.Controllers
 {
-  public class HomeController : Controller
-  {
-    public IBasicService Service { get; set; }
-
-    public IMaterialService MaterialService { get; set; }
-
-    public ILocationService LocationService { get; set; }
- 
-    public ActionResult Index()
-    {
-      var list = LocationService.GetAllLocations();
-
-      ViewBag.Title = Service.GetMessage();
-
-      return View();
-    }
-
-		//
-		// Get: /Home/
-		public ActionResult Connect(string code)
+		public class HomeController : Controller
 		{
-				try
+				public IBasicService Service { get; set; }
+
+				public IMaterialService MaterialService { get; set; }
+
+				public ILocationService LocationService { get; set; }
+
+				public ActionResult Index()
 				{
-						// TODO: Add insert logic here
-						var urlHelper = new UrlHelper(Request.RequestContext);
-						var server = string.Format("{0}://{1}{2}", Request.Url.Scheme, Request.Url.Authority, urlHelper.Content("~"));
-						var returnPath = string.Format("{0}{1}", server, "Home/Connect");
-						var redirectUrl = string.Format("http://localhost:6699/oauth2/authorize?client_id={0}&redirect_uri={1}&state=optional-csrf-token&response_type=code"
-								, urlHelper.Encode("bXljbGllbnRpZA==")
-								, urlHelper.Encode(returnPath));
+						//var list = LocationService.GetAllLocations();
 
-								//var result = RequestAccessToken(code, returnPath);
+						//ViewBag.Title = Service.GetMessage();
 
-								//if (!string.IsNullOrEmpty(result.error))
-								//{
-								//		return Json(result, JsonRequestBehavior.AllowGet);
-								//}
-
-								//var resultRefresh = RequestAccessToken(result.refresh_token, returnPath, true);
-
-								//if (!string.IsNullOrEmpty(resultRefresh.error))
-								//{
-								//		return Json(result, JsonRequestBehavior.AllowGet);
-								//}
-
-								//var data = CallApi(resultRefresh.access_token);
-
-								//return Json(data, JsonRequestBehavior.AllowGet);
-								return View();
-						}
-				catch
-				{
 						return View();
 				}
-		}
-		}
+
+				//
+				// Get: /Home/
+				public ActionResult Connect(string code)
+				{
+						try
+						{
+								// TODO: Add insert logic here
+								var urlHelper = new UrlHelper(Request.RequestContext);
+								var server = string.Format("{0}://{1}{2}", Request.Url.Scheme, Request.Url.Authority, urlHelper.Content("~"));
+								var returnPath = string.Format("{0}{1}", server, "Home/Connect");
+								var redirectUrl = string.Format("http://localhost:6699/oauth2/authorize?client_id={0}&redirect_uri={1}&state=optional-csrf-token&response_type=code"
+										, urlHelper.Encode("bXljbGllbnRpZA==")
+										, urlHelper.Encode(returnPath));
+
+								var result = RequestAccessToken(code, returnPath);
+
+								if (!string.IsNullOrEmpty(result.error))
+								{
+												return Json(result, JsonRequestBehavior.AllowGet);
+								}
+
+								var resultRefresh = RequestAccessToken(result.refresh_token, returnPath, true);
+
+								if (!string.IsNullOrEmpty(resultRefresh.error))
+								{
+												return Json(result, JsonRequestBehavior.AllowGet);
+								}
+
+								var data = CallApi(resultRefresh.access_token);
+
+								return Json(data, JsonRequestBehavior.AllowGet);
+						}
+						catch
+						{
+								return View();
+						}
+				}
+
+
+				public static ClientAccessToken RequestAccessToken(string code, string rUri, bool refresh_token = false)
+				{
+						var client = new HttpClient();
+						client.BaseAddress = new Uri("http://localhost:6699/");
+
+						// Add an Accept header for JSON format.
+						client.DefaultRequestHeaders.Accept.Add(
+								new MediaTypeWithQualityHeaderValue("application/x-www-form-urlencoded"));
+
+						NameValueCollection data = new NameValueCollection();
+						data.Add("client_id", "bXljbGllbnRpZA==");
+						data.Add("client_secret", "aXQnc2FzZWNyZXQ=");
+						if (refresh_token)
+						{
+								data.Add("refresh_token", code);
+								data.Add("grant_type", "refresh_token");
+						}
+						else
+						{
+								data.Add("code", code);
+								data.Add("redirect_uri", rUri);
+								data.Add("grant_type", "authorization_code");
+						}
+
+						HttpResponseMessage response = client.PostAsync(string.Format("oauth2/token"), new FormUrlEncodedContent(
+																							data.
+																									AllKeys.ToDictionary(
+																											k => k, v => data[v]))).Result;
+
+						return response.Content.ReadAsAsync<ClientAccessToken>().Result;
+				}
+
+				public static string CallApi(string accessToken)
+				{
+						var client = new HttpClient();
+						client.BaseAddress = new Uri("http://localhost:6699/api/");
+
+						// Add an Accept header for JSON format.
+						client.DefaultRequestHeaders.Accept.Add(
+								new MediaTypeWithQualityHeaderValue("application/json"));
+
+						HttpResponseMessage response = client.GetAsync(string.Format("values/who_am_i?access_token={0}", HttpUtility.UrlEncode(accessToken))).Result;
+						if (response.IsSuccessStatusCode)
+						{
+								// Parse the response body. Blocking!
+								return response.Content.ReadAsStringAsync().Result;
+						}
+						else
+						{
+								return string.Empty;
+						}
+				}
+
+
+				//
+				// POST: /Home/
+				[HttpPost]
+				public ActionResult Index(string something)
+				{
+								try
+								{
+												// TODO: Add insert logic here
+												var urlHelper = new UrlHelper(Request.RequestContext);
+												var server = string.Format("{0}://{1}{2}", Request.Url.Scheme, Request.Url.Authority, urlHelper.Content("~"));
+												var returnPath = string.Format("{0}{1}", server, "Home/Connect");
+												var redirectUrl = string.Format("http://localhost:6699/oauth2/authorize?client_id={0}&redirect_uri={1}&state=optional-csrf-token&response_type=code"
+																, urlHelper.Encode("bXljbGllbnRpZA==")
+																, urlHelper.Encode(returnPath));
+
+												return Redirect(redirectUrl);
+								}
+								catch
+								{
+												return View();
+								}
+				}
+				}
 }
