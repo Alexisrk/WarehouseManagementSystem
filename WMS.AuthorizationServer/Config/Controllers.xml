@@ -9,6 +9,10 @@
   </object>
 		<object id="AuthorizeController" type="WMS.AuthorizationServer.Controllers.AuthorizeController, WMS.AuthorizationServer" singleton="false" >
 				<property name="clientService" ref="clientService"></property>
-				<property name="authCodeService" ref="authCodeService"></property>
-		</object>		
+				<property name="securityService" ref="securityService"></property>
+		</object>
+		<object id="TokenController" type="WMS.AuthorizationServer.Controllers.TokenController, WMS.AuthorizationServer" singleton="false" >
+				<property name="clientService" ref="clientService"></property>
+				<property name="securityService" ref="securityService"></property>
+		</object>
 </objects>

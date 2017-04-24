@@ -5,15 +5,36 @@ using WMS.ServiceCommon.Dao;
 
 namespace WMS.UserManagement
 {
-  public class AuthorizationCodeService : IAuthorizationCodeService
+  public class SecurityService : ISecurityService
 		{
 
 				IAuthorizationCodeDao authorizationCodeDao;
+
+				IAccessTokenDao accessTokenDao;
 				
-			 public	bool Save(AuthorizationCode code)
+			 public	void SaveAuthorizationCode(AuthorizationCode code)
 				{
-								authorizationCodeDao.Save(code);
-								return true;								
+								authorizationCodeDao.Save(code);				
+				}
+
+				public AuthorizationCode GetAuthorizationCode(string code)
+				{
+								return authorizationCodeDao.Get(x => x.Code == code);
+				}
+
+				public AccessToken GetAccessToken(string token)
+				{
+								return accessTokenDao.Get(x => x.Token == token);
+				}
+
+				public AccessToken GetRefreshToken(string refresh_token)
+				{
+								return accessTokenDao.Get(x => x.Token == refresh_token);
+				}
+
+				public void SaveAccessToken(AccessToken accessToken)
+				{
+								accessTokenDao.Save(accessToken);
 				}
   }
 }

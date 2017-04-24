@@ -8,7 +8,7 @@ namespace WMS.Model.Domain
 {
 		public class UserProfile
 		{
-				public virtual string UserId { get; set; }
+				public virtual int UserId { get; set; }
 				public virtual string UserName { get; set; }
 		}
 }

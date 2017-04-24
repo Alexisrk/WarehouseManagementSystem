@@ -26,7 +26,7 @@ namespace WarehouseManagementSystem
       XmlConfigurator.ConfigureAndWatch(new System.IO.FileInfo(AppDomain.CurrentDomain.BaseDirectory + "Logging.config"));
 
       if (!LogManager.GetRepository().Configured)
-        throw new Exception("log4net should have been configured.");
+        throw new Exception("log4net should has been configured.");
 
 
       //config.DependencyResolver = new Spring.Web.Mvc.SpringWebApiDependencyResolver(ContextRegistry.GetContext());

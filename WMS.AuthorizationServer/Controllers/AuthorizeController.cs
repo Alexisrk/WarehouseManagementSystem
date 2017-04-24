@@ -19,7 +19,7 @@ namespace WMS.AuthorizationServer.Controllers
 		public class AuthorizeController : Controller
 		{
 				private IClientService clientService;
-				private IAuthorizationCodeService authCodeService;
+				private ISecurityService securityService;
 
 				//
 				// GET: /Authorize/
@@ -64,45 +64,56 @@ namespace WMS.AuthorizationServer.Controllers
 				[HttpPost]
 				public ActionResult Index(AuthorizationModel model)
 				{
-						if (string.IsNullOrEmpty(model.response_type) || string.IsNullOrEmpty(model.client_id) || string.IsNullOrEmpty(model.redirect_uri))
-								return Redirect(string.Format("{0}?error={1}", model.redirect_uri, "invalid_request"));
+								try
+								{
+												if (string.IsNullOrEmpty(model.response_type) || string.IsNullOrEmpty(model.client_id) || string.IsNullOrEmpty(model.redirect_uri))
+																return Redirect(string.Format("{0}?error={1}", model.redirect_uri, "invalid_request"));
 
-						var client = clientService.GetClient(model.client_id);
+												var client = clientService.GetClient(model.client_id);
 
-						if (client == null)
-								return Redirect(string.Format("{0}?error={1}", model.redirect_uri, "unauthorized_client"));
+												if (client == null)
+																return Redirect(string.Format("{0}?error={1}", model.redirect_uri, "unauthorized_client"));
 
-						if (model.response_type != "code")
-								return Redirect(string.Format("{0}?error={1}", model.redirect_uri, "unsupported_response_type"));
+												if (model.response_type != "code")
+																return Redirect(string.Format("{0}?error={1}", model.redirect_uri, "unsupported_response_type"));
 
-						if (model.Deny)
-								return Redirect(string.Format("{0}?error={1}", model.redirect_uri, "access_denied"));
+												if (model.Deny)
+																return Redirect(string.Format("{0}?error={1}", model.redirect_uri, "access_denied"));
 
-						//Agregar mas errores, especificados en el RFC6749
+												//Agregar mas errores, especificados en el RFC6749
 
-						//Generate the code hash, valid for max (recommended) 10 minutes
-						var key = Convert.FromBase64String(client.Secret);
-						var provider = new System.Security.Cryptography.HMACSHA256(key);
+												//Generate the code hash, valid for max (recommended) 10 minutes
+												var key = Convert.FromBase64String(client.Secret);
+												var provider = new System.Security.Cryptography.HMACSHA256(key);
 
-						var UserID = WebSecurity.CurrentUserId;
+												var UserID = WebSecurity.CurrentUserId;
 
-						var rawCodeInfo = string.Concat(client.Id, client.Secret, UserID, DateTime.UtcNow.ToString("d"));
-						var rawCodeByte = Encoding.UTF8.GetBytes(rawCodeInfo);
-						var code = provider.ComputeHash(rawCodeByte);
+												var rawCodeInfo = string.Concat(client.Id, client.Secret, UserID, DateTime.UtcNow.ToString("d"));
+												var rawCodeByte = Encoding.UTF8.GetBytes(rawCodeInfo);
+												var code = provider.ComputeHash(rawCodeByte);
 
-						var authorizationCode = new AuthorizationCode()
-						{
-								IdClient = model.client_id,
-								IdUser = UserID,
-								Code = Convert.ToBase64String(code),
-								Expiration = DateTime.Now.AddMinutes(10),
-								Redirect_Uri = model.redirect_uri
-						};
+												var authorizationCode = new AuthorizationCode()
+												{
+																IdClient = model.client_id,
+																IdUser = UserID,
+																Code = Convert.ToBase64String(code),
+																Expiration = DateTime.Now.AddMinutes(10),
+																Redirect_Uri = model.redirect_uri
+												};
 
-						if (authCodeService.Save(authorizationCode))
-								return Redirect(string.Format("{0}?code={1}", model.redirect_uri, HttpUtility.UrlEncode(authorizationCode.Code)));
+												securityService.SaveAuthorizationCode(authorizationCode);
 
-						return Redirect(string.Format("{0}?error={1}", model.redirect_uri, "server_error"));
+												return Redirect(string.Format("{0}?code={1}", model.redirect_uri, HttpUtility.UrlEncode(authorizationCode.Code)));
+								}
+								catch (Exception)
+								{
+												return Redirect(string.Format("{0}?error={1}", model.redirect_uri, "server_error"));
+								}
+								finally
+								{
+
+								}
+						
 				}
 		}
 }

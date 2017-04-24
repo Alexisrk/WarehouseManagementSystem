@@ -19,10 +19,13 @@ namespace WMS.AuthorizationServer
 
 		protected void Application_Start()
 		{
+				
 				XmlConfigurator.ConfigureAndWatch(new System.IO.FileInfo(AppDomain.CurrentDomain.BaseDirectory + "Logging.config"));
 
 				if (!LogManager.GetRepository().Configured)
-				throw new Exception("log4net should have been configured.");
+				throw new Exception("log4net should has been configured.");
+
+				log.Debug("Initializing program... ");
 
 				AreaRegistration.RegisterAllAreas();
 				GlobalConfiguration.Configure(WebApiConfig.Register);
@@ -30,6 +33,15 @@ namespace WMS.AuthorizationServer
 				RouteConfig.RegisterRoutes(RouteTable.Routes);
 				BundleConfig.RegisterBundles(BundleTable.Bundles);
 				AuthConfig.RegisterAuth();
+
+				log.Debug("Calling start page");
+		}
+
+
+		protected void Application_Error(object sender, EventArgs args)
+		{
+		 	Exception ex = Server.GetLastError();
+		 	log.Error("webapp", ex);
 		}
 	}
 }

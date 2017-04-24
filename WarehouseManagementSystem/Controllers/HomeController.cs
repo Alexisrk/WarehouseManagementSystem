@@ -64,11 +64,11 @@ namespace WarehouseManagementSystem.Controllers
 
 								return Json(data, JsonRequestBehavior.AllowGet);
 						}
-						catch
+						catch (Exception e)
 						{
-								return View();
+										return View();
 						}
-				}
+}
 
 
 				public static ClientAccessToken RequestAccessToken(string code, string rUri, bool refresh_token = false)

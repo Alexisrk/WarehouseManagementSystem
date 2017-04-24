@@ -3,8 +3,12 @@ using WMS.Model.Domain;
 
 namespace WMS.ServiceCommon.Contracts
 {
-  public interface IAuthorizationCodeService
+  public interface ISecurityService
 		{
-				bool Save(AuthorizationCode code);
+				AuthorizationCode GetAuthorizationCode(string code);
+				void SaveAuthorizationCode(AuthorizationCode code);
+				AccessToken GetAccessToken(string token);
+				AccessToken GetRefreshToken(string refresh_token);
+				void SaveAccessToken(AccessToken accessToken);
 		}
 }

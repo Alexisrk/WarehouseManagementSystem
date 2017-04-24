@@ -14,7 +14,8 @@
 		<object name="userService" type="WMS.UserManagement.UserService, WMS.UserManagement">
 				<property name="userDao" ref="userDao"/>
 		</object>
-		<object name="authCodeService" type="WMS.UserManagement.AuthorizationCodeService, WMS.UserManagement">
+		<object name="securityService" type="WMS.UserManagement.SecurityService, WMS.UserManagement">
 				<property name="authorizationCodeDao" ref="authorizationCodeDao"/>
+				<property name="accessTokenDao" ref="accessTokenDao"/>
 		</object>
 </objects>
