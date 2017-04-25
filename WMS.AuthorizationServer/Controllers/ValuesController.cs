@@ -1,4 +1,5 @@
 ﻿using System;
+using WMS.AuthorizationServer.Filters;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -7,12 +8,15 @@ using System.Web.Http;
 
 namespace WMS.AuthorizationServer.Controllers
 {
-	public class ValuesController : ApiController
+
+	[ApiAuthorize]
+ [InitializeSimpleMembership]
+ public class ValuesController : ApiController
 	{
 		// GET api/values
 		public IEnumerable<string> Get()
 		{
-			return new string[] { "value1", "value2" };
+			return new string[] { "Aplication", "access", "succesfully" };
 		}
 
 		// GET api/values/5

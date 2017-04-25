@@ -9,6 +9,9 @@ using WMS.Dao.Config;
 using WMS.ServiceCommon.Dao;
 using System.Linq.Expressions;
 using NHibernate.Linq;
+using WMS.Dao.Mapping;
+using WMS.Dao.Exceptions;
+using Spring.Transaction.Interceptor;
 
 namespace WMS.Dao
 {
@@ -48,14 +51,27 @@ namespace WMS.Dao
 						return this.CurrentSession.Query<TModel>().Where(condition).ToList().SingleOrDefault();
 				}
 
+			 [Transaction]
 				public virtual void Save(TModel entity)
 				{
+						CheckActiveTransaction();
 						this.CurrentSession.Save(entity);
+						CurrentSession.Flush();
 				}
 				
 				public virtual void Update(TModel entity)
 				{
+						CheckActiveTransaction();
 						CurrentSession.Update(entity);
+					 CurrentSession.Flush();
+								}
+								
+				protected virtual void CheckActiveTransaction()
+				{
+								if (!CurrentSession.Transaction.IsActive)
+								{
+												throw new NoActiveTransactionException();
+								}
 				}
-		}
+				}
 }

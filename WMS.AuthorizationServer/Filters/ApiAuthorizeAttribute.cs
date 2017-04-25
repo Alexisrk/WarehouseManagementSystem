@@ -2,83 +2,76 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Security.Principal;
+using System.Text;
+using System.Threading;
+using System.Web.Http.Filters;
+using WebMatrix.WebData;
+using System.Net.Http;
+using System.Net;
+using WMS.ServiceCommon.Contracts;
 
-namespace ApiTestServer.Filters
+namespace WMS.AuthorizationServer.Filters
 {
-		using System;
-		using System.Collections.Generic;
-		using System.Linq;
-		using System.Security.Principal;
-		using System.Text;
-		using System.Threading;
-		using System.Web;
-		using System.Web.Http.Filters;
-		using WebMatrix.WebData;
-		using System.Net.Http;
-		using System.Net;
-		using WMS.ServiceCommon.Contracts;
-
-		namespace TestBasic.Filters
-		{
 				public class ApiAuthorizeAttribute : AuthorizationFilterAttribute
 				{
-						private bool perUser;
-						private IAccessTokenService tokenRepo;
-						private IUserService userRepo;
+								private bool perUser;
+								private IAccessTokenService tokenRepo;
+								private IUserService userRepo;
 
-						public ApiAuthorizeAttribute(bool perUser = true)
-						{
+								public ApiAuthorizeAttribute(bool perUser = true)
+								{
 								this.perUser = perUser;
-						}
+								}
 
-						public override void OnAuthorization(System.Web.Http.Controllers.HttpActionContext actionContext)
-						{
+								public override void OnAuthorization(System.Web.Http.Controllers.HttpActionContext actionContext)
+								{
 								const string TOKENNAME = "access_token";
 
 								var query = HttpUtility.ParseQueryString(actionContext.Request.RequestUri.Query);
 
 								if (!string.IsNullOrWhiteSpace(query[TOKENNAME]))
 								{
-										var token = query[TOKENNAME];
+												var token = query[TOKENNAME];
 
-										//this.tokenRepo = new AccessTokenRepository();
-										var authToken = tokenRepo.GetAuthToken(token);
+												//this.tokenRepo = new AccessTokenRepository();
+												var authToken = tokenRepo.GetAuthToken(token);
 
-										if (authToken != null && authToken.Expiration > DateTime.Now)
-										{
+												if (authToken != null && authToken.Expiration > DateTime.Now)
+												{
 												if (Thread.CurrentPrincipal.Identity.IsAuthenticated)
-														return;
+																return;
 
 												//User repository
 												var user = userRepo.GetUser(authToken.IdUser);
 
 												if (user == null)
-														return;
+																return;
 
 												var username = user.Name;
 												var password = user.Password;
 
 												if (!WebSecurity.Initialized)
-														WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+																WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: true);
 
 												if (WebSecurity.Login(username, password))
 												{
-														var principal = new GenericPrincipal(new GenericIdentity(username), null);
-														Thread.CurrentPrincipal = principal;
-														return;
+																var principal = new GenericPrincipal(new GenericIdentity(username), null);
+																Thread.CurrentPrincipal = principal;
+																return;
 												}
-										}
+												}
 								}
 								HandleUnauthorized(actionContext);
-						}
+								}
 
-						void HandleUnauthorized(System.Web.Http.Controllers.HttpActionContext actionContext)
-						{
+								void HandleUnauthorized(System.Web.Http.Controllers.HttpActionContext actionContext)
+								{
 								actionContext.Response = actionContext.Request.CreateResponse(HttpStatusCode.Unauthorized);
 
 								actionContext.Response.Headers.Add("WWW-Authenticate",
-										"Basic Scheme='TestBasic' location='http://localhost/account/login'");
-						}
+												"Basic Scheme='TestBasic' location='http://localhost/account/login'");
+								}
 				}
-		}
+		
 }
