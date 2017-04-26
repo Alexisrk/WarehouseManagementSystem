@@ -12,14 +12,17 @@ using NHibernate.Linq;
 using WMS.Dao.Mapping;
 using WMS.Dao.Exceptions;
 using Spring.Transaction.Interceptor;
+using Spring.Stereotype;
 
 namespace WMS.Dao
 {
-    public abstract class BaseDao<TModel> : BaseDao<TModel, int> where TModel : class
+		[Repository]
+		public abstract class BaseDao<TModel> : BaseDao<TModel, int> where TModel : class
 		{
 				
 		}
 
+		[Repository]
 		public abstract class BaseDao<TModel, TId> : IDao<TModel, TId> where TModel : class
 		{
 				public ISessionFactory SessionFactory { get; set; }
@@ -32,7 +35,11 @@ namespace WMS.Dao
 				{
 						get
 						{
-								return SessionFactory.GetCurrentSession();
+								var session = SessionFactory.GetCurrentSession();
+								session.FlushMode = FlushMode.Always;
+								session.CacheMode = CacheMode.Ignore;
+
+								return session;
 						}
 				}
 
@@ -55,23 +62,40 @@ namespace WMS.Dao
 				public virtual void Save(TModel entity)
 				{
 						CheckActiveTransaction();
-						this.CurrentSession.Save(entity);
-						CurrentSession.Flush();
+						CurrentSession.Save(entity);
+						//CurrentSession.Flush();
 				}
-				
+
+				[Transaction]
 				public virtual void Update(TModel entity)
 				{
 						CheckActiveTransaction();
 						CurrentSession.Update(entity);
 					 CurrentSession.Flush();
-								}
-								
+				}
+
+				[Transaction]
+				public virtual void SaveOrUpdate(TModel entity)
+				{
+						CheckActiveTransaction();
+						CurrentSession.SaveOrUpdate(entity);
+				}
+
+				[Transaction]
+				public virtual void Delete(TModel entity)
+				{
+						CheckActiveTransaction();
+						CurrentSession.Delete(entity);
+				}
+
+
+
 				protected virtual void CheckActiveTransaction()
 				{
-								if (!CurrentSession.Transaction.IsActive)
-								{
-												throw new NoActiveTransactionException();
-								}
+						if (!CurrentSession.Transaction.IsActive)
+						{
+								throw new NoActiveTransactionException();
+						}
 				}
-				}
+		}
 }

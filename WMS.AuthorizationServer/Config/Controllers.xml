@@ -2,8 +2,7 @@
 <objects xmlns="http://www.springframework.net"  xmlns:aop="http://www.springframework.net/aop">
   <object id="HomeController" type="WMS.AuthorizationServer.Controllers.HomeController, WMS.AuthorizationServer" singleton="false" >
   </object>
-  <object id="ValuesController" type="WMS.AuthorizationServer.Controllers.ValuesController, WMS.AuthorizationServer" singleton="false" >
-  </object>
+
   <object id="AccountController" type="WMS.AuthorizationServer.Controllers.AccountController, WMS.AuthorizationServer" singleton="false" >
     <property name="userProfileDao" ref="userProfileDao"></property>
   </object>

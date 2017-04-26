@@ -26,7 +26,7 @@ namespace WMS.AuthorizationServer.Filters
 								try
 								{
 										if (!WebSecurity.Initialized)
-											WebSecurity.InitializeDatabaseConnection("WMSConnection", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+											WebSecurity.InitializeDatabaseConnection("WMSConnection", "UserProfile", "Id", "Name", autoCreateTables: true);
 								}
 								catch (Exception ex)
 								{

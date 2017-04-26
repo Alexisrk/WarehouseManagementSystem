@@ -14,7 +14,7 @@ namespace WMS.Dao.Mapping
 
         public void Override(AutoMapping<UserProfile> mapping)
         {
-            mapping.Id(x => x.UserId).GeneratedBy.Assigned();
+            mapping.Id(x => x.Id).GeneratedBy.Assigned();
         }
 
     }

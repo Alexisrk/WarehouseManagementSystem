@@ -17,7 +17,7 @@
   connectionString="Data Source=(local);Database=Spring;User ID=springqa;Password=springqa;Trusted_Connection=False"/>-->
   
   <!-- NHibernate SessionFactory configuration  type="Spring.Data.NHibernate.LocalSessionFactoryObject, Spring.Data.NHibernate4">-->
-  <object id="NHibernateSessionFactory" type="WMS.Dao.Config.FluentNhibernateLocalSessionFactoryObject, WMS.Dao">
+  <object id="NHibernateSessionFactory" type="WMS.Dao.Config.FluentNhibernateLocalSessionFactoryObject, WMS.Dao" singleton="true">
     <property name="DbProvider" ref="DbProvider"/>
     <property name="FluentNhibernateMappingAssemblies">
       <list>
@@ -33,8 +33,12 @@
     <property name="HibernateProperties">
       <dictionary>
         <entry key="hibernate.connection.provider" value="NHibernate.Connection.DriverConnectionProvider"/>
-        <entry key="hibernate.dialect" value="NHibernate.Dialect.MsSql2008Dialect"/>
+        <entry key="hibernate.dialect" value="NHibernate.Dialect.MsSql2012Dialect"/>
         <entry key="hibernate.connection.driver_class" value="NHibernate.Driver.SqlClientDriver"/>
+								
+								<entry key="cache.use_second_level_cache" value="true" />
+								<entry key="cache.provider_class" value="NHibernate.Cache.HashtableCacheProvider,NHibernate" />
+								<entry key="max_fetch_depth" value="0" />
       </dictionary>
     </property>
     
@@ -50,15 +54,32 @@
 
   <!-- Exception translation object post processor -->
   <object type="Spring.Dao.Attributes.PersistenceExceptionTranslationPostProcessor, Spring.Data"/>
-  
-  <!-- Data Access Objects -->
-  <object id="materialDao" type="WMS.Dao.MaterialDao, WMS.Dao">
-    <property name="SessionFactory" ref="NHibernateSessionFactory"/>
-  </object>
 
-  <object id="localidadDao" type="WMS.Dao.LocationDao, WMS.Dao">
-    <property name="SessionFactory" ref="NHibernateSessionFactory"/>
-  </object>
+		<!-- Data Access Objects -->
+		<object id="dataAccessBase"  singleton="true">
+				<property name="SessionFactory" ref="NHibernateSessionFactory"/>
+		</object>
+
+		<object id="materialDao" type="WMS.Dao.MaterialDao, WMS.Dao" parent="dataAccessBase">
+		</object>
+
+		<object id="localidadDao" type="WMS.Dao.LocationDao, WMS.Dao" parent="dataAccessBase">
+		</object>
+
+		<object id="accessTokenDao" type="WMS.Dao.AccessTokenDao, WMS.Dao" parent="dataAccessBase">
+		</object>
+
+		<object id="authorizationCodeDao" type="WMS.Dao.AuthorizationCodeDao, WMS.Dao" parent="dataAccessBase">
+		</object>
+
+		<object id="clientDao" type="WMS.Dao.ClientDao, WMS.Dao" parent="dataAccessBase">
+		</object>
+
+		<object id="userDao" type="WMS.Dao.UserDao, WMS.Dao" parent="dataAccessBase">
+		</object>
+
+		<object id="userProfileDao" type="WMS.Dao.UserProfileDao, WMS.Dao" parent="dataAccessBase">
+		</object>
 
 
 </objects>

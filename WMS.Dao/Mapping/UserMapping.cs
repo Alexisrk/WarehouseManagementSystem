@@ -14,7 +14,7 @@ namespace WMS.Dao.Mapping
 
         public void Override(AutoMapping<User> mapping)
         {
-            mapping.Id(x => x.Id).GeneratedBy.Assigned();
+            mapping.Id(x => x.Id).GeneratedBy.Increment();
         }
 
     }

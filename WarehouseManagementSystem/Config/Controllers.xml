@@ -7,6 +7,4 @@
   </object>
   <object id="AccountController" type="WarehouseManagementSystem.Controllers.AccountController, WarehouseManagementSystem" singleton="false" >
   </object>
-  <object id="ValuesController" type="WarehouseManagementSystem.Controllers.ValuesController, WarehouseManagementSystem" singleton="false" >
-  </object>
 </objects>

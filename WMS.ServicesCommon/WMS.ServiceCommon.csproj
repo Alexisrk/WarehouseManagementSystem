@@ -39,7 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contracts\IAuthorizationCodeService.cs" />
+    <Compile Include="Contracts\ISecurityService.cs" />
     <Compile Include="Contracts\IClientService.cs" />
     <Compile Include="Contracts\IUserService.cs" />
     <Compile Include="Contracts\IAccessTokenService.cs" />

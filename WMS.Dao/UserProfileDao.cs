@@ -6,8 +6,8 @@ using WMS.ServiceCommon.Dao;
 
 namespace WMS.Dao
 {
-    [Repository]
-    public class UserProfileDao : BaseDao<UserProfile>, IUserProfileDao
+		[Repository]
+		public class UserProfileDao : BaseDao<UserProfile>, IUserProfileDao
 		{
-    }
+		}
 }

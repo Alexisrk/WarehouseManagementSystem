@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace ServiceTest
 {
-    public interface IBasicService
-    {
-        string GetMessage();
-    }
+		public interface IBasicService
+		{
+				string GetMessage();
+
+				void TestWritteReadEntitiesFromDB();
+		}
 }

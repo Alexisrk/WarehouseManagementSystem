@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[AccessToken]
 (
-				[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY,
+				[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY CLUSTERED DEFAULT newsequentialid(),
 				[IdUser] INT NULL, 
     [IdClient] NVARCHAR(255) NULL, 
     [Token] NVARCHAR(255) NULL, 

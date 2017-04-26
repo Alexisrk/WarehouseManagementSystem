@@ -13,8 +13,8 @@ namespace WMS.ServiceCommon.Dao
 		}
 
 		public interface IDao<TEntity, TId>
-    {
-        TEntity Get(TId id);
+  {
+    TEntity Get(TId id);
 
 				TEntity Get(Expression<Func<TEntity, bool>> condition);
 
@@ -23,5 +23,9 @@ namespace WMS.ServiceCommon.Dao
 				void Save(TEntity entity);
 
 				void Update(TEntity entity);
+
+				void SaveOrUpdate(TEntity entity);
+
+				void Delete(TEntity entity);
 		}
 }

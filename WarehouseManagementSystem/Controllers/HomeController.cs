@@ -1,4 +1,5 @@
-﻿using ServiceTest;
+﻿using log4net;
+using ServiceTest;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -17,6 +18,8 @@ namespace WarehouseManagementSystem.Controllers
 {
 		public class HomeController : Controller
 		{
+				private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
 				public IBasicService Service { get; set; }
 
 				public IMaterialService MaterialService { get; set; }
@@ -25,6 +28,7 @@ namespace WarehouseManagementSystem.Controllers
 
 				public ActionResult Index()
 				{
+						Service.TestWritteReadEntitiesFromDB();
 						//var list = LocationService.GetAllLocations();
 
 						//ViewBag.Title = Service.GetMessage();
@@ -50,14 +54,14 @@ namespace WarehouseManagementSystem.Controllers
 
 								if (!string.IsNullOrEmpty(result.error))
 								{
-												return Json(result, JsonRequestBehavior.AllowGet);
+										return Json(result, JsonRequestBehavior.AllowGet);
 								}
 
 								var resultRefresh = RequestAccessToken(result.refresh_token, returnPath, true);
 
 								if (!string.IsNullOrEmpty(resultRefresh.error))
 								{
-												return Json(result, JsonRequestBehavior.AllowGet);
+										return Json(result, JsonRequestBehavior.AllowGet);
 								}
 
 								var data = CallApi(resultRefresh.access_token);
@@ -66,9 +70,10 @@ namespace WarehouseManagementSystem.Controllers
 						}
 						catch (Exception e)
 						{
-										return View();
+								log.Error("Error trying to connect", e);
+								return Json(e.Message, JsonRequestBehavior.AllowGet);
 						}
-}
+				}
 
 
 				public static ClientAccessToken RequestAccessToken(string code, string rUri, bool refresh_token = false)
@@ -130,22 +135,23 @@ namespace WarehouseManagementSystem.Controllers
 				[HttpPost]
 				public ActionResult Index(string something)
 				{
-								try
-								{
-												// TODO: Add insert logic here
-												var urlHelper = new UrlHelper(Request.RequestContext);
-												var server = string.Format("{0}://{1}{2}", Request.Url.Scheme, Request.Url.Authority, urlHelper.Content("~"));
-												var returnPath = string.Format("{0}{1}", server, "Home/Connect");
-												var redirectUrl = string.Format("http://localhost:6699/oauth2/authorize?client_id={0}&redirect_uri={1}&state=optional-csrf-token&response_type=code"
-																, urlHelper.Encode("bXljbGllbnRpZA==")
-																, urlHelper.Encode(returnPath));
+						try
+						{
+								// TODO: Add insert logic here
+								var urlHelper = new UrlHelper(Request.RequestContext);
+								var server = string.Format("{0}://{1}{2}", Request.Url.Scheme, Request.Url.Authority, urlHelper.Content("~"));
+								var returnPath = string.Format("{0}{1}", server, "Home/Connect");
+								var redirectUrl = string.Format("http://localhost:6699/oauth2/authorize?client_id={0}&redirect_uri={1}&state=optional-csrf-token&response_type=code"
+												, urlHelper.Encode("bXljbGllbnRpZA==")
+												, urlHelper.Encode(returnPath));
 
-												return Redirect(redirectUrl);
-								}
-								catch
-								{
-												return View();
-								}
+								return Redirect(redirectUrl);
+						}
+						catch (Exception e)
+						{
+								log.Error("Error calling the index", e);
+								throw;
+						}
 				}
-				}
+		}
 }

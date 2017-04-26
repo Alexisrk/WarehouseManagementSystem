@@ -81,6 +81,8 @@
     <Compile Include="Config\FluentNhibernateLocalSessionFactoryObject.cs" />
     <Compile Include="LocationDao.cs" />
     <Compile Include="Exceptions\NoActiveTransactionException.cs" />
+    <Compile Include="Mapping\Conventions\EnumConvention.cs" />
+    <Compile Include="Mapping\Conventions\ForeignKeyNameConvention.cs" />
     <Compile Include="Mapping\UserProfileMapping.cs" />
     <Compile Include="Mapping\UserMapping.cs" />
     <Compile Include="Mapping\ClientMapping.cs" />

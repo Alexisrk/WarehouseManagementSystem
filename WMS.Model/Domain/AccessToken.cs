@@ -9,8 +9,8 @@ namespace WMS.Model.Domain
 		public class AccessToken
 		{
 				public virtual Guid Id { get; set; }
-				public virtual int IdUser { get; set; }
-				public virtual string IdClient { get; set; }
+				public virtual User User { get; set; }
+				public virtual Client Client { get; set; }
 				public virtual string Token { get; set; }
 				public virtual string Type { get; set; }
 				public virtual DateTime Expiration { get; set; }

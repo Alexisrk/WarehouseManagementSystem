@@ -266,12 +266,12 @@ namespace WMS.AuthorizationServer.Controllers
 
 						if (ModelState.IsValid)
 						{
-								UserProfile user = userProfileDao.Get(u => u.UserName.ToLower() == model.UserName.ToLower());
+								UserProfile user = userProfileDao.Get(u => u.Name.ToLower() == model.UserName.ToLower());
 								if (user == null)
 								{
 										// Insert name into the profile table
-										userProfileDao.Save(new UserProfile { UserName = model.UserName });
-										
+										userProfileDao.Save(new UserProfile { Name = model.UserName });
+
 
 										OAuthWebSecurity.CreateOrUpdateAccount(provider, providerUserId, model.UserName);
 										OAuthWebSecurity.Login(provider, providerUserId, createPersistentCookie: false);

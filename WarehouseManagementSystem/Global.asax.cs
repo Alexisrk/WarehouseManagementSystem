@@ -15,73 +15,73 @@ using WarehouseManagementSystem;
 
 namespace WarehouseManagementSystem
 {
-  public class WebApiApplication : SpringMvcApplication
-  {
-    private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+		public class WebApiApplication : SpringMvcApplication
+		{
+				private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-    protected void Application_Start()
-    {
-      log.Debug("Initializing program... ");
+				protected void Application_Start()
+				{
+						log.Debug("Initializing program... ");
 
-      XmlConfigurator.ConfigureAndWatch(new System.IO.FileInfo(AppDomain.CurrentDomain.BaseDirectory + "Logging.config"));
+						XmlConfigurator.ConfigureAndWatch(new System.IO.FileInfo(AppDomain.CurrentDomain.BaseDirectory + "Logging.config"));
 
-      if (!LogManager.GetRepository().Configured)
-        throw new Exception("log4net should has been configured.");
+						if (!LogManager.GetRepository().Configured)
+								throw new Exception("log4net should has been configured.");
 
 
-      //config.DependencyResolver = new Spring.Web.Mvc.SpringWebApiDependencyResolver(ContextRegistry.GetContext());
+						//config.DependencyResolver = new Spring.Web.Mvc.SpringWebApiDependencyResolver(ContextRegistry.GetContext());
 
-      AreaRegistration.RegisterAllAreas();
-      GlobalConfiguration.Configure(WebApiConfig.Register);
-      FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-      RouteConfig.RegisterRoutes(RouteTable.Routes);
-      BundleConfig.RegisterBundles(BundleTable.Bundles);
-      
-      //RegisterGlobalFilters(GlobalFilters.Filters);
-      //RouteConfig.RegisterRoutes(RouteTable.Routes);
-      //BundleConfig.RegisterBundles(BundleTable.Bundles);
+						AreaRegistration.RegisterAllAreas();
+						GlobalConfiguration.Configure(WebApiConfig.Register);
+						FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+						RouteConfig.RegisterRoutes(RouteTable.Routes);
+						BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-      //WebApiConfig.Register(GlobalConfiguration.Configuration);
-      //FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-      AuthConfig.RegisterAuth();
+						//RegisterGlobalFilters(GlobalFilters.Filters);
+						//RouteConfig.RegisterRoutes(RouteTable.Routes);
+						//BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-      log.Debug("Calling start page");
-    }
+						//WebApiConfig.Register(GlobalConfiguration.Configuration);
+						//FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+						AuthConfig.RegisterAuth();
 
-    //protected override System.Web.Http.Dependencies.IDependencyResolver BuildWebApiDependencyResolver()
-    //{
-    //  var resolver = base.BuildWebApiDependencyResolver();
+						log.Debug("Calling start page");
+				}
 
-    //  var springResolver = resolver as SpringWebApiDependencyResolver;
+				//protected override System.Web.Http.Dependencies.IDependencyResolver BuildWebApiDependencyResolver()
+				//{
+				//  var resolver = base.BuildWebApiDependencyResolver();
 
-    //  //if it is, add additional config sources as needed
-    //  if (springResolver != null)
-    //  {
-    //    springResolver.AddChildApplicationContextConfigurationLocation("file://~/Config/ChildControllers.xml");
-    //  }
+				//  var springResolver = resolver as SpringWebApiDependencyResolver;
 
-    //  return resolver;
-    //}
-	
-       
-	public static void RegisterGlobalFilters(GlobalFilterCollection filters)
-    {
-      filters.Add(new HandleErrorAttribute());
-    }
+				//  //if it is, add additional config sources as needed
+				//  if (springResolver != null)
+				//  {
+				//    springResolver.AddChildApplicationContextConfigurationLocation("file://~/Config/ChildControllers.xml");
+				//  }
 
-    protected void Application_Error(object sender, EventArgs args)
-    {
-      Exception ex = Server.GetLastError();
-      log.Error("webapp", ex);
-		//  if (ex is HttpException)
-		//  {
-		//    Response.Redirect("~/Account/Error/" + ((HttpException)ex).GetHttpCode());
-		//  }
-		//  else
-		//  {
-		//    Response.Redirect("~/Account/Error");
-		//  }
-    }
+				//  return resolver;
+				//}
 
-  }
+
+				public static void RegisterGlobalFilters(GlobalFilterCollection filters)
+				{
+						filters.Add(new HandleErrorAttribute());
+				}
+
+				protected void Application_Error(object sender, EventArgs args)
+				{
+						Exception ex = Server.GetLastError();
+						log.Error("webapp", ex);
+						//  if (ex is HttpException)
+						//  {
+						//    Response.Redirect("~/Account/Error/" + ((HttpException)ex).GetHttpCode());
+						//  }
+						//  else
+						//  {
+						//    Response.Redirect("~/Account/Error");
+						//  }
+				}
+
+		}
 }

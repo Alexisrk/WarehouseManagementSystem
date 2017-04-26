@@ -9,13 +9,13 @@ using WMS.Model.Domain;
 
 namespace WMS.Dao.Mapping
 {
-    public class AccessTokenMappingOverride : IAutoMappingOverride<AccessToken>
-    {
+		public class AccessTokenMappingOverride : IAutoMappingOverride<AccessToken>
+		{
 
-        public void Override(AutoMapping<AccessToken> mapping)
-        {
-            mapping.Id(x => x.Id).GeneratedBy.Assigned();
-        }
+				public void Override(AutoMapping<AccessToken> mapping)
+				{
+						mapping.Id(x => x.Id).GeneratedBy.Guid();
+				}
 
-    }
+		}
 }

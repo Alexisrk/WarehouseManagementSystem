@@ -10,5 +10,6 @@ namespace WMS.ServiceCommon.Contracts
 				AccessToken GetAccessToken(string token);
 				AccessToken GetRefreshToken(string refresh_token);
 				void SaveAccessToken(AccessToken accessToken);
+				AccessToken CreateAccessToken(Client client, int iduser, string code, bool refreshToken);
 		}
 }
