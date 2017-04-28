@@ -28,7 +28,7 @@ namespace WarehouseManagementSystem.Controllers
 
 				public ActionResult Index()
 				{
-						Service.TestWritteReadEntitiesFromDB();
+						//Service.TestWritteReadEntitiesFromDB();
 						//var list = LocationService.GetAllLocations();
 
 						//ViewBag.Title = Service.GetMessage();
@@ -110,23 +110,32 @@ namespace WarehouseManagementSystem.Controllers
 
 				public static string CallApi(string accessToken)
 				{
-						var client = new HttpClient();
-						client.BaseAddress = new Uri("http://localhost:6699/api/");
-
-						// Add an Accept header for JSON format.
-						client.DefaultRequestHeaders.Accept.Add(
-								new MediaTypeWithQualityHeaderValue("application/json"));
-
-						HttpResponseMessage response = client.GetAsync(string.Format("values/who_am_i?access_token={0}", HttpUtility.UrlEncode(accessToken))).Result;
-						if (response.IsSuccessStatusCode)
+						try
 						{
-								// Parse the response body. Blocking!
-								return response.Content.ReadAsStringAsync().Result;
+								var client = new HttpClient();
+								client.BaseAddress = new Uri("http://localhost:6699/api/");
+
+								// Add an Accept header for JSON format.
+								client.DefaultRequestHeaders.Accept.Add(
+										new MediaTypeWithQualityHeaderValue("application/json"));
+
+								HttpResponseMessage response = client.GetAsync(string.Format("values/who_am_i?access_token={0}", HttpUtility.UrlEncode(accessToken))).Result;
+								if (response.IsSuccessStatusCode)
+								{
+										// Parse the response body. Blocking!
+										return response.Content.ReadAsStringAsync().Result;
+								}
+								else
+								{
+										return response.RequestMessage.ToString();
+								}
 						}
-						else
+						catch (Exception e)
 						{
-								return string.Empty;
+								log.Error(e);
+								return e.Message;
 						}
+						
 				}
 
 

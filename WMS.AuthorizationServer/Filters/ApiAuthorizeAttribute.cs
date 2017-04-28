@@ -11,6 +11,7 @@ using System.Net.Http;
 using System.Net;
 using WMS.ServiceCommon.Contracts;
 using log4net;
+using Spring.Context.Support;
 
 namespace WMS.AuthorizationServer.Filters
 {
@@ -25,12 +26,21 @@ namespace WMS.AuthorizationServer.Filters
 				public ApiAuthorizeAttribute(bool perUser = true)
 				{
 						this.perUser = perUser;
+
+						if (ContextRegistry.IsContextRegistered("spring.root"))
+						{
+								this.securityService = (ISecurityService)ContextRegistry.GetContext().GetObject("securityService");
+								this.userService = (IUserService)ContextRegistry.GetContext().GetObject("userService");
+						}
 				}
 
 				public override void OnAuthorization(System.Web.Http.Controllers.HttpActionContext actionContext)
 				{
 						try
 						{
+								// Will return un-advised instance of proxy object
+								//ISecurityService securityService = (ISecurityService)actionContext.ControllerContext.GetObject("securityService");
+
 								const string TOKENNAME = "access_token";
 
 								var query = HttpUtility.ParseQueryString(actionContext.Request.RequestUri.Query);
