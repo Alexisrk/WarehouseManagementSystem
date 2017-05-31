@@ -8,34 +8,53 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        @*<footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>*@
-    </div>
+		<!--Header refer to current data-->
+		<header>
+				<span style="font-size:30px;cursor:pointer" onmouseover="openNav()">&#9776;</span>
+				<!-- Render() llamar al get token y obtener el nombre de usuario, entonces mostrarlo en pantalla-->
+				
+								
+				<!--Nav is the menu-->
+				<!-- Render()llamar a cargar la grilla con authorización, esto debería disparar el login-->
+				<nav id="menu"  onmouseover="openNav()"  onm="closeNav()">
+						<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+						<a href="#">About</a>
+						<a href="#">Services</a>
+						<a href="#">Clients</a>
+						<a href="#">Contact</a>
+				</nav>
+		</header>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+		<!--Nav is the menu-->
+		<article>
+				<section>
+						<!--Set partial view based on menu click-->
+				</section>
+		</article>
+
+		<!--Chat menu-->
+		<aside>
+
+
+		</aside>
+
+		<!--Chat menu-->
+		<footer>
+
+		</footer>
+
+		<script>
+				function openNav() {
+						document.getElementById("menu").style.width = "250px";
+				}
+
+				function closeNav() {
+						document.getElementById("menu").style.width = "0";
+				}
+		</script>
+
+		@Scripts.Render("~/bundles/jquery")
+		@Scripts.Render("~/bundles/bootstrap")
+		@RenderSection("scripts", required: false)
 </body>
 </html>

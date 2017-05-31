@@ -422,13 +422,13 @@
       <Project>{03401837-aaff-47ba-b5ff-37c6fabb0e26}</Project>
       <Name>WMS.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WMS.SecurityManagement\WMS.SecurityManagement.csproj">
+      <Project>{971d1f8d-fd63-42e6-98b6-6837679fb562}</Project>
+      <Name>WMS.SecurityManagement</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WMS.ServicesCommon\WMS.ServiceCommon.csproj">
       <Project>{05184cc3-0391-4cbc-ac3f-cda0d6596b06}</Project>
       <Name>WMS.ServiceCommon</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WMS.UserManagement\WMS.UserManagement.csproj">
-      <Project>{971d1f8d-fd63-42e6-98b6-6837679fb562}</Project>
-      <Name>WMS.UserManagement</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

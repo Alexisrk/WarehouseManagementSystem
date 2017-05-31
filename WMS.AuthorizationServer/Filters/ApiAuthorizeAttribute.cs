@@ -39,8 +39,6 @@ namespace WMS.AuthorizationServer.Filters
 						try
 						{
 								// Will return un-advised instance of proxy object
-								//ISecurityService securityService = (ISecurityService)actionContext.ControllerContext.GetObject("securityService");
-
 								const string TOKENNAME = "access_token";
 
 								var query = HttpUtility.ParseQueryString(actionContext.Request.RequestUri.Query);

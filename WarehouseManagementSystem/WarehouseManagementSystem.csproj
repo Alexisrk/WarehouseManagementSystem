@@ -298,6 +298,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Filters\ApiAuthorizeAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -436,6 +437,7 @@
     <Content Include="Content\Icons\64px\020-building.png" />
     <Content Include="Content\Icons\64px\021-transport.png" />
     <Content Include="Content\Icons\64px\022-construction.png" />
+    <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -558,7 +560,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\SiteOld.css" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -568,6 +570,7 @@
     <Content Include="Scripts\SelfGenerated\app.component.js.map" />
     <Content Include="Scripts\SelfGenerated\app.module.js.map" />
     <Content Include="Scripts\SelfGenerated\main.js.map" />
+    <Content Include="Views\Shared\_OldLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -616,6 +619,10 @@
     <ProjectReference Include="..\WMS.Model\WMS.Model.csproj">
       <Project>{03401837-aaff-47ba-b5ff-37c6fabb0e26}</Project>
       <Name>WMS.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WMS.SecurityManagement\WMS.SecurityManagement.csproj">
+      <Project>{971d1f8d-fd63-42e6-98b6-6837679fb562}</Project>
+      <Name>WMS.SecurityManagement</Name>
     </ProjectReference>
     <ProjectReference Include="..\WMS.ServicesCommon\WMS.ServiceCommon.csproj">
       <Project>{05184cc3-0391-4cbc-ac3f-cda0d6596b06}</Project>
