@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>@ViewBag.Title</title>
+
+		@Styles.Render("~/Content/css")
+		@Scripts.Render("~/bundles/modernizr")
+		<!-- Bootstrap -->
+		<!--<link href="css/bootstrap.css" rel="stylesheet">-->
+		<!--<link href="Layout.css" rel="stylesheet">-->
+		<!-- icons: http://getbootstrap.com/components/#glyphicons-->
+		<!-- icons: http://fontawesome.io/icons/-->
+</head>
+<body>
+		<header>
+				<!-- Title -->
+				<nav class="navbar navbar-fixed-top" id="header">
+						<div class="container-fluid">
+								<div class="nav navbar-header">
+										<a class="menuTitle hidden-sm hidden-md hidden-lg" href="#">WMS</a>
+										<a class="menuTitle hidden-xs" href="#">Warehouse Management System</a>
+										<button data-toggle="collapse" data-target="#menu" id="menuButton">
+												<i class="glyphicon glyphicon-menu-hamburger"></i>
+										</button>
+								</div>
+								<div class="navbar-right hidden-xs">
+										<a href="#" id="headerSignUp"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+										<a href="#" id="headerLogin"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+								</div>
+						</div>
+				</nav>
+
+				<!-- Menu -->
+				<div class="navbar navbar-left navbar-fixed-top col-xs-6 collapse" id="menu" onmouseleave="closeMenu()">
+						<div class="visible-xs text-center">
+								<a><p><i class="glyphicon glyphicon-user" id="menuIconUser"></i></p>User</a>
+						</div>
+						<ul class="list-unstyled nav">
+								<li><a href="#"><p><i class="fa fa-truck" aria-hidden="true"></i></p>Material In Location</a></li>
+								<li><a href="#">Material Definition</a></li>
+								<li><a href="#">Material Lock</a></li>
+								<li><a href="#">Stock</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#">Material Rules</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#">Users</a></li>
+						</ul>
+				</div>
+
+		</header>
+
+		<article id="mainScreenPartialContainer">
+
+				<div class="container-fluid">
+						<!-- INSERT PARTIAL VIEW -->
+						<span>--------------------- PARTIAL VIEW --------------------- </span>
+				</div>
+		</article>
+
+		<div class="collapse hidden-xs" id="chatContainer">
+				<!-- CREATE CHAT ASSISTANT -->
+				<div id="chatTitle">
+						<b>Chat Assistant</b>
+						<button data-toggle="collapse" data-target="#chatContainer" id="chatCloseButtom">
+								<i class="glyphicon glyphicon-minus"></i>
+						</button>
+				</div>
+				<div>
+						<p>Assistant: Welcome. What can I do for you?</p>
+				</div>
+				<input type="text" name="firstname" value="Writte question">
+		</div>
+
+		<footer id="footerPanel" class="container-fluid hidden-xs">
+				<p id="notificationPanel">Notification Panel</p>
+				<span id="eventManagerButtons">
+						<button data-toggle="collapse" data-target="#notificationPanelEvents" onClick="closeNotificationPanel()">
+								<i class="glyphicon glyphicon-option-horizontal"></i>
+						</button>
+						<button data-toggle="collapse" data-target="#chatContainer">
+								<i class="glyphicon glyphicon-comment"></i>
+						</button>
+				</span>
+				<div id="notificationPanelEvents" class="collapse">
+						<ul>
+								<li><p class="glyphicon glyphicon-th notification-debug"> The Material: 3324242 was moved from AREA1 to AREA2</p></li>
+								<li><p class="glyphicon glyphicon-check notification-info"> New material 3520006 was arrived</p></li>
+								<li><p class="glyphicon glyphicon-user notification-debug"> The user Guest was loged on Station1</p></li>
+								<li><p class="glyphicon glyphicon-send notification-warn"> Sending QA request</p></li>
+								<li><p class="glyphicon glyphicon-th notification-error"> Error the material doesn't exist</p></li>
+								<li><p class="glyphicon glyphicon-check notification-info"> New material 3520005 was arrived</p></li>
+								<li><p class="glyphicon glyphicon-check notification-info"> New material 3520004 was arrived</p></li>
+								<li><p class="glyphicon glyphicon-check notification-info"> New material 3520003 was arrived</p></li>
+								<li><p class="glyphicon glyphicon-check notification-info"> New material 3520002 was arrived</p></li>
+						</ul>
+				</div>
+		</footer>
+
+		@Scripts.Render("~/bundles/jquery")
+		@Scripts.Render("~/bundles/bootstrap")
+				
+		<script type="text/javascript">
+				function closeMenu() {
+						$("#menu").collapse('toggle');
+				}
+
+				function closeNotificationPanel() {
+						var heightCollapsed = '32px';
+						var heightUnCollapsed = '132px';
+
+						var footer = document.getElementById("footerPanel");
+						var notificationPanel = document.getElementById("notificationPanelEvents");
+
+						var chatBottomCollapsed = '34px';
+						var chatBottomUnCollapsed = '134px';
+
+						var chat = document.getElementById("chatContainer");
+
+						if (footer.style.height == '' || footer.style.height == heightCollapsed) {
+								footer.style.height = heightUnCollapsed;
+								chat.style.bottom = chatBottomUnCollapsed;
+						}
+						else {
+								footer.style.height = heightCollapsed;
+								chat.style.bottom = chatBottomCollapsed;
+						}
+
+				}
+		</script>
+
+		@RenderSection("scripts", required: false)
+</body>
+</html>

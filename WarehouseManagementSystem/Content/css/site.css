@@ -3,7 +3,7 @@
 }
 
 body{
-	padding-top: 13px; 
+	padding-top: 32px; 
 }
 a {
 	color:#99998B;
@@ -31,9 +31,9 @@ a:hover, a:focus {
     border: 1px solid transparent;
 }
 
-#header
-{
-	position: fixed;
+#header {
+		position: fixed;
+		background-color: #222222;
 }
 
 .menuTitle
@@ -62,7 +62,7 @@ a:hover, a:focus {
 	background-color: #222222;
 	min-width:200px;
 	max-width:320px;
-	margin-top: 15px;
+	margin-top: 0px;
 }
 
 #menuButton:hover, #menuButton:focus {
