@@ -41,9 +41,18 @@ a:hover, a:focus {
     position: absolute;
     width: 100%;
     left: 0;
-	font-size: 18px;
+				font-size: 18px;
     text-align: center;
     margin:0 auto;
+}
+
+#mainScreen {
+		background-image: url('../../../Content/Images/MainBackground2BW.jpg');
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-size: cover;
+		background-position: center center;
+		height: 100%;
 }
 
 .menuTitle:hover, .menuTitle:focus{

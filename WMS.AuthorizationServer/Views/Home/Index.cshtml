@@ -1,4 +1,7 @@
-﻿<div class="jumbotron">
+﻿@*<div class="jumbotron">
     <h1>Authorization Server</h1>
     <input class="btn btn-primary btn-lg" type="button" value="Log in" onclick="location.href='/Account/Login'" />
-</div>
+</div>*@
+@{ 
+		Response.Redirect("~/Account/Login");
+	}
