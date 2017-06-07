@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Web;
 using System.Web.Mvc;
+using WarehouseManagementSystem.Filters;
 using WarehouseManagementSystem.Models;
 using WMS.Model.Domain;
 using WMS.Model.Model;
@@ -16,6 +17,7 @@ using WMS.ServiceCommon.Contracts;
 
 namespace WarehouseManagementSystem.Controllers
 {
+		[Authorize]
 		public class HomeController : Controller
 		{
 				private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);

@@ -11,4 +11,12 @@
   <object name="materialService" type="WMS.MaterialManagement.MaterialService, WMS.Material">
     <property name="MaterialDao" ref="materialDao"/>
   </object>
+		<object name="userService" type="WMS.SecurityManagement.UserService, WMS.SecurityManagement">
+				<property name="userDao" ref="userDao"/>
+		</object>
+		<object name="securityService" type="WMS.SecurityManagement.SecurityService, WMS.SecurityManagement">
+				<property name="authorizationCodeDao" ref="authorizationCodeDao"/>
+				<property name="accessTokenDao" ref="accessTokenDao"/>
+				<property name="userDao" ref="userDao"/>
+		</object>
 </objects>

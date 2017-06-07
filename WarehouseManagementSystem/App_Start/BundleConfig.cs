@@ -30,10 +30,14 @@ namespace WarehouseManagementSystem
                 "~/Scripts/respond.js"));
 
       bundles.Add(new StyleBundle("~/Content/css").Include(
-                "~/Content/css/bootstrap*",
-                "~/Content/css/site.css"));
+																"~/Content/css/bootstrap*",
+																"~/Content/css/site.css"));
 
-				  bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
+						bundles.Add(new StyleBundle("~/Content/Login").Include(
+																"~/Content/css/bootstrap*",
+																"~/Content/css/Login.css"));
+
+						bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
 																"~/Content/themes/base/jquery.ui.core.css",
 																"~/Content/themes/base/jquery.ui.resizable.css",
 																"~/Content/themes/base/jquery.ui.selectable.css",

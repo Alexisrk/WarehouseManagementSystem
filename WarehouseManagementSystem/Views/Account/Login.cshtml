@@ -1,0 +1,28 @@
+﻿@model WarehouseManagementSystem.Models.LoginModel
+@{
+    ViewBag.Title = "Log in";
+}
+
+		<hgroup>
+				<h1><i class="fa fa-truck" aria-hidden="true"></i>WMS</h1>
+		</hgroup>
+		<section id="loginForm">
+				@using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+				{
+						@Html.AntiForgeryToken()
+						@Html.ValidationSummary(true)
+
+						<fieldset>
+								@Html.ValidationMessageFor(m => m.UserName)
+								@Html.TextBoxFor(m => m.UserName, new { placeholder = "UserName: user" })
+
+								@Html.ValidationMessageFor(m => m.Password)
+								@Html.PasswordFor(m => m.Password, new { placeholder = "Password: user" })
+								<input id="LoginButton" type="submit" value="Log in" />
+						</fieldset>
+				}
+		</section>
+
+@section Scripts {
+  @Scripts.Render("~/bundles/jqueryval")
+}

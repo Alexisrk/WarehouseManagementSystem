@@ -6,7 +6,19 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>@ViewBag.Title</title>
 
-		@Styles.Render("~/Content/css")
+		@if (Request.IsAuthenticated)
+		{
+				@Styles.Render("~/Content/css")
+		}
+		else
+		{
+				@Styles.Render("~/Content/Login")
+
+				<meta name="viewport" content="width=device-width" />
+				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		}
+
+		
 		@Scripts.Render("~/bundles/modernizr")
 		<!-- Bootstrap -->
 		<!--<link href="css/bootstrap.css" rel="stylesheet">-->
@@ -15,6 +27,9 @@
 		<!-- icons: http://fontawesome.io/icons/ -->
 </head>
 <body>
+		@if (Request.IsAuthenticated)
+		{
+
 		<header>
 				<!-- Title -->
 				<nav class="navbar navbar-fixed-top" id="header">
@@ -101,9 +116,19 @@
 				</div>
 		</footer>
 
+		}
+		else
+		{
+						<div id="body">
+								<section class="loginPanel row col-xs-2 col-xs-offset-2 col-sm-offset-4 col-lg-offset-5">
+										@RenderBody()
+								</section>
+						</div>								
+		}
+
 		@Scripts.Render("~/bundles/jquery")
 		@Scripts.Render("~/bundles/bootstrap")
-				
+
 		<script type="text/javascript">
 				function closeMenu() {
 						$("#menu").collapse('toggle');

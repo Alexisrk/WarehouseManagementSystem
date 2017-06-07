@@ -9,15 +9,14 @@ namespace WarehouseManagementSystem.Controllers
 {
 
 		[Authorize]
-		[RoutePrefix("api/Values")]
-		public class ValuesController : ApiController
-		{
-				// GET api/values
+		[Route("api/test")]
+		public class TestController : ApiController
+  {
+				// GET api/test
 				public List<string> Get()
 				{
 						return new List<string>()
-												{ "Aplication", "access", "succesfully" };
+												{ "Test", "Authorization", "Succesfully" };
 				}
-
 		}
 }

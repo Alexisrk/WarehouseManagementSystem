@@ -6,5 +6,6 @@
     <property name="LocationService" ref="locationService"></property>
   </object>
   <object id="AccountController" type="WarehouseManagementSystem.Controllers.AccountController, WarehouseManagementSystem" singleton="false" >
-  </object>
+				<property name="UserDao" ref="userDao"></property>
+		</object>
 </objects>

@@ -12,6 +12,7 @@ using log4net.Config;
 using Spring.Context;
 using Spring.Context.Support;
 using WarehouseManagementSystem;
+using System.Web.Security;
 
 namespace WarehouseManagementSystem
 {
@@ -27,24 +28,13 @@ namespace WarehouseManagementSystem
 
 						if (!LogManager.GetRepository().Configured)
 								throw new Exception("log4net should has been configured.");
-
-
-						//config.DependencyResolver = new Spring.Web.Mvc.SpringWebApiDependencyResolver(ContextRegistry.GetContext());
-
+						
 						AreaRegistration.RegisterAllAreas();
 						GlobalConfiguration.Configure(WebApiConfig.Register);
 						FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 						RouteConfig.RegisterRoutes(RouteTable.Routes);
 						BundleConfig.RegisterBundles(BundleTable.Bundles);
-
-						//RegisterGlobalFilters(GlobalFilters.Filters);
-						//RouteConfig.RegisterRoutes(RouteTable.Routes);
-						//BundleConfig.RegisterBundles(BundleTable.Bundles);
-
-						//WebApiConfig.Register(GlobalConfiguration.Configuration);
-						//FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-						AuthConfig.RegisterAuth();
-
+						
 						log.Debug("Calling start page");
 				}
 
@@ -81,6 +71,29 @@ namespace WarehouseManagementSystem
 						//  {
 						//    Response.Redirect("~/Account/Error");
 						//  }
+				}
+
+				protected void Application_EndRequest(Object sender, EventArgs e)
+				{
+						if (HttpContext.Current.Response.Status.StartsWith("401"))
+						{
+								HttpContext.Current.Response.ClearContent();
+								Response.Redirect("~/Account/Login");
+						}
+				}
+
+				protected void Application_PostAuthenticateRequest(Object sender, EventArgs e)
+				{
+						var authCookie = HttpContext.Current.Request.Cookies[FormsAuthentication.FormsCookieName];
+						if (authCookie != null)
+						{
+								FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(authCookie.Value);
+								if (authTicket != null && !authTicket.Expired)
+								{
+										var roles = authTicket.UserData.Split(',');
+										HttpContext.Current.User = new System.Security.Principal.GenericPrincipal(new FormsIdentity(authTicket), roles);
+								}
+						}
 				}
 
 		}
