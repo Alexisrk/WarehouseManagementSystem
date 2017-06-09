@@ -14,11 +14,7 @@ namespace ServiceTest
 		{
 				private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-				IClientDao clientDao;
-				
-				IAuthorizationCodeDao authorizationCodeDao;
 
-				IAccessTokenDao accessTokenDao;
 
 				public string GetMessage()
 				{

@@ -42,8 +42,8 @@
 										</button>
 								</div>
 								<div class="navbar-right hidden-xs">
-										<a href="#" id="headerSignUp"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
-										<a href="#" id="headerLogin"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+										<a href="#" id="headerSignUp"><span class="glyphicon glyphicon-user"></span> @Request.UserHostName </a>
+										<a href="/Account/LogOff" id="headerLogin"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
 								</div>
 						</div>
 				</nav>
@@ -54,6 +54,9 @@
 								<a><p><i class="glyphicon glyphicon-user" id="menuIconUser"></i></p>User</a>
 						</div>
 						<ul class="list-unstyled nav">
+								
+								@*@foreach (var menuItem in GetMenuTree())
+								{ }*@
 								<li><a href="#"><p><i class="fa fa-truck" aria-hidden="true"></i></p>Material In Location</a></li>
 								<li><a href="#">Material Definition</a></li>
 								<li><a href="#">Material Lock</a></li>

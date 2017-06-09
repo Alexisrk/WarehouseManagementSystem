@@ -9,13 +9,13 @@ using WMS.Model.Domain;
 
 namespace WMS.Dao.Mapping
 {
-    public class UserProfilerMappingOverride : IAutoMappingOverride<UserProfile>
-    {
+		public class UserProfilerMappingOverride : IAutoMappingOverride<UserProfile>
+		{
 
-        public void Override(AutoMapping<UserProfile> mapping)
-        {
-            mapping.Id(x => x.Id).GeneratedBy.Assigned();
-        }
+				public void Override(AutoMapping<UserProfile> mapping)
+				{
+						mapping.Id(x => x.Id).GeneratedBy.Assigned();
+				}
 
-    }
+		}
 }

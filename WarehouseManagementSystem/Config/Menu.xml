@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Menu>
+		<MenuItem>
+				<Text>Menu_Material</Text>
+				<Authorization>Material</Authorization>
+				<Action>Index</Action>
+				<Controller>Material</Controller>
+		</MenuItem>
+		<MenuItem>
+				<Text>Menu_Location</Text>
+				<Authorization>Location</Authorization>
+				<Action>Index</Action>
+				<Controller>Location</Controller>
+		</MenuItem>
+		<MenuItem>
+				<Text>Menu_Material</Text>
+				<SubItems>
+						<MenuItem>
+								<Text>Menu_Material_list</Text>
+								<Authorization>Material</Authorization>
+								<Action>Index</Action>
+								<Controller>Proyecto</Controller>
+						</MenuItem>
+						<Divider></Divider>
+						<MenuItem>
+								<Text>Menu_Material_Lock</Text>
+								<Authorization>MaterialLock</Authorization>
+								<Action>Index</Action>
+								<Controller>MaterialLock</Controller>
+						</MenuItem>
+				</SubItems>
+		</MenuItem>
+		<MenuItem>
+				<Text>Menu_Configuration</Text>
+				<Authorization>Configuration</Authorization>
+				<Action>Index</Action>
+				<Controller>Configuration</Controller>
+		</MenuItem>
+</Menu>

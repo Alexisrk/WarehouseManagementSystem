@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <objects xmlns="http://www.springframework.net">
   <object name="BasicService" type="ServiceTest.BasicService, ServiceTest">
-				<property name="clientDao" ref="clientDao"/>
-				<property name="authorizationCodeDao" ref="authorizationCodeDao"/>
-				<property name="accessTokenDao" ref="accessTokenDao"/>
 		</object>
   <object name="locationService" type="WMS.LocationManagement.LocationService, WMS.Location">
     <property name="LocalidadDao" ref="localidadDao"/>
@@ -12,11 +9,6 @@
     <property name="MaterialDao" ref="materialDao"/>
   </object>
 		<object name="userService" type="WMS.SecurityManagement.UserService, WMS.SecurityManagement">
-				<property name="userDao" ref="userDao"/>
-		</object>
-		<object name="securityService" type="WMS.SecurityManagement.SecurityService, WMS.SecurityManagement">
-				<property name="authorizationCodeDao" ref="authorizationCodeDao"/>
-				<property name="accessTokenDao" ref="accessTokenDao"/>
 				<property name="userDao" ref="userDao"/>
 		</object>
 </objects>

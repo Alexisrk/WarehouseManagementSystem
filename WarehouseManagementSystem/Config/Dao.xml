@@ -66,15 +66,6 @@
 		<object id="localidadDao" type="WMS.Dao.LocationDao, WMS.Dao" parent="dataAccessBase">
 		</object>
 
-		<object id="accessTokenDao" type="WMS.Dao.AccessTokenDao, WMS.Dao" parent="dataAccessBase">
-		</object>
-
-		<object id="authorizationCodeDao" type="WMS.Dao.AuthorizationCodeDao, WMS.Dao" parent="dataAccessBase">
-		</object>
-
-		<object id="clientDao" type="WMS.Dao.ClientDao, WMS.Dao" parent="dataAccessBase">
-		</object>
-
 		<object id="userDao" type="WMS.Dao.UserDao, WMS.Dao" parent="dataAccessBase">
 		</object>
 

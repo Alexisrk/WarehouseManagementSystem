@@ -39,16 +39,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Domain\AccessToken.cs" />
-    <Compile Include="Domain\AuthorizationCode.cs" />
-    <Compile Include="Domain\Client.cs" />
     <Compile Include="Domain\Location.cs" />
     <Compile Include="Domain\Material.cs" />
+    <Compile Include="Domain\Role.cs" />
+    <Compile Include="Domain\RoleDefinition.cs" />
     <Compile Include="Domain\UserProfile.cs" />
     <Compile Include="Domain\User.cs" />
-    <Compile Include="Model\AccessTokenModel.cs" />
-    <Compile Include="Model\AuthorizationModel.cs" />
-    <Compile Include="Model\AuthorizationGrantModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resource\LocalizedText.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -61,6 +57,9 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>LocalizedText.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

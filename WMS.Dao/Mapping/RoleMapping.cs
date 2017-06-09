@@ -9,13 +9,14 @@ using WMS.Model.Domain;
 
 namespace WMS.Dao.Mapping
 {
-		public class UserMappingOverride : IAutoMappingOverride<User>
+		public class RoleMappingOverride : IAutoMappingOverride<Role>
 		{
 
-				public void Override(AutoMapping<User> mapping)
+				public void Override(AutoMapping<Role> mapping)
 				{
 						mapping.Id(x => x.Id).GeneratedBy.Increment();
-						mapping.References(x => x.Role);
+						mapping.References(x => x.ParentRole); //.Column("IdParentRole");
+						mapping.References(x => x.RoleDefinition);
 				}
 
 		}

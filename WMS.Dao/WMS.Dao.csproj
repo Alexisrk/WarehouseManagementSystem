@@ -75,22 +75,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClientDao.cs" />
-    <Compile Include="AuthorizationCodeDao.cs" />
     <Compile Include="BaseDao.cs" />
     <Compile Include="Config\FluentNhibernateLocalSessionFactoryObject.cs" />
     <Compile Include="LocationDao.cs" />
     <Compile Include="Exceptions\NoActiveTransactionException.cs" />
     <Compile Include="Mapping\Conventions\EnumConvention.cs" />
     <Compile Include="Mapping\Conventions\ForeignKeyNameConvention.cs" />
+    <Compile Include="Mapping\RoleMapping.cs" />
     <Compile Include="Mapping\UserProfileMapping.cs" />
     <Compile Include="Mapping\UserMapping.cs" />
-    <Compile Include="Mapping\ClientMapping.cs" />
-    <Compile Include="Mapping\AuthorizationCodeMapping.cs" />
     <Compile Include="Mapping\LocationMapping.cs" />
-    <Compile Include="Mapping\AccessTokenMapping.cs" />
     <Compile Include="Mapping\MaterialMapping.cs" />
-    <Compile Include="AccessTokenDao.cs" />
+    <Compile Include="RolesDao.cs" />
     <Compile Include="UserProfileDao.cs" />
     <Compile Include="UserDao.cs" />
     <Compile Include="MaterialDao.cs" />

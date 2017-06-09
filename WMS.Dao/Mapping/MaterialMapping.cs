@@ -9,13 +9,13 @@ using WMS.Model.Domain;
 
 namespace WMS.Dao.Mapping
 {
-    public class MaterialMappingOverride : IAutoMappingOverride<Material>
-    {
+		public class MaterialMappingOverride : IAutoMappingOverride<Material>
+		{
 
-        public void Override(AutoMapping<Material> mapping)
-        {
-            mapping.Id(x => x.Id).GeneratedBy.Assigned();
-        }
+				public void Override(AutoMapping<Material> mapping)
+				{
+						mapping.Id(x => x.Id).GeneratedBy.Assigned();
+				}
 
-    }
+		}
 }

@@ -1,7 +1,0 @@
-﻿CREATE TABLE [dbo].[Client]
-(
-	[Id] NVARCHAR(255) NOT NULL PRIMARY KEY, 
-    [Secret] NVARCHAR(255) NULL, 
-    [Name] NVARCHAR(255) NULL, 
-    [Url] NVARCHAR(1000) NULL
-)
