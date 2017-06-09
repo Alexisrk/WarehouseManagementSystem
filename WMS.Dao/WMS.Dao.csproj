@@ -81,12 +81,14 @@
     <Compile Include="Exceptions\NoActiveTransactionException.cs" />
     <Compile Include="Mapping\Conventions\EnumConvention.cs" />
     <Compile Include="Mapping\Conventions\ForeignKeyNameConvention.cs" />
+    <Compile Include="Mapping\RoleAuthorizationMappingOverride.cs" />
     <Compile Include="Mapping\RoleMapping.cs" />
     <Compile Include="Mapping\UserProfileMapping.cs" />
     <Compile Include="Mapping\UserMapping.cs" />
     <Compile Include="Mapping\LocationMapping.cs" />
     <Compile Include="Mapping\MaterialMapping.cs" />
-    <Compile Include="RolesDao.cs" />
+    <Compile Include="RoleAuthorizationDao.cs" />
+    <Compile Include="RoleDao.cs" />
     <Compile Include="UserProfileDao.cs" />
     <Compile Include="UserDao.cs" />
     <Compile Include="MaterialDao.cs" />

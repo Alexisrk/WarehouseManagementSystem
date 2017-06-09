@@ -7,7 +7,7 @@ using WMS.ServiceCommon.Dao;
 namespace WMS.Dao
 {
 		[Repository]
-		public class RolesDao : BaseDao<Role>, IRoleDao
+		public class RoleDao : BaseDao<Role>, IRoleDao
 		{
 		}
 }

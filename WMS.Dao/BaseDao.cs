@@ -52,7 +52,12 @@ namespace WMS.Dao
 						ICriteria criteria = CurrentSession.CreateCriteria<TModel>();
 						return criteria.List<TModel>();
 				}
-				
+
+				public virtual IList<TModel> GetAll(Expression<Func<TModel, bool>> condition)
+				{
+						return this.CurrentSession.Query<TModel>().Where(condition).ToList();
+				}
+
 				public virtual TModel Get(Expression<Func<TModel, bool>> condition)
 				{
 						return this.CurrentSession.Query<TModel>().Where(condition).ToList().SingleOrDefault();

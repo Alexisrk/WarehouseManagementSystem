@@ -2,12 +2,14 @@
 <Menu>
 		<MenuItem>
 				<Text>Menu_Material</Text>
+				<Icon>None</Icon>
 				<Authorization>Material</Authorization>
 				<Action>Index</Action>
 				<Controller>Material</Controller>
 		</MenuItem>
 		<MenuItem>
 				<Text>Menu_Location</Text>
+				<Icon>None</Icon>
 				<Authorization>Location</Authorization>
 				<Action>Index</Action>
 				<Controller>Location</Controller>
@@ -17,6 +19,7 @@
 				<SubItems>
 						<MenuItem>
 								<Text>Menu_Material_list</Text>
+								<Icon>None</Icon>
 								<Authorization>Material</Authorization>
 								<Action>Index</Action>
 								<Controller>Proyecto</Controller>
@@ -24,6 +27,7 @@
 						<Divider></Divider>
 						<MenuItem>
 								<Text>Menu_Material_Lock</Text>
+								<Icon>None</Icon>
 								<Authorization>MaterialLock</Authorization>
 								<Action>Index</Action>
 								<Controller>MaterialLock</Controller>
@@ -32,6 +36,7 @@
 		</MenuItem>
 		<MenuItem>
 				<Text>Menu_Configuration</Text>
+				<Icon>None</Icon>
 				<Authorization>Configuration</Authorization>
 				<Action>Index</Action>
 				<Controller>Configuration</Controller>

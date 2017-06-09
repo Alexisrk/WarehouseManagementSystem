@@ -10,5 +10,7 @@
   </object>
 		<object name="userService" type="WMS.SecurityManagement.UserService, WMS.SecurityManagement">
 				<property name="userDao" ref="userDao"/>
+				<property name="roleDao" ref="roleDao"/>
+				<property name="roleAuthorizationDao" ref="roleAuthorizationDao"/>
 		</object>
 </objects>

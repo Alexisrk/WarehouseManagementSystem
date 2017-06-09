@@ -7,7 +7,7 @@ using WMS.ServiceCommon.Dao;
 namespace WMS.Dao
 {
 		[Repository]
-		public class UserDao : BaseDao<User>, IUserDao
+		public class RoleAuthorizationDao : BaseDao<RoleAuthorization>, IRoleAuthorizationDao
 		{
 		}
 }

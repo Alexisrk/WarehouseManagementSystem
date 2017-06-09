@@ -43,6 +43,7 @@
     <Compile Include="Contracts\ILocationService.cs" />
     <Compile Include="Contracts\IMaterialService.cs" />
     <Compile Include="Dao\IDao.cs" />
+    <Compile Include="Dao\IRoleAuthorizationDao.cs" />
     <Compile Include="Dao\IRoleDao.cs" />
     <Compile Include="Dao\IUserProfileDao.cs" />
     <Compile Include="Dao\IUserDao.cs" />

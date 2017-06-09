@@ -10,6 +10,13 @@ Post-Deployment Script Template
 --------------------------------------------------------------------------------------
 */
 
+-- ROLE AUTHORIZATION
+IF NOT EXISTS (select 1 from [RoleAuthorization] where [IdRole] = 1 and [Authorization] = 1) BEGIN INSERT INTO [RoleAuthorization] ([IdRole], [Authorization], [Access]) VALUES (1, 1, 3) END;
+IF NOT EXISTS (select 1 from [RoleAuthorization] where [IdRole] = 1 and [Authorization] = 2) BEGIN INSERT INTO [RoleAuthorization] ([IdRole], [Authorization], [Access]) VALUES (1, 2, 3) END;
+IF NOT EXISTS (select 1 from [RoleAuthorization] where [IdRole] = 1 and [Authorization] = 3) BEGIN INSERT INTO [RoleAuthorization] ([IdRole], [Authorization], [Access]) VALUES (1, 3, 3) END;
+IF NOT EXISTS (select 1 from [RoleAuthorization] where [IdRole] = 2 and [Authorization] = 1) BEGIN INSERT INTO [RoleAuthorization] ([IdRole], [Authorization], [Access]) VALUES (2, 1, 3) END;
+IF NOT EXISTS (select 1 from [RoleAuthorization] where [IdRole] = 2 and [Authorization] = 2) BEGIN INSERT INTO [RoleAuthorization] ([IdRole], [Authorization], [Access]) VALUES (2, 2, 3) END;
+
 -- ROLE DEFINITION
 IF NOT EXISTS (select 1 from [RoleDefinition] where Id = 1) BEGIN INSERT INTO [RoleDefinition] (Id, Name) VALUES (1, 'Administrator') END;
 IF NOT EXISTS (select 1 from [RoleDefinition] where Id = 2) BEGIN INSERT INTO [RoleDefinition] (Id, Name) VALUES (2, 'Operator') END;

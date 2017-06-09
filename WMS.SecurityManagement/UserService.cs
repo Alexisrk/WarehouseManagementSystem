@@ -11,25 +11,44 @@ namespace WMS.SecurityManagement
 		{
 				private IUserDao userDao;
 				private IRoleDao roleDao;
+				private IRoleAuthorizationDao roleAuthorizationDao;
 
 				public User GetUser(int id)
 				{
 						return userDao.Get(id);
 				}
 
+				/// <summary>
+				/// Get roles by user
+				/// </summary>
+				/// <param name="userName">user name</param>
+				/// <returns></returns>
 				public IList<Role> GetRolesByUser(string userName)
 				{
 						var user = userDao.Get(u => u.Name == userName);
 						var roles = roleDao.GetAll();
-
-						roles.FirstOrDefault(x => x.Id == user.Role.Id);
-
+						
 						var result = new List<Role>();
 						GetRolesById(roles, user.Role.Id, result);
+
+						var authList = GetAuthorizationByRoles(result);
 
 						return result;
 				}
 
+				private List<RoleAuthorization> GetAuthorizationByRoles(IList<Role> roles)
+				{
+						var list = roleAuthorizationDao.GetAll(x => roles.Any(r => r.Id == x.RoleDefinition.Id)).ToList();
+						//var list = roleAuthorizationDao.GetAll(x => roles.Any(r => r.Id == x.IdRoleDefinition)).ToList();
+						return list;
+				}
+
+				/// <summary>
+				/// Get all roles by user
+				/// </summary>
+				/// <param name="roles">all roles list</param>
+				/// <param name="idRole">current id role</param>
+				/// <param name="result">the result</param>
 				public void GetRolesById(IList<Role> roles, int idRole, List<Role> result)
 				{
 						//Add current node
@@ -37,7 +56,7 @@ namespace WMS.SecurityManagement
 						result.AddRange(rolesFound);
 
 						//Search child nodes by parent id
-						foreach (var role in roles.Where(x => x.ParentRole.Id == idRole).ToList())
+						foreach (var role in roles.Where(x => x.IdParentRole == idRole).ToList())
 						{
 								GetRolesById(roles, role.Id, result);
 						}

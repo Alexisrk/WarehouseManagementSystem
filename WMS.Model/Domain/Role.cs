@@ -9,7 +9,7 @@ namespace WMS.Model.Domain
 		public class Role
 		{
 				public virtual int Id { get; set; }
-				public virtual Role ParentRole { get; set; }
+				public virtual int IdParentRole { get; set; }
 				public virtual RoleDefinition RoleDefinition { get; set; }
 		}
 }

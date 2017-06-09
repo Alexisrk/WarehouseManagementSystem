@@ -72,5 +72,10 @@
 		<object id="userProfileDao" type="WMS.Dao.UserProfileDao, WMS.Dao" parent="dataAccessBase">
 		</object>
 
+		<object id="roleDao" type="WMS.Dao.RoleDao, WMS.Dao" parent="dataAccessBase">
+		</object>
 
+		<object id="roleAuthorizationDao" type="WMS.Dao.RoleAuthorizationDao, WMS.Dao" parent="dataAccessBase">
+		</object>
+		
 </objects>

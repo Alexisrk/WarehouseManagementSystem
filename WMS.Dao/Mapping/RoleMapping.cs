@@ -14,8 +14,8 @@ namespace WMS.Dao.Mapping
 
 				public void Override(AutoMapping<Role> mapping)
 				{
-						mapping.Id(x => x.Id).GeneratedBy.Increment();
-						mapping.References(x => x.ParentRole); //.Column("IdParentRole");
+						//mapping.Id(x => x.Id).GeneratedBy.Increment();
+						mapping.Id(x => x.Id).GeneratedBy.Assigned();
 						mapping.References(x => x.RoleDefinition);
 				}
 

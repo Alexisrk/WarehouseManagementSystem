@@ -112,4 +112,11 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="Name" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="3661daad-82bd-4e6c-81f3-814d3b09bd2d" ChangeDateTime="06/09/2017 17:52:42">
+    <Property Name="ElementName" Value="[dbo].[RoleAuthorization].[IdRole]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[RoleAuthorization]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IdRoleDefinition" />
+  </Operation>
 </Operations>
