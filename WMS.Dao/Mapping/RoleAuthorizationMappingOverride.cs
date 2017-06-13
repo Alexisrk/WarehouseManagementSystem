@@ -15,13 +15,11 @@ namespace WMS.Dao.Mapping
 
 				public void Override(AutoMapping<RoleAuthorization> mapping)
 				{
-						//mapping.Id(x => x.IdRoleDefinition, "IdRoleDefinition").GeneratedBy.Assigned();
 						mapping.CompositeId()
-						//.KeyProperty(x => x.IdRoleDefinition, "IdRoleDefinition")
-						//.KeyProperty(x => x.RoleDefinition.Id, "IdRoleDefinition")
 						.KeyReference(x => x.RoleDefinition, "IdRoleDefinition")
-						.KeyProperty(x => x.Authorization);
-
+						.KeyProperty(x => x.Authorization, m => m.Type(typeof(AuthorizationType)));
+						
+						
 						mapping.Map(x => x.Authorization).CustomType(typeof(AuthorizationType));
 						mapping.Map(x => x.Access).CustomType(typeof(AccessType));
 				}

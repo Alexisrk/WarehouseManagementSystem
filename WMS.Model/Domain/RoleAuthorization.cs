@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WMS.Model.Enum;
+using WMS.Model.Resource;
 
 namespace WMS.Model.Domain
 {
@@ -11,7 +13,11 @@ namespace WMS.Model.Domain
 		{
 				//public virtual int IdRoleDefinition { get; set; }
 				public virtual RoleDefinition RoleDefinition { get; set; }
+
+				[Display(ResourceType = typeof(LocalizedText), Name = "AuthorizationType")]
 				public virtual AuthorizationType Authorization { get; set; }
+
+				[Display(ResourceType = typeof(LocalizedText), Name = "AccessType")]
 				public virtual AccessType Access { get; set; }
 
 

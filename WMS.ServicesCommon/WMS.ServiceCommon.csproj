@@ -49,6 +49,7 @@
     <Compile Include="Dao\IUserDao.cs" />
     <Compile Include="Dao\ILocationDao.cs" />
     <Compile Include="Dao\IMaterialDao.cs" />
+    <Compile Include="Helpers\Deserialize.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

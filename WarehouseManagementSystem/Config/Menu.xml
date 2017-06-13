@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Menu>
+﻿<Menu>
 		<MenuItem>
 				<Text>Menu_Material</Text>
 				<Icon>None</Icon>
@@ -16,23 +15,22 @@
 		</MenuItem>
 		<MenuItem>
 				<Text>Menu_Material</Text>
-				<SubItems>
-						<MenuItem>
-								<Text>Menu_Material_list</Text>
-								<Icon>None</Icon>
-								<Authorization>Material</Authorization>
-								<Action>Index</Action>
-								<Controller>Proyecto</Controller>
-						</MenuItem>
-						<Divider></Divider>
-						<MenuItem>
-								<Text>Menu_Material_Lock</Text>
-								<Icon>None</Icon>
-								<Authorization>MaterialLock</Authorization>
-								<Action>Index</Action>
-								<Controller>MaterialLock</Controller>
-						</MenuItem>
-				</SubItems>
+				<Icon>None</Icon>
+				<SubItem>
+						<Text>Menu_Material_list</Text>
+						<Icon>None</Icon>
+						<Authorization>Material</Authorization>
+						<Action>Index</Action>
+						<Controller>Proyecto</Controller>
+						<Divider>true</Divider>
+				</SubItem>
+				<SubItem>
+						<Text>Menu_Material_Lock</Text>
+						<Icon>None</Icon>
+						<Authorization>MaterialLock</Authorization>
+						<Action>Index</Action>
+						<Controller>MaterialLock</Controller>
+				</SubItem>
 		</MenuItem>
 		<MenuItem>
 				<Text>Menu_Configuration</Text>

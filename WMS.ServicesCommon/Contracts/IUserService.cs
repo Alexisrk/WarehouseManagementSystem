@@ -21,6 +21,6 @@ namespace WMS.ServiceCommon.Contracts
 				/// </summary>
 				/// <param name="userName">the user name</param>
 				/// <returns>return a role list</returns>
-				IList<Role> GetRolesByUser(string userName);
+				IList<RoleAuthorization> GetRolesByUser(string userName);
 		}
 }

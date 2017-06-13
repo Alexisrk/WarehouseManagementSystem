@@ -3,15 +3,22 @@ using ServiceTest;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Reflection;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using System.Xml;
+using System.Xml.Serialization;
+using WarehouseManagementSystem.Helper;
 using WarehouseManagementSystem.Models;
 using WMS.Model.Domain;
 using WMS.ServiceCommon.Contracts;
+using WMS.ServicesCommon.Helpers;
 
 namespace WarehouseManagementSystem.Controllers
 {
@@ -35,22 +42,63 @@ namespace WarehouseManagementSystem.Controllers
 
 						//ViewBag.Title = Service.GetMessage();
 
+						//ViewBag.User = GetUserName();
 						ViewBag.AvailableScreens = GetAvailableScreens(User.Identity.Name);
 
 						return View();
 				}
 
-				public IList<string> GetAvailableScreens(string user)
+				public List<MenuItem> GetAvailableScreens(string user)
 				{
 						var roles = UserService.GetRolesByUser(user);
-						var tree = GetMenuGetMenuTree();
+						var tree = GetMenuTree();
 
-						return new List<string>();
+						var result = MatchRolesWhitMenuTree(roles, tree);
+
+						return result;
 				}
 
-				public IList<string> GetMenuGetMenuTree()
+				private List<MenuItem> MatchRolesWhitMenuTree(IList<RoleAuthorization> roles, Menu tree)
 				{
-						return new List<string>();
+						return FilterListByAuthRole(roles, tree.MenuItems.ToList());
+				}
+
+				private List<MenuItem> FilterListByAuthRole(IList<RoleAuthorization> roles, List<MenuItem> items)
+				{
+						var result = items.Where(x => roles.Any(y => x.Authorization == y.Authorization && y.Access != WMS.Model.Enum.AccessType.None)).ToList();
+
+						foreach (var item in result.Where(t => t.SubItems.Count > 0))
+						{
+								item.SubItems = FilterListByAuthRole(roles, item.SubItems);
+						}
+
+						return result;
+				}
+
+				public Menu GetMenuTree()
+				{
+						//var cache = (Menu)MemoryCache.Default.Get("Menu_" + UserName());
+						//if (cache == null || cache.Count == 0)
+						//{
+						//		cache = ReadMenuTreeFromFile();
+						//}
+
+						//return cache ?? new List<MenuItem>();
+
+						var path = Path.GetFullPath(Path.Combine(GetPath(), @"..\Config\Menu.xml"));
+						Menu result = (Menu) Deserialize.GetObjectFromXML(path, typeof(Menu));
+						
+
+						return result;
+				}
+
+
+				private static string GetPath()
+				{
+						string codeBase = Assembly.GetExecutingAssembly().CodeBase;
+						var uri = new UriBuilder(codeBase);
+						string path = Uri.UnescapeDataString(uri.Path);
+						return Path.GetDirectoryName(path);
 				}
 
 				//

@@ -19,28 +19,34 @@ namespace WMS.SecurityManagement
 				}
 
 				/// <summary>
-				/// Get roles by user
+				/// Get authorization roles by user
 				/// </summary>
 				/// <param name="userName">user name</param>
 				/// <returns></returns>
-				public IList<Role> GetRolesByUser(string userName)
+				public IList<RoleAuthorization> GetRolesByUser(string userName)
 				{
 						var user = userDao.Get(u => u.Name == userName);
 						var roles = roleDao.GetAll();
 						
-						var result = new List<Role>();
-						GetRolesById(roles, user.Role.Id, result);
+						var resultRoles = new List<Role>();
+						GetRolesById(roles, user.Role.Id, resultRoles);
 
-						var authList = GetAuthorizationByRoles(result);
-
-						return result;
+						var authList = GetAuthorizationByRoles(resultRoles);
+						
+						return authList;
 				}
 
 				private List<RoleAuthorization> GetAuthorizationByRoles(IList<Role> roles)
 				{
-						var list = roleAuthorizationDao.GetAll(x => roles.Any(r => r.Id == x.RoleDefinition.Id)).ToList();
-						//var list = roleAuthorizationDao.GetAll(x => roles.Any(r => r.Id == x.IdRoleDefinition)).ToList();
-						return list;
+						var result = new List<RoleAuthorization>();
+
+						foreach (var role in roles)
+						{
+								var list = roleAuthorizationDao.GetAll(x => role.Id == x.RoleDefinition.Id).ToList();
+								result.AddRange(list);
+						}
+						
+						return result.Distinct().ToList();
 				}
 
 				/// <summary>
