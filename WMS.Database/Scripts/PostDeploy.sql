@@ -11,11 +11,32 @@ Post-Deployment Script Template
 */
 
 -- ROLE AUTHORIZATION
-IF NOT EXISTS (select 1 from [RoleAuthorization] where [IdRole] = 1 and [Authorization] = 1) BEGIN INSERT INTO [RoleAuthorization] ([IdRole], [Authorization], [Access]) VALUES (1, 1, 3) END;
-IF NOT EXISTS (select 1 from [RoleAuthorization] where [IdRole] = 1 and [Authorization] = 2) BEGIN INSERT INTO [RoleAuthorization] ([IdRole], [Authorization], [Access]) VALUES (1, 2, 3) END;
-IF NOT EXISTS (select 1 from [RoleAuthorization] where [IdRole] = 1 and [Authorization] = 3) BEGIN INSERT INTO [RoleAuthorization] ([IdRole], [Authorization], [Access]) VALUES (1, 3, 3) END;
-IF NOT EXISTS (select 1 from [RoleAuthorization] where [IdRole] = 2 and [Authorization] = 1) BEGIN INSERT INTO [RoleAuthorization] ([IdRole], [Authorization], [Access]) VALUES (2, 1, 3) END;
-IF NOT EXISTS (select 1 from [RoleAuthorization] where [IdRole] = 2 and [Authorization] = 2) BEGIN INSERT INTO [RoleAuthorization] ([IdRole], [Authorization], [Access]) VALUES (2, 2, 3) END;
+IF NOT EXISTS (select 1 from [RoleAuthorization] where [IdRoleDefinition] = 1 and [Authorization] = 1) BEGIN INSERT INTO [RoleAuthorization] ([IdRoleDefinition], [Authorization], [Access]) VALUES (1, 1, 3) END;
+IF NOT EXISTS (select 1 from [RoleAuthorization] where [IdRoleDefinition] = 1 and [Authorization] = 2) BEGIN INSERT INTO [RoleAuthorization] ([IdRoleDefinition], [Authorization], [Access]) VALUES (1, 2, 3) END;
+IF NOT EXISTS (select 1 from [RoleAuthorization] where [IdRoleDefinition] = 1 and [Authorization] = 3) BEGIN INSERT INTO [RoleAuthorization] ([IdRoleDefinition], [Authorization], [Access]) VALUES (1, 3, 3) END;
+IF NOT EXISTS (select 1 from [RoleAuthorization] where [IdRoleDefinition] = 1 and [Authorization] = 4) BEGIN INSERT INTO [RoleAuthorization] ([IdRoleDefinition], [Authorization], [Access]) VALUES (1, 4, 3) END;
+IF NOT EXISTS (select 1 from [RoleAuthorization] where [IdRoleDefinition] = 1 and [Authorization] = 5) BEGIN INSERT INTO [RoleAuthorization] ([IdRoleDefinition], [Authorization], [Access]) VALUES (1, 5, 3) END;
+IF NOT EXISTS (select 1 from [RoleAuthorization] where [IdRoleDefinition] = 1 and [Authorization] = 6) BEGIN INSERT INTO [RoleAuthorization] ([IdRoleDefinition], [Authorization], [Access]) VALUES (1, 6, 3) END;
+IF NOT EXISTS (select 1 from [RoleAuthorization] where [IdRoleDefinition] = 1 and [Authorization] = 7) BEGIN INSERT INTO [RoleAuthorization] ([IdRoleDefinition], [Authorization], [Access]) VALUES (1, 7, 3) END;
+IF NOT EXISTS (select 1 from [RoleAuthorization] where [IdRoleDefinition] = 1 and [Authorization] = 8) BEGIN INSERT INTO [RoleAuthorization] ([IdRoleDefinition], [Authorization], [Access]) VALUES (1, 8, 3) END;
+IF NOT EXISTS (select 1 from [RoleAuthorization] where [IdRoleDefinition] = 1 and [Authorization] = 9) BEGIN INSERT INTO [RoleAuthorization] ([IdRoleDefinition], [Authorization], [Access]) VALUES (1, 9, 3) END;
+IF NOT EXISTS (select 1 from [RoleAuthorization] where [IdRoleDefinition] = 1 and [Authorization] = 10) BEGIN INSERT INTO [RoleAuthorization] ([IdRoleDefinition], [Authorization], [Access]) VALUES (1, 10, 3) END;
+IF NOT EXISTS (select 1 from [RoleAuthorization] where [IdRoleDefinition] = 1 and [Authorization] = 11) BEGIN INSERT INTO [RoleAuthorization] ([IdRoleDefinition], [Authorization], [Access]) VALUES (1, 11, 3) END;
+IF NOT EXISTS (select 1 from [RoleAuthorization] where [IdRoleDefinition] = 1 and [Authorization] = 12) BEGIN INSERT INTO [RoleAuthorization] ([IdRoleDefinition], [Authorization], [Access]) VALUES (1, 12, 3) END;
+IF NOT EXISTS (select 1 from [RoleAuthorization] where [IdRoleDefinition] = 1 and [Authorization] = 13) BEGIN INSERT INTO [RoleAuthorization] ([IdRoleDefinition], [Authorization], [Access]) VALUES (1, 13, 3) END;
+IF NOT EXISTS (select 1 from [RoleAuthorization] where [IdRoleDefinition] = 1 and [Authorization] = 14) BEGIN INSERT INTO [RoleAuthorization] ([IdRoleDefinition], [Authorization], [Access]) VALUES (1, 14, 3) END;
+IF NOT EXISTS (select 1 from [RoleAuthorization] where [IdRoleDefinition] = 1 and [Authorization] = 15) BEGIN INSERT INTO [RoleAuthorization] ([IdRoleDefinition], [Authorization], [Access]) VALUES (1, 15, 3) END;
+
+IF NOT EXISTS (select 1 from [RoleAuthorization] where [IdRoleDefinition] = 2 and [Authorization] = 1) BEGIN INSERT INTO [RoleAuthorization] ([IdRoleDefinition], [Authorization], [Access]) VALUES (2, 1, 3) END;
+IF NOT EXISTS (select 1 from [RoleAuthorization] where [IdRoleDefinition] = 2 and [Authorization] = 2) BEGIN INSERT INTO [RoleAuthorization] ([IdRoleDefinition], [Authorization], [Access]) VALUES (2, 2, 3) END;
+IF NOT EXISTS (select 1 from [RoleAuthorization] where [IdRoleDefinition] = 2 and [Authorization] = 3) BEGIN INSERT INTO [RoleAuthorization] ([IdRoleDefinition], [Authorization], [Access]) VALUES (2, 3, 3) END;
+IF NOT EXISTS (select 1 from [RoleAuthorization] where [IdRoleDefinition] = 2 and [Authorization] = 5) BEGIN INSERT INTO [RoleAuthorization] ([IdRoleDefinition], [Authorization], [Access]) VALUES (2, 5, 3) END;
+IF NOT EXISTS (select 1 from [RoleAuthorization] where [IdRoleDefinition] = 2 and [Authorization] = 6) BEGIN INSERT INTO [RoleAuthorization] ([IdRoleDefinition], [Authorization], [Access]) VALUES (2, 6, 3) END;
+IF NOT EXISTS (select 1 from [RoleAuthorization] where [IdRoleDefinition] = 2 and [Authorization] = 7) BEGIN INSERT INTO [RoleAuthorization] ([IdRoleDefinition], [Authorization], [Access]) VALUES (2, 7, 3) END;
+IF NOT EXISTS (select 1 from [RoleAuthorization] where [IdRoleDefinition] = 2 and [Authorization] = 9) BEGIN INSERT INTO [RoleAuthorization] ([IdRoleDefinition], [Authorization], [Access]) VALUES (2, 9, 3) END;
+IF NOT EXISTS (select 1 from [RoleAuthorization] where [IdRoleDefinition] = 2 and [Authorization] = 10) BEGIN INSERT INTO [RoleAuthorization] ([IdRoleDefinition], [Authorization], [Access]) VALUES (2, 10, 3) END;
+IF NOT EXISTS (select 1 from [RoleAuthorization] where [IdRoleDefinition] = 2 and [Authorization] = 11) BEGIN INSERT INTO [RoleAuthorization] ([IdRoleDefinition], [Authorization], [Access]) VALUES (2, 11, 3) END;
+
 
 -- ROLE DEFINITION
 IF NOT EXISTS (select 1 from [RoleDefinition] where Id = 1) BEGIN INSERT INTO [RoleDefinition] (Id, Name) VALUES (1, 'Administrator') END;

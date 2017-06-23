@@ -3,6 +3,105 @@
 				<Text>Menu_Material</Text>
 				<Icon>None</Icon>
 				<Authorization>Material</Authorization>
+				<SubItem>
+						<Text>Menu_Material_lock</Text>
+						<Icon>glyphicon glyphicon-download-alt</Icon>
+						<Authorization>MaterialLock</Authorization>
+						<Action>Index</Action>
+						<Controller>MaterialLock</Controller>
+				</SubItem>
+				<SubItem>
+						<Text>Menu_Material_list</Text>
+						<Icon>glyphicon glyphicon-equalizer</Icon>
+						<Authorization>MaterialList</Authorization>
+						<Action>Index</Action>
+						<Controller>MaterialList</Controller>
+				</SubItem>
+				<SubItem>
+						<Text>Menu_Material_type</Text>
+						<Icon>glyphicon glyphicon-alert</Icon>
+						<Authorization>MaterialType</Authorization>
+						<Action>Index</Action>
+						<Controller>MaterialType</Controller>
+				</SubItem>
+		</MenuItem>
+		<MenuItem>
+				<Text>Menu_Location</Text>
+				<Icon>None</Icon>
+				<Authorization>Location</Authorization>
+				<SubItem>
+						<Text>Menu_Location_lock</Text>
+						<Icon>glyphicon glyphicon-download-alt</Icon>
+						<Authorization>LocationLock</Authorization>
+						<Action>Index</Action>
+						<Controller>LocationLock</Controller>
+				</SubItem>
+				<SubItem>
+						<Text>Menu_Location_list</Text>
+						<Icon>glyphicon glyphicon-equalizer</Icon>
+						<Authorization>LocationList</Authorization>
+						<Action>Index</Action>
+						<Controller>LocationList</Controller>
+				</SubItem>
+				<SubItem>
+						<Text>Menu_Location_type</Text>
+						<Icon>glyphicon glyphicon-alert</Icon>
+						<Authorization>LocationType</Authorization>
+						<Action>Index</Action>
+						<Controller>LocationType</Controller>
+				</SubItem>
+		</MenuItem>
+		<MenuItem>
+				<Text>Menu_Transport</Text>
+				<Icon>None</Icon>
+				<Authorization>Transport</Authorization>
+				<SubItem>
+						<Text>Menu_TransportOrders</Text>
+						<Icon>glyphicon glyphicon-download-alt</Icon>
+						<Authorization>TransportOrder</Authorization>
+						<Action>Index</Action>
+						<Controller>TransportOrder</Controller>
+				</SubItem>
+				<SubItem>
+						<Text>Menu_StorageRules</Text>
+						<Icon>glyphicon glyphicon-equalizer</Icon>
+						<Authorization>StorageRules</Authorization>
+						<Action>Index</Action>
+						<Controller>StorageRules</Controller>
+				</SubItem>
+				<SubItem>
+						<Text>Menu_TransportMedium</Text>
+						<Icon>glyphicon glyphicon-alert</Icon>
+						<Authorization>TransportMedium</Authorization>
+						<Action>Index</Action>
+						<Controller>TransportMedium</Controller>
+				</SubItem>
+		</MenuItem>	
+		<MenuItem>
+				<Text>Menu_Configuration</Text>
+				<Icon>None</Icon>
+				<Authorization>Configuration</Authorization>
+				<SubItem>
+						<Text>Menu_Users</Text>
+						<Icon>glyphicon glyphicon-download-alt</Icon>
+						<Authorization>User</Authorization>
+						<Action>Index</Action>
+						<Controller>User</Controller>
+				</SubItem>
+				<SubItem>
+						<Text>Menu_Authorization</Text>
+						<Icon>glyphicon glyphicon-equalizer</Icon>
+						<Authorization>Authorization</Authorization>
+						<Action>Index</Action>
+						<Controller>Authorization</Controller>
+				</SubItem>
+		</MenuItem>	
+				
+		<!--
+		<MenuItem>
+				<Text>Menu_Material</Text>
+				<Icon>None</Icon>
+				<Authorization>Material</Authorization>
 				<Action>Index</Action>
 				<Controller>Material</Controller>
 		</MenuItem>
@@ -38,5 +137,5 @@
 				<Authorization>Configuration</Authorization>
 				<Action>Index</Action>
 				<Controller>Configuration</Controller>
-		</MenuItem>
+		</MenuItem>-->
 </Menu>

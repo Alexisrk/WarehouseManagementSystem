@@ -1,21 +1,11 @@
-﻿using log4net;
-using ServiceTest;
+﻿using ServiceTest;
 using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Reflection;
-using System.Text;
-using System.Web;
 using System.Web.Mvc;
-using System.Xml;
-using System.Xml.Serialization;
 using WarehouseManagementSystem.Helper;
-using WarehouseManagementSystem.Models;
+//using System.Runtime.Caching;
 using WMS.Model.Domain;
 using WMS.ServiceCommon.Contracts;
 using WMS.ServicesCommon.Helpers;
@@ -23,10 +13,9 @@ using WMS.ServicesCommon.Helpers;
 namespace WarehouseManagementSystem.Controllers
 {
 		[Authorize]
-		public class HomeController : Controller
+		public class HomeController : BaseController
 		{
-				private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-
+				
 				public IUserService UserService { get; set; }
 
 				public IBasicService Service { get; set; }
@@ -91,15 +80,7 @@ namespace WarehouseManagementSystem.Controllers
 
 						return result;
 				}
-
-
-				private static string GetPath()
-				{
-						string codeBase = Assembly.GetExecutingAssembly().CodeBase;
-						var uri = new UriBuilder(codeBase);
-						string path = Uri.UnescapeDataString(uri.Path);
-						return Path.GetDirectoryName(path);
-				}
+				
 
 				//
 				// Get: /Home/

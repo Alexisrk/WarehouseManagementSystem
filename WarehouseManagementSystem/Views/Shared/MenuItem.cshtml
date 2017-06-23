@@ -1,0 +1,31 @@
+﻿@model WarehouseManagementSystem.Helper.MenuItem
+
+@if (Model.Divider)
+{
+		<li role="separator" class="divider"></li>
+}
+
+@if (Model.SubItems.Count == 0)
+{
+		<li>
+				<a href="@Url.Action(Model.Action, Model.Controller)">
+						@Model.Text
+						<span class="@Model.Icon" aria-hidden="true"></span>
+				</a>
+		</li>
+}
+else
+{
+		<li class="dropdown-submenu">
+				<a tabindex="-1" href="#">@Model.Text
+						<span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+				</a>
+				<ul class="dropdown-menu">
+						@foreach (var child in Model.SubItems)
+						{
+										@Html.Partial("MenuItem", child)
+						}
+				</ul>
+		</li>
+}
+

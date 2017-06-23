@@ -295,6 +295,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
@@ -474,6 +475,7 @@
     <Content Include="Scripts\SelfGenerated\app.component.js.map" />
     <Content Include="Scripts\SelfGenerated\app.module.js.map" />
     <Content Include="Scripts\SelfGenerated\main.js.map" />
+    <Content Include="Views\Shared\MenuItem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -55,8 +55,10 @@
 						</div>
 						<ul class="list-unstyled nav">
 								
-								@*@foreach (var menuItem in GetMenuTree())
-								{ }*@
+								@foreach (var menuItem in ViewBag.AvailableScreens)
+								{
+											
+								}
 								<li><a href="#"><p><i class="fa fa-truck" aria-hidden="true"></i></p>Material In Location</a></li>
 								<li><a href="#">Material Definition</a></li>
 								<li><a href="#">Material Lock</a></li>
