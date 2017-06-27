@@ -24,6 +24,31 @@
 						<Action>Index</Action>
 						<Controller>MaterialType</Controller>
 				</SubItem>
+				<SubItem>
+						<Text>Menu_Material_type2</Text>
+						<Authorization>MaterialType</Authorization>
+						<SubItem>
+								<Text>Menu_Material_type3</Text>
+								<Icon>glyphicon glyphicon-alert</Icon>
+								<Authorization>MaterialType</Authorization>
+								<Action>Index</Action>
+								<Controller>MaterialType</Controller>
+						</SubItem>
+						<SubItem>
+								<Text>Menu_Material_type4</Text>
+								<Icon>glyphicon glyphicon-alert</Icon>
+								<Authorization>MaterialType</Authorization>
+								<Action>Index</Action>
+								<Controller>MaterialType</Controller>
+						</SubItem>
+						<SubItem>
+								<Text>Menu_Material_type</Text>
+								<Icon>glyphicon glyphicon-alert</Icon>
+								<Authorization>MaterialType</Authorization>
+								<Action>Index</Action>
+								<Controller>MaterialType</Controller>
+						</SubItem>
+				</SubItem>
 		</MenuItem>
 		<MenuItem>
 				<Text>Menu_Location</Text>

@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using WarehouseManagementSystem.Helper;
 //using System.Runtime.Caching;
 using WMS.Model.Domain;
+using WMS.Model.Resource;
 using WMS.ServiceCommon.Contracts;
 using WMS.ServicesCommon.Helpers;
 
@@ -33,7 +34,7 @@ namespace WarehouseManagementSystem.Controllers
 
 						//ViewBag.User = GetUserName();
 						ViewBag.AvailableScreens = GetAvailableScreens(User.Identity.Name);
-
+						
 						return View();
 				}
 

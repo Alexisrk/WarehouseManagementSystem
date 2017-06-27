@@ -1,49 +1,18 @@
-﻿body, html {
-  height: 100%;
+﻿/* General Styles */
+body, html {
+		height: 100%;
 }
 
-body{
-	padding-top: 32px; 
+body {
+		padding-top: 32px;
 }
+
 a {
-	color:#99998B;
+		color: #99998B !important;
 }
+
 button {
-    outline-style: none;
-}
-.nav > li > a:hover, .nav > li > a:focus {
-    color: #CDCDCD;
-	text-decoration: none;
-    background-color: transparent;
-}
-
-
-a:hover, a:focus {
-    color: #CDCDCD;
-    background-color: transparent;
-    text-decoration: none;
-}
-
-.navbar {
-    position: relative;
-    min-height: 26px;
- 	margin: auto;
-    border: 1px solid transparent;
-}
-
-#header {
-		position: fixed;
-		background-color: #222222;
-}
-
-.menuTitle
-{
-    position: absolute;
-    width: 100%;
-    left: 0;
-				font-size: 18px;
-    text-align: center;
-    margin:0 auto;
+		outline-style: none;
 }
 
 #mainScreen {
@@ -55,194 +24,256 @@ a:hover, a:focus {
 		height: 100%;
 }
 
-.menuTitle:hover, .menuTitle:focus{
-	color:#99998B;
+/* Menu */
+.nav > li > a:hover, .nav > li > a:focus, .subMenu > li > a:focus, .subMenu > li > a:hover {
+		color: #CDCDCD;
+		text-decoration: none;
+		background-color: transparent !important;
+}
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+		background-color: transparent;
+		border-color: none;
+}
+
+a:hover, a:focus {
+		color: #CDCDCD !important;
+		background-color: transparent;
+		text-decoration: none;
+}
+
+.navbar {
+		position: relative;
+		min-height: 26px;
+		margin: auto;
+		border: 1px solid transparent;
+}
+
+
+.subMenuItem :hover, .subMenuItem:focus {
+		background: transparent !important;
+		color: #CDCDCD !important;
+}
+
+#header {
+		position: fixed;
+		background-color: #222222;
+}
+
+.menuTitle {
+		position: absolute;
+		width: 100%;
+		left: 0;
+		font-size: 18px;
+		text-align: center;
+		margin: 0 auto;
+}
+
+.subMenu {
+		position: absolute;
+		top: 0;
+		left: 100%;
+		z-index: 1000;
+		display: none;
+		background-color: #222222;
+}
+
+.leftArrowMenu {
+		position: absolute;
+		right: 0px;
+		margin-top: 10px;
+}
+
+.menuTitle:hover, .menuTitle:focus {
+		color: #99998B;
 }
 
 .glyphicon-menu-hamburger:before {
-    left: 0;
-    top: 0;
-	position: fixed;
-    margin-top: 5px;
-	margin-left: 5px;
+		left: 0;
+		top: 0;
+		position: fixed;
+		margin-top: 5px;
+		margin-left: 5px;
 }
 
 #menu {
-	background-color: #222222;
-	min-width:200px;
-	max-width:320px;
-	margin-top: 0px;
+		background-color: #222222;
+		min-width: 200px;
+		max-width: 320px;
+		margin-top: 0px;
 }
 
 #menuButton:hover, #menuButton:focus {
-    color: #CDCDCD;
-	border-color: transparent;
+		color: #CDCDCD;
+		border-color: transparent;
 }
 
 #menuButton {
-	font-size: 20px;
-	border: none;
-	color:#99998B;	
-	border-color: transparent;
-	background-color: transparent;
+		font-size: 20px;
+		border: none;
+		color: #99998B;
+		border-color: transparent;
+		background-color: transparent;
 }
 
 .menuIconUser .glyphicon {
-	font-size: 40px;
+		font-size: 40px;
 }
 
 #headerSignUp {
-	margin-right: 15px;
+		margin-right: 15px;
 }
 
 #headerLogin {
-	margin-right: 15px;
+		margin-right: 15px;
 }
 
 #mainScreenPartialContainer {
-	text-align: center;
-	height: 100%;
-	width: 100%;
-	background-color:#BEBEBE;		
+		text-align: center;
+		height: 100%;
+		width: 100%;
+		background-color: #BEBEBE;
 }
+
+/* Chat assistant */
 
 #chatContainer {
-	background-color: whitesmoke;
-	height: 190px;
-	width: 270px;
-	position: fixed;
-    bottom: 34px; /*Offset to see the full chat container*/
-    right: 0;
+		background-color: whitesmoke;
+		height: 190px;
+		width: 270px;
+		position: fixed;
+		bottom: 34px; /*Offset to see the full chat container*/
+		right: 0;
 }
 
-#chatTitle
-{
-	background-color: #1F1F1F;
-	height: 30px;
+#chatTitle {
+		background-color: #1F1F1F;
+		height: 30px;
 }
 
-#chatTitle > b
-{
-	display: inline-block;
-	margin: 4px;
-	color: #99998B;
-}
+		#chatTitle > b {
+				display: inline-block;
+				margin: 4px;
+				color: #99998B;
+		}
 
-#chatContainer >input
-{
-	position: absolute;
-	width: 100%;
-	bottom: 0;
-	right: 0;
-	
-	background-color: whitesmoke;
+#chatContainer > input {
+		position: absolute;
+		width: 100%;
+		bottom: 0;
+		right: 0;
+		background-color: whitesmoke;
 }
 
 
 #chatCloseButtom:hover, #chatCloseButtom:focus {
-    color: #CDCDCD;
-	border-color: transparent;
+		color: #CDCDCD;
+		border-color: transparent;
 }
 
 #chatCloseButtom {
-	font-size: 16px;
-	border: none;
-	color:#99998B;
-	border-color: transparent;
-	background-color: transparent;
-	position: fixed;
-	right: 0;
+		font-size: 16px;
+		border: none;
+		color: #99998B;
+		border-color: transparent;
+		background-color: transparent;
+		position: fixed;
+		right: 0;
 }
 
 .headerSignUp {
 }
 
-#footerPanel{
-	border-top-color: #545454;
-	border-top-width: medium;
-	background-color: #222222;
-	width: 100%;
-	height: 32px;
-	position: fixed;
-	bottom: 0;
+/* Footer */
+
+#footerPanel {
+		border-top-color: #545454;
+		border-top-width: medium;
+		background-color: #222222;
+		width: 100%;
+		height: 32px;
+		position: fixed;
+		bottom: 0;
 }
 
+/* Notification Panel */
 
-#eventManagerButtons >button:hover, #eventManagerButtons button:focus {
-    color: #CDCDCD;
-	border-color: transparent;
+#eventManagerButtons > button:hover, #eventManagerButtons button:focus {
+		color: #CDCDCD;
+		border-color: transparent;
 }
 
-#eventManagerButtons > button{
-	font-size: 16px;
-	border: none;
-	color:#99998B;
-	border-color: transparent;
-	background-color: transparent;
+#eventManagerButtons > button {
+		font-size: 16px;
+		border: none;
+		color: #99998B;
+		border-color: transparent;
+		background-color: transparent;
 }
 
-#eventManagerButtons{
-	position: fixed;
-	right: 0;
+#eventManagerButtons {
+		position: fixed;
+		right: 0;
 }
 
-#notificationPanel{
-	position: fixed;
-	left: 0;
-	height: 25px;
-	margin-top: 2px;
-	text-align: center;
-	border: 1px solid #9E9E95;
-	border-bottom-width: inherit;
-	border-top-width: inherit;
-	border-left-width: inherit;
-	color: #9E9E95;
-	width: 94%;
+#notificationPanel {
+		position: fixed;
+		left: 0;
+		height: 25px;
+		margin-top: 2px;
+		text-align: center;
+		border: 1px solid #9E9E95;
+		border-bottom-width: inherit;
+		border-top-width: inherit;
+		border-left-width: inherit;
+		color: #9E9E95;
+		width: 94%;
 }
 
-#notificationPanelEvents{
-	margin-top: 27px;
-	background:#E0DED6;
-	color: black;
-	overflow-y:scroll;
-	height: 100%;
-	position: absolute;
-	width: 100%;
-	left: 0;
+#notificationPanelEvents {
+		margin-top: 27px;
+		background: #E0DED6;
+		color: black;
+		overflow-y: scroll;
+		height: 100%;
+		position: absolute;
+		width: 100%;
+		left: 0;
 }
 
-#notificationPanelEvents > ul{
-	list-style-type: none;
-	padding-left: 0px;
-}
+		#notificationPanelEvents > ul {
+				list-style-type: none;
+				padding-left: 0px;
+		}
 
-#notificationPanelEvents > ul > li{
-	height: 29px;
-	border: 1px solid #9E9E95;
-	border-right-width: inherit;
-	border-top-width: inherit;
-	border-left-width: inherit;
-	padding-top: 5px;
-	color: #262626;
-	font-family: amaranth;
-	font-weight: bold;
-	
-}
+				#notificationPanelEvents > ul > li {
+						height: 29px;
+						border: 1px solid #9E9E95;
+						border-right-width: inherit;
+						border-top-width: inherit;
+						border-left-width: inherit;
+						padding-top: 5px;
+						color: #262626;
+						font-family: amaranth;
+						font-weight: bold;
+				}
 
-#notificationPanelEvents > ul > li > .glyphicon:before { margin-left: 5px; }
+						#notificationPanelEvents > ul > li > .glyphicon:before {
+								margin-left: 5px;
+						}
 
 .notification-debug {
-	color:#3B3B3B;
+		color: #3B3B3B;
 }
 
 .notification-info {
-	color:#335C28;
+		color: #335C28;
 }
 
 .notification-warn {
-	color:#7C7F16;
+		color: #7C7F16;
 }
 
 .notification-error {
-	color:#5B1C1D;
+		color: #5B1C1D;
 }

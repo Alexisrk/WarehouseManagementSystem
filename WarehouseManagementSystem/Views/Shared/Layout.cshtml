@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using WarehouseManagementSystem.Helper
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
 		<meta charset="utf-8">
@@ -48,25 +50,25 @@
 						</div>
 				</nav>
 
-				<!-- Menu -->
-				<div class="navbar navbar-left navbar-fixed-top col-xs-6 collapse" id="menu" onmouseleave="closeMenu()">
+				<!-- Menu onmouseleave="closeMenu()"-->
+				<div class="navbar navbar-left navbar-fixed-top col-xs-6 collapse" id="menu" >
 						<div class="visible-xs text-center">
 								<a><p><i class="glyphicon glyphicon-user" id="menuIconUser"></i></p>User</a>
 						</div>
-						<ul class="list-unstyled nav">
+						<ul class="list-unstyled nav menuListItems">
 								
-								@foreach (var menuItem in ViewBag.AvailableScreens)
+								@foreach (MenuItem menuItem in ViewBag.AvailableScreens)
 								{
-											
+											@Html.Partial("MenuItem", menuItem)
 								}
-								<li><a href="#"><p><i class="fa fa-truck" aria-hidden="true"></i></p>Material In Location</a></li>
+								@*<li><a href="#"><p><i class="fa fa-truck" aria-hidden="true"></i></p>Material In Location</a></li>
 								<li><a href="#">Material Definition</a></li>
 								<li><a href="#">Material Lock</a></li>
 								<li><a href="#">Stock</a></li>
 								<li role="separator" class="divider"></li>
 								<li><a href="#">Material Rules</a></li>
 								<li role="separator" class="divider"></li>
-								<li><a href="#">Users</a></li>
+								<li><a href="#">Users</a></li>*@
 						</ul>
 				</div>
 

@@ -7,20 +7,22 @@
 
 @if (Model.SubItems.Count == 0)
 {
-		<li>
+		<li class="subMenuItem">
+				
 				<a href="@Url.Action(Model.Action, Model.Controller)">
-						@Model.Text
 						<span class="@Model.Icon" aria-hidden="true"></span>
+					 @Model.Text
 				</a>
 		</li>
 }
 else
 {
 		<li class="dropdown-submenu">
-				<a tabindex="-1" href="#">@Model.Text
-						<span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-id="@Model.Text">
+						@Model.Text
+						<span class="glyphicon glyphicon-play leftArrowMenu" aria-hidden="true"></span>
 				</a>
-				<ul class="dropdown-menu">
+				<ul class="dropdown-menu subMenu nav subMenuItem" id="@Model.Text">
 						@foreach (var child in Model.SubItems)
 						{
 										@Html.Partial("MenuItem", child)
