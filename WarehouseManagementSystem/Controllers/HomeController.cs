@@ -38,33 +38,61 @@ namespace WarehouseManagementSystem.Controllers
 						return View();
 				}
 
-				public List<MenuItem> GetAvailableScreens(string user)
+				/// <summary>
+				/// Getr available screen based on user authorization
+				/// </summary>
+				/// <param name="user"></param>
+				/// <returns></returns>
+				public IList<MenuItem> GetAvailableScreens(string user)
 				{
 						var roles = UserService.GetRolesByUser(user);
 						var tree = GetMenuTree();
 
-						var result = MatchRolesWhitMenuTree(roles, tree);
+						var result = FilterListByAuthRole(roles, tree.MenuItems.ToList());
+
+						result = PruneTree(result);
 
 						return result;
 				}
-
-				private List<MenuItem> MatchRolesWhitMenuTree(IList<RoleAuthorization> roles, Menu tree)
+				
+				/// <summary>
+				/// Remove child items without controller or action 
+				/// </summary>
+				/// <param name="result">Unpruned tree</param>
+				private IList<MenuItem> PruneTree(IList<MenuItem> result)
 				{
-						return FilterListByAuthRole(roles, tree.MenuItems.ToList());
-				}
+						result = result.Where(x => x.SubItems.Count > 0 || !string.IsNullOrEmpty(x.Controller)).ToList();
 
-				private List<MenuItem> FilterListByAuthRole(IList<RoleAuthorization> roles, List<MenuItem> items)
-				{
-						var result = items.Where(x => roles.Any(y => x.Authorization == y.Authorization && y.Access != WMS.Model.Enum.AccessType.None)).ToList();
-
-						foreach (var item in result.Where(t => t.SubItems.Count > 0))
+						foreach (var item in result)
 						{
-								item.SubItems = FilterListByAuthRole(roles, item.SubItems);
+								item.SubItems = PruneTree(item.SubItems).ToList();
 						}
 
 						return result;
 				}
 
+				/// <summary>
+				/// Create a list with the match between roles and the menu tree
+				/// </summary>
+				/// <param name="roles">the role list</param>
+				/// <param name="items">the menu tree</param>
+				/// <returns></returns>
+				private IList<MenuItem> FilterListByAuthRole(IList<RoleAuthorization> roles, IList<MenuItem> items)
+				{
+						var result = items.Where(x => roles.Any(y => x.Authorization == y.Authorization && y.Access != WMS.Model.Enum.AccessType.None)).ToList();
+
+						foreach (var item in result.Where(t => t.SubItems.Count > 0))
+						{
+								item.SubItems = FilterListByAuthRole(roles, item.SubItems).ToList();
+						}
+
+						return result;
+				}
+
+				/// <summary>
+				/// Convert XML menu in a Menu object
+				/// </summary>
+				/// <returns>The custom object</returns>
 				public Menu GetMenuTree()
 				{
 						//var cache = (Menu)MemoryCache.Default.Get("Menu_" + UserName());

@@ -25,6 +25,15 @@ button {
 }
 
 /* Menu */
+.dropdown-submenu {
+		height: 40px;
+}
+
+.subMenuItem {
+		min-width: 200px;
+		max-width: 300px;
+}
+
 .nav > li > a:hover, .nav > li > a:focus, .subMenu > li > a:focus, .subMenu > li > a:hover {
 		color: #CDCDCD;
 		text-decoration: none;
@@ -48,7 +57,6 @@ a:hover, a:focus {
 		margin: auto;
 		border: 1px solid transparent;
 }
-
 
 .subMenuItem :hover, .subMenuItem:focus {
 		background: transparent !important;
@@ -98,8 +106,8 @@ a:hover, a:focus {
 
 #menu {
 		background-color: #222222;
-		min-width: 200px;
-		max-width: 320px;
+		min-width: 150px;
+		max-width: 250px;
 		margin-top: 0px;
 }
 
@@ -181,8 +189,6 @@ a:hover, a:focus {
 		right: 0;
 }
 
-.headerSignUp {
-}
 
 /* Footer */
 

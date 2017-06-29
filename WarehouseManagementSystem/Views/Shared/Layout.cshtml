@@ -51,7 +51,7 @@
 				</nav>
 
 				<!-- Menu onmouseleave="closeMenu()"-->
-				<div class="navbar navbar-left navbar-fixed-top col-xs-6 collapse" id="menu" >
+				<div class="navbar navbar-left navbar-fixed-top col-xs-6 collapse" onmouseleave="closeMenu()" id="menu" >
 						<div class="visible-xs text-center">
 								<a><p><i class="glyphicon glyphicon-user" id="menuIconUser"></i></p>User</a>
 						</div>
@@ -137,8 +137,48 @@
 		@Scripts.Render("~/bundles/bootstrap")
 
 		<script type="text/javascript">
+
+				function itemTrigger(item) {
+						//$("#menu").collapse('toggle');
+						var element = $(item).attr('data-target');
+						$(element).collapse('show');
+
+						//Get elements and parent elements
+						//$(item).closest("ul li").children().each(function (i) {
+						var childs = $(item).closest("ul").children('li');
+						// $(item).closest("ul li").children();
+
+						childs.each(function (i) {
+								liTag = $(childs[i]).children('a').attr('data-target');
+								if (liTag != element) {
+										$(liTag).collapse('hide');
+								} 
+						});
+				}
+		
+				function itemClosetrigger(item) {
+						var childs = $(".menuListItems").closest("ul").find('li');
+						childs.each(function (i) {
+								liTag = $(childs[i]).children('a').attr('data-target');
+										$(liTag).collapse('hide');
+						});
+				}
+
+				function closeElement(elementName) {
+						var childs = $(elementName).children('a');
+
+						childs.each(function (i) {
+									liTag = $(childs[i]).attr('data-target');
+								$(liTag).collapse('hide');
+
+								$(elementName).children('li').each(function (child) {
+										closeElement(child);
+								});
+						});
+				}
+				
 				function closeMenu() {
-						$("#menu").collapse('toggle');
+						$("#menu").collapse('hide');
 				}
 
 				function closeNotificationPanel() {
