@@ -159,11 +159,11 @@ a:hover, a:focus {
 		height: 30px;
 }
 
-		#chatTitle > b {
-				display: inline-block;
-				margin: 4px;
-				color: #99998B;
-		}
+#chatTitle > b {
+		display: inline-block;
+		margin: 4px;
+		color: #99998B;
+}
 
 #chatContainer > input {
 		position: absolute;
@@ -172,7 +172,6 @@ a:hover, a:focus {
 		right: 0;
 		background-color: whitesmoke;
 }
-
 
 #chatCloseButtom:hover, #chatCloseButtom:focus {
 		color: #CDCDCD;
@@ -189,6 +188,89 @@ a:hover, a:focus {
 		right: 0;
 }
 
+#chatCloseButtom > i {
+		position: relative;
+		top: -5px;
+		right: -8px;
+}
+
+#buttomChatMessage {
+		background-color: transparent;
+		border: 0;
+		text-align: right;
+		font-size: 24px;
+}
+
+#buttomChatMessage:hover, #buttomChatMessage:focus {
+		border-color: transparent;
+}
+
+#resultContainer {
+		padding-bottom: 8px;
+}
+
+#chatMessages {
+		height: 200px;
+		overflow-y: scroll;
+}
+
+.chatUserMessage {
+		margin-left: 10px;
+		margin-right: 2px;
+		margin-top: 8px;
+		margin-bottom: 8px;
+		text-align: right;
+		border-radius: 8px;
+		border-bottom-right-radius: 0px;
+		background-color: #c5d7f7;
+		padding: 8px;
+}
+
+.chatIAMessage {
+		margin-right: 10px;
+		margin-left: 2px;
+		margin-top: 5px;
+		margin-bottom: 5px;
+		text-align: left;
+		background-color: #ebf7c5;
+		border-radius: 8px;
+		border-bottom-left-radius: 0px;
+		width: 95%;
+		padding: 8px;
+		/*background-color: #deedb1;*/
+}
+
+#chatMessageInput {
+		height: 30px;
+		width: 100%;
+}
+
+.chatInputBox {
+		display: flex;
+		padding: 2px;
+		padding-top: 4px;
+		background-color: rgb(1,42,60);
+}
+
+#buttomChatMessage {
+		margin-top: -3px;
+		background-color: transparent;
+		border: none;
+		color: white;
+}
+
+#buttomChatMessage:focus, #buttomChatMessage:active {
+		outline: none !important;
+}
+
+#chatCloseButtom:focus, #chatCloseButtom:active {
+		outline: none !important;
+}
+
+.badge {
+		background: red;
+		padding-bottom: 5px;
+}
 
 /* Footer */
 

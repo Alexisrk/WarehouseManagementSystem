@@ -70,6 +70,15 @@ namespace WMS.Model.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error processing query (empty result)..
+        /// </summary>
+        public static string AssistantEmptyResult {
+            get {
+                return ResourceManager.GetString("AssistantEmptyResult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Authorization.
         /// </summary>
         public static string Authorization {

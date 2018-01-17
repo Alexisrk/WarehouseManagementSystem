@@ -120,6 +120,9 @@
   <data name="ApplicationTitle" xml:space="preserve">
     <value>Warehouse Managmenet System</value>
   </data>
+  <data name="AssistantEmptyResult" xml:space="preserve">
+    <value>Error processing query (empty result).</value>
+  </data>
   <data name="Authorization" xml:space="preserve">
     <value>Authorization</value>
   </data>

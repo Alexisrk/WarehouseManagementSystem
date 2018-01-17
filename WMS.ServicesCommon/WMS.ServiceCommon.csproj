@@ -39,12 +39,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IAssistantService.cs" />
     <Compile Include="Contracts\IUserService.cs" />
     <Compile Include="Contracts\ILocationService.cs" />
     <Compile Include="Contracts\IMaterialService.cs" />
     <Compile Include="Dao\IDao.cs" />
     <Compile Include="Dao\IRoleAuthorizationDao.cs" />
     <Compile Include="Dao\IRoleDao.cs" />
+    <Compile Include="Dao\IUserMessageDao.cs" />
     <Compile Include="Dao\IUserProfileDao.cs" />
     <Compile Include="Dao\IUserDao.cs" />
     <Compile Include="Dao\ILocationDao.cs" />

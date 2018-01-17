@@ -45,10 +45,15 @@
     <Compile Include="Domain\RoleAuthorization.cs" />
     <Compile Include="Domain\Role.cs" />
     <Compile Include="Domain\RoleDefinition.cs" />
+    <Compile Include="Domain\UserMessage.cs" />
     <Compile Include="Domain\UserProfile.cs" />
     <Compile Include="Domain\User.cs" />
     <Compile Include="Enum\AccessType.cs" />
+    <Compile Include="Enum\AssistantAction.cs" />
+    <Compile Include="Enum\AssistantMaterialParameter.cs" />
+    <Compile Include="Enum\AssistantParameter.cs" />
     <Compile Include="Enum\AuthorizationType.cs" />
+    <Compile Include="Enum\UserMessageType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resource\LocalizedText.Designer.cs">
       <AutoGen>True</AutoGen>

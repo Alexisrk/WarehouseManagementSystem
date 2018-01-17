@@ -77,5 +77,7 @@
 
 		<object id="roleAuthorizationDao" type="WMS.Dao.RoleAuthorizationDao, WMS.Dao" parent="dataAccessBase">
 		</object>
-		
+
+		<object id="userMessageDao" type="WMS.Dao.UserMessageDao, WMS.Dao" parent="dataAccessBase">
+		</object>
 </objects>

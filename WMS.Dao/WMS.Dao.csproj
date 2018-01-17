@@ -89,6 +89,7 @@
     <Compile Include="Mapping\MaterialMapping.cs" />
     <Compile Include="RoleAuthorizationDao.cs" />
     <Compile Include="RoleDao.cs" />
+    <Compile Include="UserMessageDao.cs" />
     <Compile Include="UserProfileDao.cs" />
     <Compile Include="UserDao.cs" />
     <Compile Include="MaterialDao.cs" />

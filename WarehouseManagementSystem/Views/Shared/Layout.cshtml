@@ -20,7 +20,8 @@
 				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		}
 
-		
+		<script src="../../Scripts/ApiAi.js"></script>
+
 		@Scripts.Render("~/bundles/modernizr")
 		<!-- Bootstrap -->
 		<!--<link href="css/bootstrap.css" rel="stylesheet">-->
@@ -87,15 +88,28 @@
 		<div class="collapse hidden-xs" id="chatContainer">
 				<!-- CREATE CHAT ASSISTANT -->
 				<div id="chatTitle">
-						<b>Chat Assistant</b>
+						<b>WMS aplication Assistant</b>
 						<button data-toggle="collapse" data-target="#chatContainer" id="chatCloseButtom">
 								<i class="glyphicon glyphicon-minus"></i>
 						</button>
 				</div>
-				<div>
-						<p>Assistant: Welcome. What can I do for you?</p>
+				<div id="resultContainer">
+						<div id="chatMessages">
+								<div class="chatIAMessage">Default message</div>
+								@*<div class="chatUserMessage">one more test</div>*@
+						</div>
 				</div>
-				<input type="text" name="firstname" value="Writte question">
+				<div class="input-field chatInputBox">
+						<input placeholder="Escribir mensaje" id="chatMessageInput" type="text">
+						<button data-toggle="collapse" id="buttomChatMessage">
+								<i class="glyphicon glyphicon-chevron-right"></i>
+						</button>
+				</div>
+				<div class="col s2"></div>
+				<div class="col s5">
+						@*<h5>Response payload:</h5>*@
+						<pre id="jsonResponse" hidden></pre>
+				</div>
 		</div>
 
 		<footer id="footerPanel" class="container-fluid hidden-xs">
@@ -104,8 +118,8 @@
 						<button data-toggle="collapse" data-target="#notificationPanelEvents" onClick="closeNotificationPanel()">
 								<i class="glyphicon glyphicon-option-horizontal"></i>
 						</button>
-						<button data-toggle="collapse" data-target="#chatContainer">
-								<i class="glyphicon glyphicon-comment"></i>
+						<button data-toggle="collapse" data-target="#chatContainer" id="chatButtom">
+								<i class="glyphicon glyphicon-comment"><span class="badge"></span></i>
 						</button>
 				</span>
 				<div id="notificationPanelEvents" class="collapse">
@@ -204,6 +218,17 @@
 
 				}
 		</script>
+
+		<script type="text/javascript">
+						function getApiAiClient(accesstoken) {
+								return new ApiAi.ApiAiClient({ accessToken: accesstoken });
+						}
+		</script>
+
+		<script src="../../Scripts/jquery.signalR-2.2.2.js"></script>
+		<script src="~/signalr/hubs"></script>
+		<script src="../../Scripts/SelfGenerated/ChatBot.js"></script>
+		<script src="../../Scripts/SelfGenerated/ChatBotModel.js"></script>
 
 		@RenderSection("scripts", required: false)
 </body>

@@ -13,4 +13,7 @@
 				<property name="roleDao" ref="roleDao"/>
 				<property name="roleAuthorizationDao" ref="roleAuthorizationDao"/>
 		</object>
+		<object name="assistantService" type="WMS.HelperManagement.AssistantService, WMS.HelperManagement">
+				<property name="userMessageDao" ref="userMessageDao"/>
+		</object>
 </objects>

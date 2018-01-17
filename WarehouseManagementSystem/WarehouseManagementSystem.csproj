@@ -98,6 +98,12 @@
     <Reference Include="Microsoft.ApplicationInsights, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.2.3.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.2.2\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.2.2\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -294,6 +300,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Component\ChatHub.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -434,6 +441,10 @@
     <Content Include="Content\css\bootstrap-theme.min.css.map" />
     <Content Include="Content\css\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Scripts\ApiAi.js" />
+    <Content Include="Scripts\ApiAi.min.js" />
+    <Content Include="Scripts\ApiAi.streamless.js" />
+    <Content Include="Scripts\ApiAi.streamless.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
@@ -441,6 +452,8 @@
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.2.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.2.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -488,8 +501,14 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Scripts\typings\jqgrid\jqgrid.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="TypeScript\app.component.ts" />
     <TypeScriptCompile Include="TypeScript\app.module.ts" />
+    <TypeScriptCompile Include="TypeScript\ChatBot.ts" />
+    <TypeScriptCompile Include="TypeScript\ChatBotModel.ts" />
+    <TypeScriptCompile Include="TypeScript\Common.ts" />
+    <TypeScriptCompile Include="TypeScript\IChatBotModel.ts" />
     <TypeScriptCompile Include="TypeScript\main.ts" />
   </ItemGroup>
   <ItemGroup>
@@ -513,6 +532,10 @@
     <ProjectReference Include="..\WMS.Database\WMS.Database.sqlproj">
       <Project>{08672830-c8c7-46ac-accb-2585bde9d541}</Project>
       <Name>WMS.Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WMS.HelperManagement\WMS.HelperManagement.csproj">
+      <Project>{b40a6334-aff4-4e81-8e5f-9ca8c4655bd0}</Project>
+      <Name>WMS.HelperManagement</Name>
     </ProjectReference>
     <ProjectReference Include="..\WMS.Location\WMS.LocationManagement.csproj">
       <Project>{e3dc5750-198f-4f59-a87c-60afb1c82869}</Project>
