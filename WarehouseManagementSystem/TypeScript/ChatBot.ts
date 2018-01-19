@@ -15,5 +15,5 @@ $(document).ready(() => {
 
     chatBotModel.Initialize();
 
-    $("#buttomChatMessage").click(() => chatBotModel.ClearBadge());
+				$("#chatButtom").click(() => chatBotModel.ClearBadge());
 });

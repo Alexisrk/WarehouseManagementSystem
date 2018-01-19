@@ -7,7 +7,7 @@ using WMS.Model.Domain;
 using WMS.Model.Enum;
 using WMS.Model.Resource;
 using WMS.ServiceCommon.Dao;
-using WMS.ServicesCommon.Contracts;
+using WMS.ServiceCommon.Contracts;
 
 namespace WMS.HelperManagement
 {

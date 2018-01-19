@@ -73,6 +73,7 @@
     <Build Include="Tables\Role.sql" />
     <Build Include="Tables\RoleDefinition.sql" />
     <Build Include="Tables\RoleAuthorization.sql" />
+    <Build Include="Tables\UserMessage.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="WMS.Database.refactorlog" />

@@ -150,7 +150,7 @@ a:hover, a:focus {
 		height: 190px;
 		width: 270px;
 		position: fixed;
-		bottom: 34px; /*Offset to see the full chat container*/
+		bottom: 66px; /*Offset to see the full chat container*/
 		right: 0;
 }
 
@@ -194,14 +194,14 @@ a:hover, a:focus {
 		right: -8px;
 }
 
-#buttomChatMessage {
+#chatButtom {
 		background-color: transparent;
 		border: 0;
 		text-align: right;
 		font-size: 24px;
 }
 
-#buttomChatMessage:hover, #buttomChatMessage:focus {
+#chatButtom:hover, #chatButtom:focus {
 		border-color: transparent;
 }
 
@@ -210,7 +210,7 @@ a:hover, a:focus {
 }
 
 #chatMessages {
-		height: 200px;
+		height: 150px;
 		overflow-y: scroll;
 }
 
@@ -249,7 +249,7 @@ a:hover, a:focus {
 		display: flex;
 		padding: 2px;
 		padding-top: 4px;
-		background-color: rgb(1,42,60);
+		background-color: #222222;
 }
 
 #buttomChatMessage {
@@ -259,7 +259,7 @@ a:hover, a:focus {
 		color: white;
 }
 
-#buttomChatMessage:focus, #buttomChatMessage:active {
+#chatButtom:focus, #chatButtom:active {
 		outline: none !important;
 }
 
@@ -315,7 +315,7 @@ a:hover, a:focus {
 		border-top-width: inherit;
 		border-left-width: inherit;
 		color: #9E9E95;
-		width: 94%;
+		width: 93%;
 }
 
 #notificationPanelEvents {

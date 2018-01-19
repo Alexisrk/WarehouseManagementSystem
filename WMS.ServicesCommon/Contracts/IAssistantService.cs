@@ -2,7 +2,7 @@
 using WMS.Model.Domain;
 using WMS.Model.Enum;
 
-namespace WMS.ServicesCommon.Contracts
+namespace WMS.ServiceCommon.Contracts
 {
 		public interface IAssistantService
 		{

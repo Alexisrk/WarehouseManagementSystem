@@ -465,10 +465,18 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\SelfGenerated\app.component.js" />
     <Content Include="Scripts\SelfGenerated\app.module.js" />
+    <Content Include="Scripts\SelfGenerated\ChatBot.js" />
+    <Content Include="Scripts\SelfGenerated\ChatBotModel.js" />
+    <Content Include="Scripts\SelfGenerated\Common.js" />
+    <Content Include="Scripts\SelfGenerated\IChatBotModel.js" />
     <Content Include="Scripts\SelfGenerated\main.js" />
     <Content Include="TypeScript\app.component.css" />
     <Content Include="TypeScript\app.component.html" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Scripts\SelfGenerated\ChatBot.js.map" />
+    <Content Include="Scripts\SelfGenerated\ChatBotModel.js.map" />
+    <Content Include="Scripts\SelfGenerated\Common.js.map" />
+    <Content Include="Scripts\SelfGenerated\IChatBotModel.js.map" />
     <None Include="Views\Shared\Layout.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace WMS.ServicesCommon.Helpers
+namespace WMS.ServiceCommon.Helpers
 {
 		public static class Deserialize
 		{

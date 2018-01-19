@@ -5,6 +5,7 @@
 				<property name="Service" ref="BasicService"></property>
     <property name="MaterialService" ref="materialService"></property>
     <property name="LocationService" ref="locationService"></property>
+				<property name="AssistantService" ref="assistantService"></property>
   </object>
   <object id="AccountController" type="WarehouseManagementSystem.Controllers.AccountController, WarehouseManagementSystem" singleton="false" >
 				<property name="UserDao" ref="userDao"></property>

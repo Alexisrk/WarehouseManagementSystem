@@ -225,10 +225,14 @@
 						}
 		</script>
 
+@if (Request.IsAuthenticated)
+{
+
 		<script src="../../Scripts/jquery.signalR-2.2.2.js"></script>
 		<script src="~/signalr/hubs"></script>
 		<script src="../../Scripts/SelfGenerated/ChatBot.js"></script>
 		<script src="../../Scripts/SelfGenerated/ChatBotModel.js"></script>
+}
 
 		@RenderSection("scripts", required: false)
 </body>

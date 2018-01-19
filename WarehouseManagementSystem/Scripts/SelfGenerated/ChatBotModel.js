@@ -83,7 +83,7 @@ var ChatBotModel = (function () {
             this.Badge.text(notificationNumber);
         }
         else {
-            this.hubClient.client.checkAllMessage();
+            this.hubClient.server.checkAllMessage();
         }
         var node = document.createElement('div');
         node.className = "chatIAMessage";

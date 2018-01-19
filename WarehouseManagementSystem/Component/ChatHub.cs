@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web.Mvc;
 using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.SignalR.Hubs;
-using WMS.ServicesCommon.Contracts;
+using WMS.ServiceCommon.Contracts;
 using WMS.Model.Enum;
 
 namespace Investigacion.Web.Components

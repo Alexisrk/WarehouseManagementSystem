@@ -103,7 +103,7 @@ class ChatBotModel implements IChatBotModel {
             var notificationNumber = Number(this.Badge.text()) + 1;
             this.Badge.text(notificationNumber);
         } else {
-            this.hubClient.client.checkAllMessage();
+            this.hubClient.server.checkAllMessage();
         }
 
         var node = document.createElement('div');
