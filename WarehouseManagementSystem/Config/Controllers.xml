@@ -10,4 +10,7 @@
   <object id="AccountController" type="WarehouseManagementSystem.Controllers.AccountController, WarehouseManagementSystem" singleton="false" >
 				<property name="UserDao" ref="userDao"></property>
 		</object>
+		<object id="LocationListController" type="WarehouseManagementSystem.Controllers.LocationListController, WarehouseManagementSystem" singleton="false" >
+				<property name="LocationService" ref="locationService"></property>
+		</object>
 </objects>

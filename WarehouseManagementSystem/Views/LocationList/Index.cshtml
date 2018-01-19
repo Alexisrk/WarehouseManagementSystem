@@ -1,0 +1,31 @@
+﻿@using MvcJqGrid;
+@using WMS.Model.Resource;
+@using MvcJqGrid.Enums
+
+@(Html.Grid("locationListGrid")
+						.SetCaption(LocalizedText.LocationList)
+						.SetMultiSelect(true)
+						.SetMultiBoxOnly(false)
+						.SetMultiSelectWidth(20)
+						.AddColumn(new Column("Name").SetLabel(LocalizedText.Name).SetSearchOption(SearchOptions.Equal))
+						.AddColumn(new Column("Description").SetLabel(LocalizedText.Description).SetSearchOption(SearchOptions.Equal))
+						.AddColumn(new Column("Type").SetLabel(LocalizedText.Type).SetSearchOption(SearchOptions.Equal))
+						.AddColumn(new Column("W").SetLabel(LocalizedText.Warehouse).SetSearchOption(SearchOptions.Equal))
+						.AddColumn(new Column("B").SetLabel(LocalizedText.Bay).SetSearchOption(SearchOptions.Equal))
+						.AddColumn(new Column("A").SetLabel(LocalizedText.Area).SetSearchOption(SearchOptions.Equal))
+						.AddColumn(new Column("X").SetLabel(LocalizedText.X).SetSearchOption(SearchOptions.Equal))
+						.AddColumn(new Column("Y").SetLabel(LocalizedText.Y).SetSearchOption(SearchOptions.Equal))
+						.AddColumn(new Column("Z").SetLabel(LocalizedText.Z).SetSearchOption(SearchOptions.Equal))
+						.SetUrl("/LocationList/List/")
+						.SetAutoWidth(true)
+						.SetHeaderTitles(true)
+						.SetViewRecords(true)
+						.SetPager("pager")
+						.SetSearchToolbar(true)
+						.SetSearchOnEnter(false)
+						.SetSearchClearButton(true).OnLoadBeforeSend("setTimeout(localizeJqGridBotonClear,100);")
+						.SetRowNum(1000)
+						.SetSearchToggleButton(false)
+						.SetSortName("Name"))
+
+<script src="../../Scripts/jquery-3.1.1.js"></script>

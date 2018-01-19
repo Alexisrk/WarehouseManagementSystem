@@ -120,14 +120,23 @@
   <data name="ApplicationTitle" xml:space="preserve">
     <value>Warehouse Managmenet System</value>
   </data>
+  <data name="Area" xml:space="preserve">
+    <value>Area</value>
+  </data>
   <data name="AssistantEmptyResult" xml:space="preserve">
     <value>Error processing query (empty result).</value>
   </data>
   <data name="Authorization" xml:space="preserve">
     <value>Authorization</value>
   </data>
+  <data name="Bay" xml:space="preserve">
+    <value>Bay</value>
+  </data>
   <data name="Configuration" xml:space="preserve">
     <value>Configuration</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
   </data>
   <data name="Location" xml:space="preserve">
     <value>Location</value>
@@ -153,6 +162,9 @@
   <data name="MaterialType" xml:space="preserve">
     <value>Material Type</value>
   </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
   <data name="None" xml:space="preserve">
     <value>None</value>
   </data>
@@ -168,10 +180,25 @@
   <data name="TransportOrder" xml:space="preserve">
     <value>Transport Order</value>
   </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
   <data name="User" xml:space="preserve">
     <value>User</value>
   </data>
+  <data name="Warehouse" xml:space="preserve">
+    <value>Warehouse</value>
+  </data>
   <data name="WMSTitle" xml:space="preserve">
     <value>WMS</value>
+  </data>
+  <data name="X" xml:space="preserve">
+    <value>X</value>
+  </data>
+  <data name="Y" xml:space="preserve">
+    <value>Y</value>
+  </data>
+  <data name="Z" xml:space="preserve">
+    <value>Z</value>
   </data>
 </root>

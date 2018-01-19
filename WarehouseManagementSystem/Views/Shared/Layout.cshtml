@@ -58,7 +58,7 @@
 						</div>
 						<ul class="list-unstyled nav menuListItems">
 								
-								@foreach (MenuItem menuItem in ViewBag.AvailableScreens)
+								@foreach (MenuItem menuItem in AutorizationHelper.GetAvailableScreens())
 								{
 											@Html.Partial("MenuItem", menuItem)
 								}
@@ -225,14 +225,14 @@
 						}
 		</script>
 
-@if (Request.IsAuthenticated)
-{
+		@if (Request.IsAuthenticated)
+		{
 
-		<script src="../../Scripts/jquery.signalR-2.2.2.js"></script>
-		<script src="~/signalr/hubs"></script>
-		<script src="../../Scripts/SelfGenerated/ChatBot.js"></script>
-		<script src="../../Scripts/SelfGenerated/ChatBotModel.js"></script>
-}
+				<script src="../../Scripts/jquery.signalR-2.2.2.js"></script>
+				<script src="~/signalr/hubs"></script>
+				<script src="../../Scripts/SelfGenerated/ChatBot.js"></script>
+				<script src="../../Scripts/SelfGenerated/ChatBotModel.js"></script>
+		}
 
 		@RenderSection("scripts", required: false)
 </body>
